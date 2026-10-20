@@ -1,0 +1,45 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-015",
+  "language": "English",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Future commitment without hypothetical failure risk",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-14T11:04:56+04:00",
+  "completed_at": "2026-09-14T11:05:07+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 10.717,
+    "input_tokens": 1173,
+    "output_tokens": 157,
+    "thinking_tokens": 0,
+    "total_tokens": 1330
+  },
+  "result": {
+    "summary": "The external audio vendor is scheduled to deliver the final mix on Friday, while the internal team will continue utilizing the temporary mix in the interim, resulting in no identified schedule impact.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Deliver the final mix",
+        "owner": "external audio vendor",
+        "due_date": "Friday",
+        "evidence": [
+          "The external audio vendor will deliver the final mix on Friday."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

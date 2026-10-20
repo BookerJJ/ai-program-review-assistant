@@ -1,0 +1,54 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-017",
+  "language": "English",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Conflicting requirement information without approval",
+  "status": "success",
+  "started_at": "2026-09-12T20:26:33+04:00",
+  "completed_at": "2026-09-12T20:26:54+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 21.479,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1078,
+    "output_tokens": 283,
+    "total_tokens": 1361
+  },
+  "result": {
+    "summary": "The signed operations requirement specifies seven days of log retention. The Product Manager suggested increasing retention to 30 days for the enterprise launch, but the client has not approved the change. Operations continues to use the seven-day setting.",
+    "issues": [
+      {
+        "description": "The log retention requirement is set to seven days as per the signed operations requirement.",
+        "impact": null,
+        "evidence": [
+          "The signed operations requirement specifies seven days of log retention."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Log retention period for enterprise launch",
+        "previous_state": "7 days",
+        "new_state": "30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The Product Manager said that 30 days may be preferable for the enterprise launch."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final log retention requirement",
+        "reason": "The client has not approved a change to the log retention requirement from seven days to 30 days for the enterprise launch.",
+        "needed_information": "Client approval for the change in log retention requirement."
+      }
+    ]
+  }
+}

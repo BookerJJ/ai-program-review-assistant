@@ -1,0 +1,54 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "evaluation_role": "final_unseen_holdout",
+  "cases": 20,
+  "average_semantic_score": 85.0,
+  "by_language": {
+    "English": {
+      "cases": 10,
+      "average_semantic_score": 84.0
+    },
+    "Korean": {
+      "cases": 10,
+      "average_semantic_score": 86.0
+    }
+  },
+  "by_scenario_type": {
+    "Operational Incident": {
+      "cases": 4,
+      "average_semantic_score": 90.0
+    },
+    "Requirement Change": {
+      "cases": 4,
+      "average_semantic_score": 80.0
+    },
+    "Dependency and Schedule": {
+      "cases": 4,
+      "average_semantic_score": 77.5
+    },
+    "Action and Deadline": {
+      "cases": 4,
+      "average_semantic_score": 90.0
+    },
+    "Conflict and Negative": {
+      "cases": 4,
+      "average_semantic_score": 87.5
+    }
+  },
+  "dimension_averages": {
+    "factual_correctness": 2.0,
+    "completeness": 1.6,
+    "unsupported_claim_control": 1.8,
+    "classification_accuracy": 1.2,
+    "meaning_preservation": 1.9
+  },
+  "final_portfolio_metrics": {
+    "execution_success": "20/20",
+    "objective_structural_score": 86.0,
+    "strict_evidence_traceability": 0.975,
+    "human_semantic_score": 85.0,
+    "average_latency_seconds": 16.861,
+    "total_tokens": 26958
+  }
+}

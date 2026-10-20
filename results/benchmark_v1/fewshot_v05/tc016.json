@@ -1,0 +1,56 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-016",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Proposed requirement + effort",
+  "status": "success",
+  "started_at": "2026-09-12T12:29:18+04:00",
+  "completed_at": "2026-09-12T12:29:38+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.464,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1097,
+    "output_tokens": 309,
+    "total_tokens": 1406
+  },
+  "result": {
+    "summary": "The current system log retention period is 7 days. A customer has proposed increasing the retention period to 30 days. Engineering has indicated that this change would require an additional day of work for storage configuration. The proposed change has not yet been approved.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Log retention period",
+        "previous_state": "7 days",
+        "new_state": "30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "고객은 보관 기간을 30일로 늘리는 방안을 제안했습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "The proposed change may add one day to the storage configuration work.",
+        "affected_milestone": "Storage configuration",
+        "duration_change": "1 day",
+        "impact_status": "confirmed",
+        "evidence": [
+          "Engineering은 변경 시 Storage 설정 작업에 약 하루가 추가로 필요하다고 설명했습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final log retention period",
+        "reason": "The proposed change has not yet been approved.",
+        "needed_information": "Approval status of the proposed change"
+      }
+    ]
+  }
+}

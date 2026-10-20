@@ -1,0 +1,61 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-028",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Proposed scope removal with current state preserved",
+  "status": "success",
+  "started_at": "2026-09-12T12:34:45+04:00",
+  "completed_at": "2026-09-12T12:35:11+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 26.635,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1090,
+    "output_tokens": 357,
+    "total_tokens": 1447
+  },
+  "result": {
+    "summary": "The customer has proposed an option to exclude the Export feature in the Pilot version. The Product Lead has committed to maintaining the existing scope until the customer's final confirmation. The development team is currently working based on the existing scope, which includes the Export feature.",
+    "issues": [
+      {
+        "description": "The customer has proposed excluding the Export feature in the Pilot version.",
+        "impact": null,
+        "evidence": [
+          "고객은 Pilot 버전에서 Export 기능을 제외하는 방안을 제안했습니다."
+        ]
+      },
+      {
+        "description": "The development team is working based on the existing scope, which includes the Export feature.",
+        "impact": null,
+        "evidence": [
+          "현재 개발팀은 Export 기능을 포함한 기존 Scope 기준으로 작업 중입니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Export feature inclusion in the Pilot version",
+        "previous_state": "Included",
+        "new_state": "Excluded (proposed)",
+        "change_status": "proposed",
+        "evidence": [
+          "고객은 Pilot 버전에서 Export 기능을 제외하는 방안을 제안했습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final scope confirmation for the Pilot version",
+        "reason": "The Product Lead has committed to maintaining the existing scope until the customer's final confirmation is received.",
+        "needed_information": "Customer's final confirmation on the scope."
+      }
+    ]
+  }
+}

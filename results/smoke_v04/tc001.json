@@ -1,0 +1,64 @@
+{
+  "test_case": "TC-001",
+  "language": "English",
+  "difficulty": "Simple",
+  "prompt_version": "grounded-v0.4",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 32.171,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 813,
+    "output_tokens": 417,
+    "total_tokens": 1230
+  },
+  "result": {
+    "summary": "The authentication service returned 401 errors during integration testing, preventing QA from completing the planned test cycle. Backend Engineering is investigating the issue and will provide an update by Wednesday. No change to the release date has been discussed.",
+    "issues": [
+      {
+        "description": "Authentication service returned 401 errors for all test accounts during integration testing.",
+        "impact": "QA could not complete the planned test cycle.",
+        "evidence": [
+          "During today's integration test, the authentication service returned 401 errors for all test accounts. QA could not complete the planned test cycle."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "QA could not complete the planned test cycle due to authentication service issues.",
+        "affected_milestone": "planned test cycle",
+        "duration_change": null,
+        "impact_status": "confirmed",
+        "evidence": [
+          "During today's integration test, the authentication service returned 400 errors for all test accounts. QA could not complete the planned test cycle."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "Investigate the authentication configuration",
+        "owner": "Backend Engineering",
+        "due_date": "Wednesday",
+        "evidence": [
+          "Backend Engineering is investigating the authentication configuration and will provide an update by Wednesday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Resolution of authentication service issues",
+        "reason": "The investigation is ongoing and no resolution has been confirmed.",
+        "needed_information": "Investigation results and resolution plan"
+      },
+      {
+        "item": "Impact on release date",
+        "reason": "No change to the release date has been discussed, but the current issue may affect the schedule.",
+        "needed_information": "Confirmation of release date stability"
+      }
+    ]
+  }
+}

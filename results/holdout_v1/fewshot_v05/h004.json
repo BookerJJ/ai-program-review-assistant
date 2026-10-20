@@ -1,0 +1,63 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-004",
+  "language": "Korean",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Current blocking issue + explicit recovery action",
+  "status": "success",
+  "started_at": "2026-09-12T20:22:32+04:00",
+  "completed_at": "2026-09-12T20:22:55+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 23.145,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1084,
+    "output_tokens": 428,
+    "total_tokens": 1512
+  },
+  "result": {
+    "summary": "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트 진행이 중단되었습니다. Database Team이 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다.",
+    "issues": [
+      {
+        "description": "Staging Database가 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다.",
+        "impact": null,
+        "evidence": [
+          "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Integration 테스트의 시작 시점이 지연될 수 있습니다.",
+        "affected_milestone": "Integration 테스트",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "Database Team이 정상 상태로 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다.",
+        "owner": "Database Team",
+        "due_date": "오전 11시",
+        "evidence": [
+          "Database Team이 정상 상태로 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Integration 테스트 시작 시점",
+        "reason": "Staging Database의 복구 상태 및 접근 가능 여부에 따라 달라질 수 있습니다.",
+        "needed_information": "Database 복구 상태 및 접근 가능 여부"
+      }
+    ]
+  }
+}

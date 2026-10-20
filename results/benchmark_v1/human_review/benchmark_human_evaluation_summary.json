@@ -1,0 +1,37 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "cases": 30,
+  "average_semantic_score": 77.3,
+  "by_language": {
+    "English": {
+      "cases": 15,
+      "average_semantic_score": 85.3
+    },
+    "Korean": {
+      "cases": 15,
+      "average_semantic_score": 69.3
+    }
+  },
+  "by_difficulty": {
+    "Simple": {
+      "cases": 10,
+      "average_semantic_score": 83.0
+    },
+    "Medium": {
+      "cases": 10,
+      "average_semantic_score": 66.0
+    },
+    "Difficult": {
+      "cases": 10,
+      "average_semantic_score": 83.0
+    }
+  },
+  "dimension_averages": {
+    "factual_correctness": 1.8,
+    "completeness": 1.533,
+    "unsupported_claim_control": 1.6,
+    "classification_accuracy": 1.067,
+    "meaning_preservation": 1.733
+  }
+}

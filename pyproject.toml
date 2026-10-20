@@ -1,0 +1,13 @@
+[project]
+name = "ai-program-review-assistant"
+version = "0.1.0"
+description = "Bilingual LLM application for structured TPM review and evaluation."
+requires-python = ">=3.12"
+dependencies = [
+  "pydantic>=2,<3",
+  "ollama",
+  "google-genai",
+]
+
+[tool.setuptools]
+packages = ["src"]

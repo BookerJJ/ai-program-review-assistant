@@ -1,0 +1,50 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-006",
+  "language": "Korean",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Confirmed requirement change + implementation action",
+  "status": "success",
+  "started_at": "2026-09-12T20:23:12+04:00",
+  "completed_at": "2026-09-12T20:23:25+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 13.162,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1080,
+    "output_tokens": 236,
+    "total_tokens": 1316
+  },
+  "result": {
+    "summary": "The login retry limit has been reduced from 5 to 3, and the change has been finalized. The Backend Team will implement the new value starting from the next Sprint. There are no additional schedule impacts due to this change.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Login retry limit",
+        "previous_state": "5",
+        "new_state": "3",
+        "change_status": "confirmed",
+        "evidence": [
+          "Login Retry Limit을 기존 5회에서 3회로 변경하는 안이 최종 승인되었습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "No additional schedule impact is expected due to the change in the login retry limit.",
+        "affected_milestone": null,
+        "duration_change": null,
+        "impact_status": "unknown",
+        "evidence": [
+          "이 변경으로 인한 추가 일정 영향은 없습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": []
+  }
+}

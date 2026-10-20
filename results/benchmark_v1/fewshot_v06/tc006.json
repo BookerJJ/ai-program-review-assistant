@@ -1,0 +1,47 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-006",
+  "language": "English",
+  "difficulty": "Simple",
+  "primary_target": "Issue + explicit action + null schedule impact",
+  "status": "success",
+  "started_at": "2026-09-12T13:15:30+04:00",
+  "completed_at": "2026-09-12T13:15:41+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 10.813,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1342,
+    "output_tokens": 197,
+    "total_tokens": 1539
+  },
+  "result": {
+    "summary": "The nightly build failed due to a missing deployment configuration file. DevOps has restored the file and plans to rerun the build by 3 PM today. No release milestone has been affected.",
+    "issues": [
+      {
+        "description": "The nightly build failed because the deployment configuration file was missing from the build package.",
+        "impact": null,
+        "evidence": [
+          "The nightly build failed because the deployment configuration file was missing from the build package."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Rerun the build.",
+        "owner": "DevOps",
+        "due_date": "3 PM today",
+        "evidence": [
+          "DevOps will rerun the build by 3 PM today."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-006",
+  "language": "Korean",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Confirmed requirement change + implementation action",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-13T16:55:53+04:00",
+  "completed_at": "2026-09-13T16:55:57+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 2.03,
+    "input_tokens": 1188,
+    "output_tokens": 248,
+    "thinking_tokens": 0,
+    "total_tokens": 1436
+  },
+  "result": {
+    "summary": "Login Retry Limit이 기존 5회에서 3회로 변경 승인되었으며, Backend Team이 다음 Sprint부터 적용할 예정입니다. 이로 인한 추가 일정 영향은 없습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Login Retry Limit",
+        "previous_state": "5회",
+        "new_state": "3회",
+        "change_status": "confirmed",
+        "evidence": [
+          "Login Retry Limit을 기존 5회에서 3회로 변경하는 안이 최종 승인되었습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "변경된 Login Retry Limit 값 적용",
+        "owner": "Backend Team",
+        "due_date": null,
+        "evidence": [
+          "Backend Team은 다음 Sprint부터 변경된 값을 적용할 예정입니다."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

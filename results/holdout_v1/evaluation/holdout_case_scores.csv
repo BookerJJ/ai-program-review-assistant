@@ -1,0 +1,21 @@
+test_case,language,scenario_type,structural_score,evidence_traceability,latency_seconds,total_tokens
+H-001,English,Operational Incident,90.9,1.0,27.628,1389
+H-002,Korean,Operational Incident,90.0,1.0,18.045,1406
+H-003,English,Operational Incident,100.0,1.0,4.166,1131
+H-004,Korean,Operational Incident,80.0,1.0,23.145,1512
+H-005,English,Requirement Change,92.9,1.0,17.233,1392
+H-006,Korean,Requirement Change,71.4,1.0,13.162,1316
+H-007,English,Requirement Change,84.6,1.0,12.697,1295
+H-008,Korean,Requirement Change,57.1,1.0,15.924,1376
+H-009,English,Dependency and Schedule,81.2,1.0,23.516,1470
+H-010,Korean,Dependency and Schedule,92.9,1.0,33.713,1649
+H-011,English,Dependency and Schedule,58.3,1.0,16.436,1332
+H-012,Korean,Dependency and Schedule,100.0,1.0,18.573,1366
+H-013,English,Action and Deadline,100.0,1.0,15.527,1322
+H-014,Korean,Action and Deadline,90.9,1.0,28.491,1563
+H-015,English,Action and Deadline,72.7,1.0,5.473,1143
+H-016,Korean,Action and Deadline,100.0,1.0,17.212,1359
+H-017,English,Conflict and Negative,76.9,0.5,21.479,1361
+H-018,Korean,Conflict and Negative,80.0,1.0,13.26,1274
+H-019,English,Conflict and Negative,100.0,1.0,5.263,1140
+H-020,Korean,Conflict and Negative,100.0,1.0,6.273,1162

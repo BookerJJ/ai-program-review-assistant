@@ -1,0 +1,55 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-012",
+  "language": "Korean",
+  "scenario_type": "Dependency and Schedule",
+  "primary_target": "Multi-step dependency chain + missing owner",
+  "status": "success",
+  "started_at": "2026-09-12T20:25:07+04:00",
+  "completed_at": "2026-09-12T20:25:26+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 18.573,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1081,
+    "output_tokens": 285,
+    "total_tokens": 1366
+  },
+  "result": {
+    "summary": "The project requires a Security Review before obtaining Privacy Approval, and Privacy Approval is needed to activate Pilot Access. The Security Review owner is not yet assigned, and there are no current schedule changes.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Privacy Approval",
+        "dependency_item": "Security Review",
+        "relationship": "Privacy Approval can be obtained only after Security Review is completed.",
+        "basis": "explicit",
+        "evidence": [
+          "Security Review가 완료된 이후에 Privacy Approval을 받을 수 있습니다."
+        ]
+      },
+      {
+        "dependent_item": "Pilot Access activation",
+        "dependency_item": "Privacy Approval",
+        "relationship": "Pilot Access can be activated only after Privacy Approval is completed.",
+        "basis": "explicit",
+        "evidence": [
+          "Privacy Approval이 완료되어야 Pilot Access를 활성화할 수 있습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Security Review owner",
+        "reason": "Security Review 담당자는 아직 지정되지 않았습니다.",
+        "needed_information": "Security Review 담당자 지정"
+      }
+    ]
+  }
+}

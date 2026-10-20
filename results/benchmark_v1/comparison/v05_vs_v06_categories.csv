@@ -1,0 +1,8 @@
+category,v05_count_accuracy,v06_count_accuracy,count_delta,v05_assertion_accuracy,v06_assertion_accuracy,assertion_delta
+issues,0.767,0.833,0.066,1.0,0.667,-0.333
+risks,0.767,0.733,-0.034,0.364,0.182,-0.182
+dependencies,0.9,0.9,0.0,0.625,0.375,-0.25
+requirement_changes,1.0,1.0,0.0,0.931,0.931,0.0
+schedule_impacts,0.8,0.867,0.067,0.444,0.944,0.5
+actions,0.8,0.833,0.033,0.643,0.714,0.071
+uncertainties,0.733,0.833,0.1,,,

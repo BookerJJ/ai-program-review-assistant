@@ -1,0 +1,55 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-026",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Dependency chain",
+  "status": "success",
+  "started_at": "2026-09-12T13:23:25+04:00",
+  "completed_at": "2026-09-12T13:23:51+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 26.107,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1362,
+    "output_tokens": 305,
+    "total_tokens": 1667
+  },
+  "result": {
+    "summary": "Security Review 완료 후 Production Access 승인을 받을 수 있으며, Production Access 승인이 완료된 이후에 Deployment Validation을 시작할 수 있습니다. Security Review 담당자는 아직 정해지지 않았고, 현재 Release 일정 변경은 없습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Production Access 승인",
+        "dependency_item": "Security Review 완료",
+        "relationship": "must happen before",
+        "basis": "explicit",
+        "evidence": [
+          "Security Review가 완료되어야 Production Access 승인을 받을 수 있습니다."
+        ]
+      },
+      {
+        "dependent_item": "Deployment Validation 시작",
+        "dependency_item": "Production Access 승인",
+        "relationship": "must happen after",
+        "basis": "explicit",
+        "evidence": [
+          "Production Access 승인이 완료된 이후에만 Deployment Validation을 시작할 수 있습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Security Review 담당자",
+        "reason": "Security Review 담당자는 아직 정해지지 않았습니다.",
+        "needed_information": "Security Review 담당자의 결정"
+      }
+    ]
+  }
+}

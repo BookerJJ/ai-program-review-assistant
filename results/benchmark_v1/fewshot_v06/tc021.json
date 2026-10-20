@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-021",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Technical issue with unknown impact",
+  "status": "success",
+  "started_at": "2026-09-12T13:20:43+04:00",
+  "completed_at": "2026-09-12T13:21:07+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 23.96,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1342,
+    "output_tokens": 299,
+    "total_tokens": 1641
+  },
+  "result": {
+    "summary": "Load testing revealed that CPU utilization on two application servers exceeded internal targets. Engineering is scheduled to perform additional profiling, but no owner or completion date has been assigned. The release plan remains unchanged until profiling results are available.",
+    "issues": [
+      {
+        "description": "CPU utilization on two application servers exceeded internal targets.",
+        "impact": null,
+        "evidence": [
+          "Load testing showed CPU utilization above the internal target on two application servers."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Perform additional profiling.",
+        "owner": null,
+        "due_date": null,
+        "evidence": [
+          "Engineering will perform additional profiling, but no owner or completion date has been assigned."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Owner and completion date for profiling",
+        "reason": "No owner or completion date has been assigned for the profiling activity.",
+        "needed_information": "Owner and completion date for the profiling activity."
+      },
+      {
+        "item": "Release plan status",
+        "reason": "The release plan remains unchanged pending the profiling results.",
+        "needed_information": "Profiling results to determine if the release plan needs adjustment."
+      }
+    ]
+  }
+}

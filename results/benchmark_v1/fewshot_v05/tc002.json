@@ -1,0 +1,79 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-002",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Risk vs issue + dependency + missing duration",
+  "status": "success",
+  "started_at": "2026-09-12T12:27:59+04:00",
+  "completed_at": "2026-09-12T12:28:33+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 33.546,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1126,
+    "output_tokens": 560,
+    "total_tokens": 1686
+  },
+  "result": {
+    "summary": "The final API specification is expected to be delivered by Monday, but it has not been received yet. Integration Module development cannot start until the specification is delivered. The customer plans to deliver it by Thursday. System Test is scheduled for next Monday, but the revised schedule has not been agreed upon.",
+    "issues": [
+      {
+        "description": "The final API specification has not been delivered yet.",
+        "impact": null,
+        "evidence": [
+          "최종 API 명세서는 월요일까지 전달될 예정이었지만 아직 고객으로부터 전달되지 않았습니다."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "Integration Module development may be delayed if the API specification is not delivered by Thursday.",
+        "impact": "Integration Module development may be delayed.",
+        "basis": "inferred",
+        "evidence": [
+          "최종 명세서를 받기 전에는 Integration Module 개발을 시작할 수 없습니다.",
+          "고객은 목요일까지 명세서를 전달할 계획이라고 했습니다."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "Integration Module 개발",
+        "dependency_item": "최종 API 명세서 전달",
+        "relationship": "최종 명세서를 받기 전에는 Integration Module 개발을 시작할 수 없습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "최종 명세서를 받기 전에는 Integration Module 개발을 시작할 수 없습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "System Test is scheduled for next Monday, but the revised schedule has not been agreed upon.",
+        "affected_milestone": "System Test",
+        "duration_change": null,
+        "impact_status": "unknown",
+        "evidence": [
+          "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "System Test schedule",
+        "reason": "현재까지 수정된 일정은 합의되지 않았습니다.",
+        "needed_information": "System Test 일정 수정에 대한 합의"
+      },
+      {
+        "item": "Integration Module development start date",
+        "reason": "최종 API 명세서 전달 일정이 아직 확정되지 않았습니다.",
+        "needed_information": "최종 API 명세서 전달 일정"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-015",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Dependency + future milestone risk",
+  "status": "success",
+  "started_at": "2026-09-12T12:28:53+04:00",
+  "completed_at": "2026-09-12T12:29:18+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 24.901,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1066,
+    "output_tokens": 392,
+    "total_tokens": 1458
+  },
+  "result": {
+    "summary": "Production deployment is scheduled for Wednesday morning, but it cannot begin until the security scan is completed. The Security Team expects to finish the scan on Tuesday.",
+    "issues": [
+      {
+        "description": "Production deployment cannot begin until the security scan is completed.",
+        "impact": null,
+        "evidence": [
+          "Production deployment cannot begin until the security scan is completed."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "The Wednesday morning production deployment may be affected if the security scan is not completed by Tuesday.",
+        "impact": "Production deployment may be affected.",
+        "basis": "inferred",
+        "evidence": [
+          "The Security Team expects to finish the scan on Tuesday, while production deployment is planned for Wednesday morning."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "Production deployment",
+        "dependency_item": "Security scan completion",
+        "relationship": "Production deployment cannot begin until the security scan is completed.",
+        "basis": "explicit",
+        "evidence": [
+          "Production deployment cannot begin until the security than scan is completed."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "The Wednesday morning production deployment has a potential timing impact because it depends on the security scan completion.",
+        "affected_milestone": "Production deployment",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "The Security Team expects to finish the scan on Tuesday, while production deployment is planned for Wednesday morning."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Revised deployment schedule",
+        "reason": "No revised deployment schedule has been agreed.",
+        "needed_information": "Revised deployment schedule"
+      }
+    ]
+  }
+}

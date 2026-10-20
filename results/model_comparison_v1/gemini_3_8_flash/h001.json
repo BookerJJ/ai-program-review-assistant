@@ -1,0 +1,59 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-001",
+  "language": "English",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Existing issue + action binding + unresolved release impact",
+  "status": "success",
+  "started_at": "2026-09-13T16:43:36+04:00",
+  "completed_at": "2026-09-13T16:43:58+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 22.487,
+    "input_tokens": 1196,
+    "output_tokens": 326,
+    "thinking_tokens": 0,
+    "total_tokens": 1522
+  },
+  "result": {
+    "summary": "During checkout validation, all test transactions failed with 503 errors from the payment gateway, causing QA to halt the validation cycle. The Platform Team is investigating the configuration and will provide an update by 4 PM today, while the release date remains unreviewed.",
+    "issues": [
+      {
+        "description": "The payment gateway returned 503 errors for all test transactions during checkout validation.",
+        "impact": "QA stopped the checkout validation cycle.",
+        "evidence": [
+          "During checkout validation, the payment gateway returned 503 errors for all test transactions.",
+          "QA stopped the checkout validation cycle."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Investigate the gateway configuration and provide a status update.",
+        "owner": "Platform Team",
+        "due_date": "4 PM today",
+        "evidence": [
+          "The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Release date impact",
+        "reason": "The release date has not been reviewed yet.",
+        "needed_information": "Review of the release date following the investigation."
+      }
+    ]
+  }
+}

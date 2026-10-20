@@ -1,0 +1,35 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-003",
+  "language": "English",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Completed activity without false findings",
+  "status": "success",
+  "started_at": "2026-09-13T16:44:01+04:00",
+  "completed_at": "2026-09-13T16:44:05+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 3.788,
+    "input_tokens": 1174,
+    "output_tokens": 84,
+    "thinking_tokens": 0,
+    "total_tokens": 1258
+  },
+  "result": {
+    "summary": "The nightly data export finished successfully, and a spot check by QA identified no errors, requiring no further investigation or follow-up.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

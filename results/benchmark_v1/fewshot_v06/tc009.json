@@ -1,0 +1,57 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-009",
+  "language": "Korean",
+  "difficulty": "Simple",
+  "primary_target": "Existing issue + explicit action",
+  "status": "success",
+  "started_at": "2026-09-12T13:15:59+04:00",
+  "completed_at": "2026-09-12T13:16:17+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 18.63,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1350,
+    "output_tokens": 338,
+    "total_tokens": 1688
+  },
+  "result": {
+    "summary": "테스트 서버의 SSL 인증서가 만료되어 QA가 접속할 수 없습니다. Infrastructure Team이 인증서를 갱신하고 오늘 오후까지 서버 접속 상태를 확인할 예정입니다.",
+    "issues": [
+      {
+        "description": "테스트 서버의 SSL 인증서가 만료되어 QA가 접속할 수 없습니다.",
+        "impact": null,
+        "evidence": [
+          "테스트 서버의 SSL 인증서가 만료되어 QA가 접속할 수 없습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Infrastructure Team이 인증서를 갱신하고 오늘 오후까지 서버 접속 상태를 확인할 예정입니다.",
+        "affected_milestone": null,
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Infrastructure Team이 인증서를 갱신하고 오늘 오후까지 서버 접속 상태를 확인할 예정입니다."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "인증서를 갱신하고 서버 접속 상태를 확인합니다.",
+        "owner": "Infrastructure Team",
+        "due_date": "오늘 오후",
+        "evidence": [
+          "Infrastructure Team이 인증서를 갱신하고 오늘 오후까지 서버 접속 상태를 확인할 예정입니다."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

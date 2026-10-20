@@ -1,0 +1,71 @@
+{
+  "test_case": "TC-005",
+  "language": "English",
+  "difficulty": "Difficult",
+  "prompt_version": "grounded-v0.2",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 29.767,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 449,
+    "output_tokens": 538,
+    "total_tokens": 987
+  },
+  "result": {
+    "summary": "The client originally required a 95% test pass rate for acceptance. The Product Manager indicated that 90% would be acceptable for the pilot, but client approval has not been formally obtained. QA continues to use the 95% threshold in the acceptance checklist. No schedule impact was mentioned.",
+    "issues": [
+      {
+        "description": "QA is still using the 95% test pass rate threshold in the acceptance checklist, despite the Product Manager indicating that 90% would be acceptable for the pilot.",
+        "impact": "Potential misalignment between QA standards and the pilot's acceptance criteria.",
+        "evidence": [
+          "QA is still using 95% in the acceptance checklist."
+        ]
+      },
+      {
+        "description": "Client approval has not been obtained for the 90% pass rate, even though the Product Manager suggested it would be acceptable for the pilot.",
+        "impact": "Uncertainty about whether the pilot will meet client acceptance criteria.",
+        "evidence": [
+          "Client approval has not been obtained."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "Client may not approve the pilot if the 90% pass rate is not accepted as a valid alternative to the original 95% requirement.",
+        "impact": "Potential delay or rejection of the pilot.",
+        "basis": "explicit",
+        "evidence": [
+          "Client approval has not been obtained."
+        ]
+      }
+    ],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "95% test pass rate for client acceptance",
+        "previous_state": "Required",
+        "new_state": "Not yet approved for pilot",
+        "change_status": "unknown",
+        "evidence": [
+          "Product Manager said that 90% would be acceptable for the pilot."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Whether the 90% pass rate will be accepted by the client for the pilot.",
+        "reason": "Client approval has not been obtained.",
+        "needed_information": "Client approval status for the 90% pass rate."
+      },
+      {
+        "item": "Whether the QA team will update the acceptance checklist to reflect the 90% pass rate for the pilot.",
+        "reason": "QA is still using the 95% threshold.",
+        "needed_information": "QA's plan to update the checklist."
+      }
+    ]
+  }
+}

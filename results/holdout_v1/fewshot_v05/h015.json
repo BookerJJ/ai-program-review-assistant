@@ -1,0 +1,30 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-015",
+  "language": "English",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Future commitment without hypothetical failure risk",
+  "status": "success",
+  "started_at": "2026-09-12T20:26:10+04:00",
+  "completed_at": "2026-09-12T20:26:16+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 5.473,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1058,
+    "output_tokens": 85,
+    "total_tokens": 1143
+  },
+  "result": {
+    "summary": "The external audio vendor will deliver the final mix on Friday. The internal team can continue using the temporary mix until the final mix is delivered. No schedule impact has been identified.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

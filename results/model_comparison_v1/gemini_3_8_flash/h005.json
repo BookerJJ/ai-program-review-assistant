@@ -1,0 +1,67 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-005",
+  "language": "English",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Proposed requirement + review action + approval uncertainty",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-13T16:55:29+04:00",
+  "completed_at": "2026-09-13T16:55:53+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 13.186,
+    "input_tokens": 1192,
+    "output_tokens": 365,
+    "thinking_tokens": 0,
+    "total_tokens": 1557
+  },
+  "result": {
+    "summary": "The client requested an increase in the data retention period from 14 days to 45 days. The change is not yet approved, and the Security Team will review it on Tuesday, while no implementation effort estimate is currently available.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Data retention period",
+        "previous_state": "14 days",
+        "new_state": "45 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The current data retention requirement is 14 days.",
+          "The client requested increasing the retention period to 45 days, but the change has not been approved."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Review the proposal",
+        "owner": "Security Team",
+        "due_date": "Tuesday",
+        "evidence": [
+          "The Security Team will review the proposal on Tuesday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Approval status of requested data retention period",
+        "reason": "The change has not been approved.",
+        "needed_information": "Decision from the proposal review."
+      },
+      {
+        "item": "Implementation effort estimate",
+        "reason": "No implementation effort estimate has been provided.",
+        "needed_information": "An estimate of the implementation effort required for increasing data retention."
+      }
+    ]
+  }
+}

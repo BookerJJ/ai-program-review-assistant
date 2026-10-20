@@ -1,0 +1,50 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-022",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Confirmed requirement change without schedule impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:31:43+04:00",
+  "completed_at": "2026-09-12T12:32:01+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 17.851,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1085,
+    "output_tokens": 251,
+    "total_tokens": 1336
+  },
+  "result": {
+    "summary": "API Timeout 값을 30초에서 60초로 변경하는 요구사항은 고객 승인이 완료되었습니다. Backend Team은 다음 Build부터 변경된 값을 적용할 예정이며, 이 변경으로 인한 추가 일정 영향은 없습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "API Timeout",
+        "previous_state": "30초",
+        "new_state": "60초",
+        "change_status": "confirmed",
+        "evidence": [
+          "API Timeout은 기존 30초에서 60초로 변경하는 것으로 고객 승인이 완료되었습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "API Timeout 변경으로 인한 추가 일정 영향은 없습니다.",
+        "affected_milestone": null,
+        "duration_change": null,
+        "impact_status": "confirmed",
+        "evidence": [
+          "이 변경으로 인한 추가 일정 영향은 없다고 확인되었습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": []
+  }
+}

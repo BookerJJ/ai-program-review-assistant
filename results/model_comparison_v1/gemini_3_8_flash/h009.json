@@ -1,0 +1,83 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-009",
+  "language": "English",
+  "scenario_type": "Dependency and Schedule",
+  "primary_target": "Explicit dependency + nearby milestone timing risk",
+  "status": "success",
+  "started_at": "2026-09-13T16:44:34+04:00",
+  "completed_at": "2026-09-13T16:45:42+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 68.16,
+    "input_tokens": 1181,
+    "output_tokens": 521,
+    "thinking_tokens": 0,
+    "total_tokens": 1702
+  },
+  "result": {
+    "summary": "Certification testing planned for Thursday morning is dependent on the delivery of a signed firmware package by the Security Team on Wednesday. Currently, no revised test schedule has been agreed.",
+    "issues": [],
+    "risks": [
+      {
+        "description": "Certification testing planned for Thursday morning may be affected if there are issues or delays with the Security Team providing the signed firmware package on Wednesday.",
+        "impact": "Certification testing schedule may be affected.",
+        "basis": "inferred",
+        "evidence": [
+          "Certification testing cannot begin until the signed firmware package is available.",
+          "The Security Team will provide the signed package on Wednesday.",
+          "Certification testing is planned for Thursday morning."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "Certification testing",
+        "dependency_item": "Signed firmware package",
+        "relationship": "Certification testing cannot begin until the signed firmware package is available.",
+        "basis": "explicit",
+        "evidence": [
+          "Certification testing cannot begin until the signed firmware package is available."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Certification testing scheduled for Thursday morning has a potential schedule impact because it depends on the delivery of the signed firmware package on Wednesday.",
+        "affected_milestone": "Certification testing",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Certification testing cannot begin until the signed firmware package is available.",
+          "The Security Team will provide the signed package on Wednesday.",
+          "Certification testing is planned for Thursday morning."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "Provide the signed firmware package",
+        "owner": "Security Team",
+        "due_date": "Wednesday",
+        "evidence": [
+          "The Security Team will provide the signed package on Wednesday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Revised test schedule",
+        "reason": "No revised test schedule has been agreed.",
+        "needed_information": "Agreement on whether a revised schedule is required or finalized."
+      }
+    ]
+  }
+}

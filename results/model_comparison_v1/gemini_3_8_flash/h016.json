@@ -1,0 +1,59 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-016",
+  "language": "Korean",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Two future commitments + unresolved decision",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-14T11:05:07+04:00",
+  "completed_at": "2026-09-14T11:07:17+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 126.235,
+    "input_tokens": 1188,
+    "output_tokens": 304,
+    "thinking_tokens": 0,
+    "total_tokens": 1492
+  },
+  "result": {
+    "summary": "Analytics Team은 화요일까지 새 기능의 운영 비용 추정치를 공유할 예정이며, Product Team은 수요일에 제안 내용을 검토할 계획입니다. 기능의 실제 추가 여부는 아직 결정되지 않았습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "새로운 기능의 운영 비용 추정치 공유",
+        "owner": "Analytics Team",
+        "due_date": "화요일",
+        "evidence": [
+          "Analytics Team은 새로운 기능의 운영 비용 추정치를 화요일까지 공유할 예정입니다."
+        ]
+      },
+      {
+        "action": "제안 내용 검토",
+        "owner": "Product Team",
+        "due_date": "수요일",
+        "evidence": [
+          "Product Team은 수요일에 제안 내용을 검토하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "새로운 기능 추가 여부",
+        "reason": "해당 기능을 실제로 추가할지는 아직 결정되지 않았습니다.",
+        "needed_information": "기능 추가 여부에 대한 최종 결정"
+      }
+    ]
+  }
+}

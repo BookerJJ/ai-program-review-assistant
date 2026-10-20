@@ -1,0 +1,36 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-023",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conflicting dates without selecting a winner",
+  "status": "success",
+  "started_at": "2026-09-12T13:22:09+04:00",
+  "completed_at": "2026-09-12T13:22:22+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 13.358,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1351,
+    "output_tokens": 172,
+    "total_tokens": 1523
+  },
+  "result": {
+    "summary": "The project plan currently lists API delivery on Thursday. During an engineering meeting, the Backend Lead suggested Friday as a more realistic date, but the Project Manager noted that the official plan has not been changed. No final delivery date was agreed upon during the meeting.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final API delivery date",
+        "reason": "No final delivery date was agreed during the meeting, and the official plan has not been changed despite the Backend Lead's suggestion of Friday as a more realistic date.",
+        "needed_information": "Final delivery date confirmation."
+      }
+    ]
+  }
+}

@@ -1,0 +1,962 @@
+test_case,language,scenario_type,primary_target,input,model_summary,model_output_json,expected_counts,golden_assertions,manual_review,factual_correctness,completeness,unsupported_claim_control,classification_accuracy,meaning_preservation,semantic_score,review_notes,latency_seconds,total_tokens
+H-001,English,Operational Incident,Existing issue + action binding + unresolved release impact,"During checkout validation, the payment gateway returned 503 errors for all test transactions. QA stopped the checkout validation cycle. The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today. The release date has not been reviewed yet.","During checkout validation, all test transactions failed with 503 errors from the payment gateway, causing QA to halt the validation cycle. The Platform Team is investigating the configuration and will provide an update by 4 PM today, while the release date remains unreviewed.","{
+  ""summary"": ""During checkout validation, all test transactions failed with 503 errors from the payment gateway, causing QA to halt the validation cycle. The Platform Team is investigating the configuration and will provide an update by 4 PM today, while the release date remains unreviewed."",
+  ""issues"": [
+    {
+      ""description"": ""The payment gateway returned 503 errors for all test transactions during checkout validation."",
+      ""impact"": ""QA stopped the checkout validation cycle."",
+      ""evidence"": [
+        ""During checkout validation, the payment gateway returned 503 errors for all test transactions."",
+        ""QA stopped the checkout validation cycle.""
+      ]
+    }
+  ],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""Investigate the gateway configuration and provide a status update."",
+      ""owner"": ""Platform Team"",
+      ""due_date"": ""4 PM today"",
+      ""evidence"": [
+        ""The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""Release date impact"",
+      ""reason"": ""The release date has not been reviewed yet."",
+      ""needed_information"": ""Review of the release date following the investigation.""
+    }
+  ]
+}","{""issues"": 1, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 1}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""equals"",
+    ""value"": ""Platform Team""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""4 PM""
+  }
+]","The 503 authentication/payment gateway failure is an existing issue. | QA stopping the checkout validation cycle is the supported impact. | 4 PM applies to providing the status update, not necessarily completing the investigation. | Do not create a release-delay risk or schedule impact. | The release-date impact remains unresolved because it has not been reviewed yet.",2,2,2,2,1,90.0,Accurate extraction overall. The 4 PM deadline belongs to the status update; combining investigation and status update into one action slightly weakens deadline binding.,22.487,1522
+H-002,Korean,Operational Incident,Existing issue + remediation action + no schedule impact,Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 것이 확인되었습니다. Art Tech Team은 해당 Asset을 다시 생성해 내일 정오까지 전달하기로 했습니다. 현재까지 Milestone 영향은 확인되지 않았습니다.,"Texture Streaming 테스트 중 3개 Asset에서 Mip Level 누락이 확인되어 Art Tech Team이 내일 정오까지 재생성 및 전달하기로 합의하였으며, 현재까지 Milestone 영향은 확인되지 않았습니다.","{
+  ""summary"": ""Texture Streaming 테스트 중 3개 Asset에서 Mip Level 누락이 확인되어 Art Tech Team이 내일 정오까지 재생성 및 전달하기로 합의하였으며, 현재까지 Milestone 영향은 확인되지 않았습니다."",
+  ""issues"": [
+    {
+      ""description"": ""Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락되었습니다."",
+      ""impact"": null,
+      ""evidence"": [
+        ""Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 것이 확인되었습니다.""
+      ]
+    }
+  ],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""해당 Asset을 다시 생성해 전달하기"",
+      ""owner"": ""Art Tech Team"",
+      ""due_date"": ""내일 정오"",
+      ""evidence"": [
+        ""Art Tech Team은 해당 Asset을 다시 생성해 내일 정오까지 전달하기로 했습니다.""
+      ]
+    }
+  ],
+  ""uncertainties"": []
+}","{""issues"": 1, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 0}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Art Tech Team""
+  }
+]",Missing Mip Levels are the current issue. | The Art Tech Team commitment to regenerate and deliver the assets is an action. | The delivery deadline is tomorrow at noon. | Do not create a schedule impact because no milestone impact has been identified. | Do not invent a delivery-failure risk.,2,2,2,2,2,100.0,"Correct issue/action extraction, deadline binding, and no fabricated milestone impact or risk.",2.488,1448
+H-003,English,Operational Incident,Completed activity without false findings,The nightly data export completed successfully. QA performed a spot check on the exported records and found no errors. No additional investigation or follow-up work is required.,"The nightly data export finished successfully, and a spot check by QA identified no errors, requiring no further investigation or follow-up.","{
+  ""summary"": ""The nightly data export finished successfully, and a spot check by QA identified no errors, requiring no further investigation or follow-up."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [],
+  ""uncertainties"": []
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 0}",[],"This is a completed-success negative case. | The export and QA spot check both completed successfully. | Do not create an issue, risk, action, schedule impact, or uncertainty.",2,2,2,2,2,100.0,Clean negative case handled correctly with no fabricated findings.,3.788,1258
+H-004,Korean,Operational Incident,Current blocking issue + explicit recovery action,Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다. Database Team이 정상 상태로 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다.,"Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트 진행이 불가능한 상태이며, Database Team이 복구 작업 및 오전 11시까지 접근 가능 여부 확인을 진행하고 있습니다.","{
+  ""summary"": ""Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트 진행이 불가능한 상태이며, Database Team이 복구 작업 및 오전 11시까지 접근 가능 여부 확인을 진행하고 있습니다."",
+  ""issues"": [
+    {
+      ""description"": ""Staging Database가 예기치 않게 Read-Only 상태로 전환되었습니다."",
+      ""impact"": ""Integration 테스트를 진행할 수 없습니다."",
+      ""evidence"": [
+        ""Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다.""
+      ]
+    }
+  ],
+  ""risks"": [],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Integration 테스트 진행"",
+      ""dependency_item"": ""Staging Database 정상 상태 복구"",
+      ""relationship"": ""Staging Database가 Read-Only 상태가 아닐 때 Integration 테스트를 진행할 수 있습니다."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""Staging Database를 정상 상태로 복구"",
+      ""owner"": ""Database Team"",
+      ""due_date"": null,
+      ""evidence"": [
+        ""Database Team이 정상 상태로 복구 중이며""
+      ]
+    },
+    {
+      ""action"": ""접근 가능 여부 확인"",
+      ""owner"": ""Database Team"",
+      ""due_date"": ""오전 11시"",
+      ""evidence"": [
+        ""Database Team이 정상 상태로 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""Staging Database 복구 완료 시점 및 접근 가능 여부"",
+      ""reason"": ""오전 11시까지 접근 가능 여부를 확인할 예정이므로 실제 정상 복구 여부와 완료 시점이 아직 확정되지 않았습니다."",
+      ""needed_information"": ""오전 11시 Database Team의 접근 가능 여부 확인 결과 및 최종 복구 완료 시점""
+    }
+  ]
+}","{""issues"": 1, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 0}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Database Team""
+  }
+]","The Read-Only Staging Database is an existing issue. | Integration testing being blocked is the directly supported impact. | The Database Team restoration / access confirmation is an explicit action. | 11 AM applies to confirming access availability, not necessarily the restoration completion time. | Do not invent a release or milestone delay.",2,2,2,1,2,90.0,"Facts and 11 AM access-confirmation timing are preserved, but the blocking condition is additionally classified as a dependency and unresolved uncertainty, and the expected recovery/confirmation action is split into two findings.",4.059,1729
+H-005,English,Requirement Change,Proposed requirement + review action + approval uncertainty,"The current data retention requirement is 14 days. The client requested increasing the retention period to 45 days, but the change has not been approved. The Security Team will review the proposal on Tuesday. No implementation effort estimate has been provided.","The client requested an increase in the data retention period from 14 days to 45 days. The change is not yet approved, and the Security Team will review it on Tuesday, while no implementation effort estimate is currently available.","{
+  ""summary"": ""The client requested an increase in the data retention period from 14 days to 45 days. The change is not yet approved, and the Security Team will review it on Tuesday, while no implementation effort estimate is currently available."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [
+    {
+      ""requirement"": ""Data retention period"",
+      ""previous_state"": ""14 days"",
+      ""new_state"": ""45 days"",
+      ""change_status"": ""proposed"",
+      ""evidence"": [
+        ""The current data retention requirement is 14 days."",
+        ""The client requested increasing the retention period to 45 days, but the change has not been approved.""
+      ]
+    }
+  ],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""Review the proposal"",
+      ""owner"": ""Security Team"",
+      ""due_date"": ""Tuesday"",
+      ""evidence"": [
+        ""The Security Team will review the proposal on Tuesday.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""Approval status of requested data retention period"",
+      ""reason"": ""The change has not been approved."",
+      ""needed_information"": ""Decision from the proposal review.""
+    },
+    {
+      ""item"": ""Implementation effort estimate"",
+      ""reason"": ""No implementation effort estimate has been provided."",
+      ""needed_information"": ""An estimate of the implementation effort required for increasing data retention.""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 1, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 1}","[
+  {
+    ""path"": ""requirement_changes.0.previous_state"",
+    ""op"": ""contains"",
+    ""value"": ""14""
+  },
+  {
+    ""path"": ""requirement_changes.0.new_state"",
+    ""op"": ""contains"",
+    ""value"": ""45""
+  },
+  {
+    ""path"": ""requirement_changes.0.change_status"",
+    ""op"": ""equals"",
+    ""value"": ""proposed""
+  },
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Security Team""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Tuesday""
+  }
+]","The 45-day retention value is proposed, not approved. | The Security Team Tuesday review is an explicit action. | No implementation effort estimate exists. | Do not invent a schedule impact or implementation risk. | Final approval remains uncertain.",2,2,2,2,2,100.0,"Proposed requirement, Security Team review action, approval uncertainty, and missing effort estimate are all grounded. The additional effort-estimate uncertainty is semantically supported by the input.",13.186,1557
+H-006,Korean,Requirement Change,Confirmed requirement change + implementation action,Login Retry Limit을 기존 5회에서 3회로 변경하는 안이 최종 승인되었습니다. Backend Team은 다음 Sprint부터 변경된 값을 적용할 예정입니다. 이 변경으로 인한 추가 일정 영향은 없습니다.,"Login Retry Limit이 기존 5회에서 3회로 변경 승인되었으며, Backend Team이 다음 Sprint부터 적용할 예정입니다. 이로 인한 추가 일정 영향은 없습니다.","{
+  ""summary"": ""Login Retry Limit이 기존 5회에서 3회로 변경 승인되었으며, Backend Team이 다음 Sprint부터 적용할 예정입니다. 이로 인한 추가 일정 영향은 없습니다."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [
+    {
+      ""requirement"": ""Login Retry Limit"",
+      ""previous_state"": ""5회"",
+      ""new_state"": ""3회"",
+      ""change_status"": ""confirmed"",
+      ""evidence"": [
+        ""Login Retry Limit을 기존 5회에서 3회로 변경하는 안이 최종 승인되었습니다.""
+      ]
+    }
+  ],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""변경된 Login Retry Limit 값 적용"",
+      ""owner"": ""Backend Team"",
+      ""due_date"": null,
+      ""evidence"": [
+        ""Backend Team은 다음 Sprint부터 변경된 값을 적용할 예정입니다.""
+      ]
+    }
+  ],
+  ""uncertainties"": []
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 1, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 0}","[
+  {
+    ""path"": ""requirement_changes.0.previous_state"",
+    ""op"": ""contains"",
+    ""value"": ""5""
+  },
+  {
+    ""path"": ""requirement_changes.0.new_state"",
+    ""op"": ""contains"",
+    ""value"": ""3""
+  },
+  {
+    ""path"": ""requirement_changes.0.change_status"",
+    ""op"": ""equals"",
+    ""value"": ""confirmed""
+  },
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Backend Team""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Sprint""
+  }
+]",The retry-limit change from 5 to 3 is confirmed. | Applying the value from the next Sprint is an explicit Backend Team action. | No schedule impact should be generated.,2,1,2,2,1,80.0,"Confirmed requirement change and owner are correct, but 'next Sprint' is not captured in the structured due_date field, weakening completeness and timing preservation.",2.03,1436
+H-007,English,Requirement Change,Proposed setting change + approval dependency,Telemetry collection is currently disabled by default. Product proposed enabling it by default for the Beta. Legal stated that the change cannot be approved until client consent is received. No final decision has been made.,"Product proposed enabling telemetry collection by default for the Beta, changing it from its current disabled default. Legal requires client consent before approving the change, and no final decision has been made.","{
+  ""summary"": ""Product proposed enabling telemetry collection by default for the Beta, changing it from its current disabled default. Legal requires client consent before approving the change, and no final decision has been made."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Approval of telemetry collection enabled by default"",
+      ""dependency_item"": ""Receipt of client consent"",
+      ""relationship"": ""The change cannot be approved until client consent is received."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Legal stated that the change cannot be approved until client consent is received.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [
+    {
+      ""requirement"": ""Default telemetry collection setting for Beta"",
+      ""previous_state"": ""disabled by default"",
+      ""new_state"": ""enabled by default"",
+      ""change_status"": ""proposed"",
+      ""evidence"": [
+        ""Telemetry collection is currently disabled by default. Product proposed enabling it by default for the Beta.""
+      ]
+    }
+  ],
+  ""schedule_impacts"": [],
+  ""actions"": [],
+  ""uncertainties"": [
+    {
+      ""item"": ""Final decision on enabling telemetry collection by default"",
+      ""reason"": ""No final decision has been made, and legal approval is awaiting client consent."",
+      ""needed_information"": ""Receipt of client consent and legal approval decision.""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 1, ""requirement_changes"": 1, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 1}","[
+  {
+    ""path"": ""dependencies.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""explicit""
+  },
+  {
+    ""path"": ""requirement_changes.0.previous_state"",
+    ""op"": ""contains"",
+    ""value"": ""disabled""
+  },
+  {
+    ""path"": ""requirement_changes.0.new_state"",
+    ""op"": ""contains"",
+    ""value"": ""enabled""
+  },
+  {
+    ""path"": ""requirement_changes.0.change_status"",
+    ""op"": ""equals"",
+    ""value"": ""proposed""
+  }
+]","Telemetry remains disabled by default. | Enabling telemetry for Beta is proposed, not approved. | Client consent explicitly gates Legal approval. | The final decision remains unresolved. | Do not invent a schedule impact.",2,2,2,2,2,100.0,"Correctly preserves the current disabled state, proposed enabled state, explicit client-consent dependency, and unresolved final decision.",6.104,1512
+H-008,Korean,Requirement Change,Conditional scope change + explicit additional effort,고객은 High-Resolution Texture 지원을 추가하는 방안을 제안했습니다. Engineering은 해당 변경이 승인될 경우 약 이틀의 추가 작업이 필요하다고 설명했습니다. 변경안은 아직 승인되지 않았으며 Release Milestone은 논의되지 않았습니다.,"고객이 High-Resolution Texture 지원 추가를 제안했으며, Engineering은 변경 승인 시 약 이틀의 추가 작업이 소요될 것으로 파악했습니다. 해당 안건은 아직 미승인 상태이며 Release Milestone은 논의되지 않았습니다.","{
+  ""summary"": ""고객이 High-Resolution Texture 지원 추가를 제안했으며, Engineering은 변경 승인 시 약 이틀의 추가 작업이 소요될 것으로 파악했습니다. 해당 안건은 아직 미승인 상태이며 Release Milestone은 논의되지 않았습니다."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [
+    {
+      ""requirement"": ""High-Resolution Texture 지원"",
+      ""previous_state"": null,
+      ""new_state"": ""High-Resolution Texture 지원 추가"",
+      ""change_status"": ""proposed"",
+      ""evidence"": [
+        ""고객은 High-Resolution Texture 지원을 추가하는 방안을 제안했습니다."",
+        ""변경안은 아직 승인되지 않았으며""
+      ]
+    }
+  ],
+  ""schedule_impacts"": [
+    {
+      ""description"": ""High-Resolution Texture 지원 변경 승인 시 약 이틀의 추가 작업 필요"",
+      ""affected_milestone"": null,
+      ""duration_change"": ""약 이틀"",
+      ""impact_status"": ""potential"",
+      ""evidence"": [
+        ""Engineering은 해당 변경이 승인될 경우 약 이틀의 추가 작업이 필요하다고 설명했습니다.""
+      ]
+    }
+  ],
+  ""actions"": [],
+  ""uncertainties"": [
+    {
+      ""item"": ""High-Resolution Texture 지원 변경안 승인 여부"",
+      ""reason"": ""변경안이 아직 승인되지 않았음"",
+      ""needed_information"": ""제안된 요구사항 변경에 대한 최종 승인 여부""
+    },
+    {
+      ""item"": ""Release Milestone 영향"",
+      ""reason"": ""Release Milestone은 논의되지 않았음"",
+      ""needed_information"": ""추가 작업 소요에 따른 Release Milestone 논의 및 일정 영향 여부""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 1, ""dependencies"": 0, ""requirement_changes"": 1, ""schedule_impacts"": 1, ""actions"": 0, ""uncertainties"": 1}","[
+  {
+    ""path"": ""risks.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""inferred""
+  },
+  {
+    ""path"": ""requirement_changes.0.previous_state"",
+    ""op"": ""is_null""
+  },
+  {
+    ""path"": ""requirement_changes.0.change_status"",
+    ""op"": ""equals"",
+    ""value"": ""proposed""
+  },
+  {
+    ""path"": ""schedule_impacts.0.affected_milestone"",
+    ""op"": ""is_null""
+  },
+  {
+    ""path"": ""schedule_impacts.0.impact_status"",
+    ""op"": ""equals"",
+    ""value"": ""potential""
+  }
+]","High-Resolution Texture support is proposed, not approved. | Approximately two additional work days are explicitly supported if approved. | The additional effort supports an inferred risk / potential schedule impact. | No release milestone should be invented.",2,1,2,1,2,80.0,"Conditional two-day effort and potential schedule impact are preserved, but the supported inferred risk is omitted. The extra release-milestone uncertainty is grounded but the intended risk classification is missing.",7.482,1627
+H-009,English,Dependency and Schedule,Explicit dependency + nearby milestone timing risk,Certification testing cannot begin until the signed firmware package is available. The Security Team will provide the signed package on Wednesday. Certification testing is planned for Thursday morning. No revised test schedule has been agreed.,"Certification testing planned for Thursday morning is dependent on the delivery of a signed firmware package by the Security Team on Wednesday. Currently, no revised test schedule has been agreed.","{
+  ""summary"": ""Certification testing planned for Thursday morning is dependent on the delivery of a signed firmware package by the Security Team on Wednesday. Currently, no revised test schedule has been agreed."",
+  ""issues"": [],
+  ""risks"": [
+    {
+      ""description"": ""Certification testing planned for Thursday morning may be affected if there are issues or delays with the Security Team providing the signed firmware package on Wednesday."",
+      ""impact"": ""Certification testing schedule may be affected."",
+      ""basis"": ""inferred"",
+      ""evidence"": [
+        ""Certification testing cannot begin until the signed firmware package is available."",
+        ""The Security Team will provide the signed package on Wednesday."",
+        ""Certification testing is planned for Thursday morning.""
+      ]
+    }
+  ],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Certification testing"",
+      ""dependency_item"": ""Signed firmware package"",
+      ""relationship"": ""Certification testing cannot begin until the signed firmware package is available."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Certification testing cannot begin until the signed firmware package is available.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [
+    {
+      ""description"": ""Certification testing scheduled for Thursday morning has a potential schedule impact because it depends on the delivery of the signed firmware package on Wednesday."",
+      ""affected_milestone"": ""Certification testing"",
+      ""duration_change"": null,
+      ""impact_status"": ""potential"",
+      ""evidence"": [
+        ""Certification testing cannot begin until the signed firmware package is available."",
+        ""The Security Team will provide the signed package on Wednesday."",
+        ""Certification testing is planned for Thursday morning.""
+      ]
+    }
+  ],
+  ""actions"": [
+    {
+      ""action"": ""Provide the signed firmware package"",
+      ""owner"": ""Security Team"",
+      ""due_date"": ""Wednesday"",
+      ""evidence"": [
+        ""The Security Team will provide the signed package on Wednesday.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""Revised test schedule"",
+      ""reason"": ""No revised test schedule has been agreed."",
+      ""needed_information"": ""Agreement on whether a revised schedule is required or finalized.""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 1, ""dependencies"": 1, ""requirement_changes"": 0, ""schedule_impacts"": 1, ""actions"": 1, ""uncertainties"": 1}","[
+  {
+    ""path"": ""risks.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""inferred""
+  },
+  {
+    ""path"": ""dependencies.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""explicit""
+  },
+  {
+    ""path"": ""schedule_impacts.0.affected_milestone"",
+    ""op"": ""contains"",
+    ""value"": ""Certification""
+  },
+  {
+    ""path"": ""schedule_impacts.0.duration_change"",
+    ""op"": ""is_null""
+  },
+  {
+    ""path"": ""schedule_impacts.0.impact_status"",
+    ""op"": ""equals"",
+    ""value"": ""potential""
+  },
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Security Team""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Wednesday""
+  }
+]",The signed firmware package explicitly gates Certification testing. | The Wednesday package delivery followed by Thursday testing supports a future timing risk. | Do not invent a specific delay duration. | The Security Team package delivery is an explicit action. | The revised test schedule remains unresolved.,2,2,2,2,2,100.0,"Correct dependency, inferred timing risk, potential schedule impact, Security Team action, and unresolved revised schedule.",68.16,1702
+H-010,Korean,Dependency and Schedule,Missing prerequisite + dependency + unknown ETA,License Server Whitelist가 아직 적용되지 않았습니다. Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다. Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다.,"License Server Whitelist가 아직 적용되지 않아 금요일 예정된 Build Validation 시작이 지연될 위험이 있으며, Infrastructure Team은 적용 완료 일정을 아직 제공하지 않았습니다.","{
+  ""summary"": ""License Server Whitelist가 아직 적용되지 않아 금요일 예정된 Build Validation 시작이 지연될 위험이 있으며, Infrastructure Team은 적용 완료 일정을 아직 제공하지 않았습니다."",
+  ""issues"": [
+    {
+      ""description"": ""License Server Whitelist가 아직 적용되지 않았습니다."",
+      ""impact"": null,
+      ""evidence"": [
+        ""License Server Whitelist가 아직 적용되지 않았습니다.""
+      ]
+    }
+  ],
+  ""risks"": [
+    {
+      ""description"": ""Whitelist 적용 완료 일정이 불확실하여 금요일 예정된 Build Validation 시작에 영향이 있을 수 있습니다."",
+      ""impact"": ""금요일 Build Validation 시작 일정에 영향 가능성"",
+      ""basis"": ""inferred"",
+      ""evidence"": [
+        ""Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다."",
+        ""Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다.""
+      ]
+    }
+  ],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Build Validation 시작"",
+      ""dependency_item"": ""License Server Whitelist 활성화"",
+      ""relationship"": ""Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [
+    {
+      ""description"": ""Infrastructure Team의 Whitelist 적용 완료 일정이 미정인 상태에서 Whitelist 활성화 전에는 작업을 시작할 수 없어 금요일 Build Validation에 잠재적 일정 영향이 있습니다."",
+      ""affected_milestone"": ""Build Validation"",
+      ""duration_change"": null,
+      ""impact_status"": ""potential"",
+      ""evidence"": [
+        ""Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다."",
+        ""Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다.""
+      ]
+    }
+  ],
+  ""actions"": [],
+  ""uncertainties"": [
+    {
+      ""item"": ""License Server Whitelist 적용 완료 일정"",
+      ""reason"": ""Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다."",
+      ""needed_information"": ""Infrastructure Team의 Whitelist 적용 완료 예정일""
+    }
+  ]
+}","{""issues"": 1, ""risks"": 1, ""dependencies"": 1, ""requirement_changes"": 0, ""schedule_impacts"": 1, ""actions"": 0, ""uncertainties"": 1}","[
+  {
+    ""path"": ""risks.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""inferred""
+  },
+  {
+    ""path"": ""dependencies.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""explicit""
+  },
+  {
+    ""path"": ""schedule_impacts.0.affected_milestone"",
+    ""op"": ""contains"",
+    ""value"": ""Build Validation""
+  },
+  {
+    ""path"": ""schedule_impacts.0.duration_change"",
+    ""op"": ""is_null""
+  },
+  {
+    ""path"": ""schedule_impacts.0.impact_status"",
+    ""op"": ""equals"",
+    ""value"": ""potential""
+  }
+]",The missing Whitelist is an existing issue. | Whitelist activation explicitly gates Build Validation. | The unknown Whitelist completion time creates a supported risk to Friday Build Validation. | Do not invent a specific delay duration. | The unresolved item is the Whitelist completion timing.,2,2,2,2,2,100.0,"Correctly captures the missing whitelist issue, explicit dependency, inferred Friday timing risk, potential schedule impact, and unknown completion timing.",5.874,1754
+H-011,English,Dependency and Schedule,Explicit dependency without invented timing risk,Localization signoff must be completed before the store submission can begin. The Localization Team will complete signoff on Monday. Store submission is scheduled for Wednesday. No schedule concern has been reported.,"Store submission requires completion of localization signoff. The Localization Team is scheduled to complete signoff on Monday, ahead of the store submission scheduled for Wednesday, with no reported schedule concerns.","{
+  ""summary"": ""Store submission requires completion of localization signoff. The Localization Team is scheduled to complete signoff on Monday, ahead of the store submission scheduled for Wednesday, with no reported schedule concerns."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Store submission"",
+      ""dependency_item"": ""Localization signoff"",
+      ""relationship"": ""Localization signoff must be completed before the store submission can begin."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Localization signoff must be completed before the store submission can begin.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""Complete signoff"",
+      ""owner"": ""Localization Team"",
+      ""due_date"": ""Monday"",
+      ""evidence"": [
+        ""The Localization Team will complete signoff on Monday.""
+      ]
+    }
+  ],
+  ""uncertainties"": []
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 1, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 0}","[
+  {
+    ""path"": ""dependencies.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""explicit""
+  },
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Localization Team""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Monday""
+  }
+]",Localization signoff explicitly gates store submission. | The Monday signoff is an explicit Localization Team action. | Do not create a risk solely because store submission is Wednesday. | No schedule concern has been reported.,2,2,2,2,2,100.0,"Correct explicit dependency and Monday Localization Team action, with no invented timing risk or schedule concern.",2.399,1417
+H-012,Korean,Dependency and Schedule,Multi-step dependency chain + missing owner,Security Review가 완료된 이후에 Privacy Approval을 받을 수 있습니다. Privacy Approval이 완료되어야 Pilot Access를 활성화할 수 있습니다. Security Review 담당자는 아직 지정되지 않았으며 현재 일정 변경은 없습니다.,"Pilot Access 활성화를 위해 Security Review 완료 후 Privacy Approval을 거쳐야 하는 선행 조건이 있으나, Security Review 담당자가 아직 지정되지 않은 상태입니다. 현재 일정 변경은 없습니다.","{
+  ""summary"": ""Pilot Access 활성화를 위해 Security Review 완료 후 Privacy Approval을 거쳐야 하는 선행 조건이 있으나, Security Review 담당자가 아직 지정되지 않은 상태입니다. 현재 일정 변경은 없습니다."",
+  ""issues"": [
+    {
+      ""description"": ""Security Review 담당자가 아직 지정되지 않았습니다."",
+      ""impact"": null,
+      ""evidence"": [
+        ""Security Review 담당자는 아직 지정되지 않았으며""
+      ]
+    }
+  ],
+  ""risks"": [],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Privacy Approval"",
+      ""dependency_item"": ""Security Review"",
+      ""relationship"": ""Security Review가 완료된 이후에 Privacy Approval을 받을 수 있습니다."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Security Review가 완료된 이후에 Privacy Approval을 받을 수 있습니다.""
+      ]
+    },
+    {
+      ""dependent_item"": ""Pilot Access 활성화"",
+      ""dependency_item"": ""Privacy Approval"",
+      ""relationship"": ""Privacy Approval이 완료되어야 Pilot Access를 활성화할 수 있습니다."",
+      ""basis"": ""explicit"",
+      ""evidence"": [
+        ""Privacy Approval이 완료되어야 Pilot Access를 활성화할 수 있습니다.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [],
+  ""uncertainties"": [
+    {
+      ""item"": ""Security Review 담당자"",
+      ""reason"": ""Security Review 담당자가 아직 지정되지 않았습니다."",
+      ""needed_information"": ""지정될 Security Review 담당자 정보""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 2, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 1}","[
+  {
+    ""path"": ""dependencies.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""explicit""
+  },
+  {
+    ""path"": ""dependencies.1.basis"",
+    ""op"": ""equals"",
+    ""value"": ""explicit""
+  }
+]",Security Review completion gates Privacy Approval. | Privacy Approval gates Pilot Access activation. | Both dependencies are explicit. | The missing Security Review owner is the unresolved item. | Do not invent a schedule delay.,2,2,2,1,2,90.0,"Both dependency links and the unresolved owner are preserved, but the missing Security Review owner is additionally classified as an issue rather than only an uncertainty.",2.288,1563
+H-013,English,Action and Deadline,Two owners + two deadlines + unresolved remediation date,An intermittent connection drop is under investigation. Support will collect the affected session logs by Tuesday. Engineering will review the collected logs by Thursday. No remediation date has been committed.,"An intermittent connection drop is currently under investigation, with Support scheduled to collect session logs by Tuesday and Engineering scheduled to review them by Thursday. No remediation date has been committed.","{
+  ""summary"": ""An intermittent connection drop is currently under investigation, with Support scheduled to collect session logs by Tuesday and Engineering scheduled to review them by Thursday. No remediation date has been committed."",
+  ""issues"": [
+    {
+      ""description"": ""An intermittent connection drop is occurring and under investigation."",
+      ""impact"": null,
+      ""evidence"": [
+        ""An intermittent connection drop is under investigation.""
+      ]
+    }
+  ],
+  ""risks"": [],
+  ""dependencies"": [
+    {
+      ""dependent_item"": ""Engineering review of session logs"",
+      ""dependency_item"": ""Support collecting affected session logs"",
+      ""relationship"": ""Engineering will review the collected logs after/once they are collected by Support."",
+      ""basis"": ""inferred"",
+      ""evidence"": [
+        ""Support will collect the affected session logs by Tuesday."",
+        ""Engineering will review the collected logs by Thursday.""
+      ]
+    }
+  ],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""Collect the affected session logs"",
+      ""owner"": ""Support"",
+      ""due_date"": ""Tuesday"",
+      ""evidence"": [
+        ""Support will collect the affected session logs by Tuesday.""
+      ]
+    },
+    {
+      ""action"": ""Review the collected logs"",
+      ""owner"": ""Engineering"",
+      ""due_date"": ""Thursday"",
+      ""evidence"": [
+        ""Engineering will review the collected logs by Thursday.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""Remediation date"",
+      ""reason"": ""No remediation date has been committed."",
+      ""needed_information"": ""A committed timeline or date for remediation.""
+    }
+  ]
+}","{""issues"": 1, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 2, ""uncertainties"": 1}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Support""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Tuesday""
+  },
+  {
+    ""path"": ""actions.1.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Engineering""
+  },
+  {
+    ""path"": ""actions.1.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Thursday""
+  }
+]",The intermittent connection drop is the existing issue. | Tuesday belongs to Support log collection. | Thursday belongs to Engineering log review. | Do not bind either date to remediation. | The remediation date remains uncertain.,2,2,2,1,2,90.0,"Issue, two owner/deadline actions, and unresolved remediation date are correct. An extra inferred dependency is introduced between log collection and Engineering review, while the intended case treats them as separate actions.",8.068,1587
+H-014,Korean,Action and Deadline,Multiple independent actions with separate deadlines,Mobile Client에서 간헐적인 Crash가 보고되었습니다. 고객은 영향을 받은 Device 목록을 월요일까지 전달하기로 했습니다. QA는 수요일까지 Crash 재현을 완료할 예정입니다. 수정 완료 일정은 아직 정해지지 않았습니다.,"Mobile Client에서 간헐적인 Crash가 보고되어 고객이 월요일까지 영향받은 기기 목록을 전달하고 QA가 수요일까지 재현을 완료할 예정이나, 수정 완료 일정은 미정인 상태입니다.","{
+  ""summary"": ""Mobile Client에서 간헐적인 Crash가 보고되어 고객이 월요일까지 영향받은 기기 목록을 전달하고 QA가 수요일까지 재현을 완료할 예정이나, 수정 완료 일정은 미정인 상태입니다."",
+  ""issues"": [
+    {
+      ""description"": ""Mobile Client에서 간헐적인 Crash가 발생함."",
+      ""impact"": null,
+      ""evidence"": [
+        ""Mobile Client에서 간헐적인 Crash가 보고되었습니다.""
+      ]
+    }
+  ],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""영향을 받은 Device 목록 전달"",
+      ""owner"": ""고객"",
+      ""due_date"": ""월요일"",
+      ""evidence"": [
+        ""고객은 영향을 받은 Device 목록을 월요일까지 전달하기로 했습니다.""
+      ]
+    },
+    {
+      ""action"": ""Crash 재현 완료"",
+      ""owner"": ""QA"",
+      ""due_date"": ""수요일"",
+      ""evidence"": [
+        ""QA는 수요일까지 Crash 재현을 완료할 예정입니다.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""수정 완료 일정"",
+      ""reason"": ""수정 완료 일정이 아직 정해지지 않음."",
+      ""needed_information"": ""Crash 수정 완료 목표 일정 또는 기한""
+    }
+  ]
+}","{""issues"": 1, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 2, ""uncertainties"": 1}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""고객""
+  },
+  {
+    ""path"": ""actions.1.owner"",
+    ""op"": ""contains"",
+    ""value"": ""QA""
+  }
+]",The intermittent Mobile Client crash is an existing issue. | The customer Device-list delivery and QA reproduction are separate actions. | Monday belongs to the customer Device-list action. | Wednesday belongs to QA crash reproduction. | The fix completion date remains unresolved.,2,2,2,2,2,100.0,"Correct issue, two independent actions with separate deadlines, and unresolved fix-completion date.",50.797,1542
+H-015,English,Action and Deadline,Future commitment without hypothetical failure risk,The external audio vendor will deliver the final mix on Friday. The internal team can continue using the temporary mix until then. No schedule impact has been identified.,"The external audio vendor is scheduled to deliver the final mix on Friday, while the internal team will continue utilizing the temporary mix in the interim, resulting in no identified schedule impact.","{
+  ""summary"": ""The external audio vendor is scheduled to deliver the final mix on Friday, while the internal team will continue utilizing the temporary mix in the interim, resulting in no identified schedule impact."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""Deliver the final mix"",
+      ""owner"": ""external audio vendor"",
+      ""due_date"": ""Friday"",
+      ""evidence"": [
+        ""The external audio vendor will deliver the final mix on Friday.""
+      ]
+    }
+  ],
+  ""uncertainties"": []
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 1, ""uncertainties"": 0}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""audio vendor""
+  },
+  {
+    ""path"": ""actions.0.due_date"",
+    ""op"": ""contains"",
+    ""value"": ""Friday""
+  }
+]",The Friday final-mix delivery is an explicit action. | The internal team can continue with the temporary mix. | Do not invent a risk that the vendor may miss Friday. | No schedule impact has been identified.,2,2,2,2,2,100.0,Correctly treats Friday delivery as an action and avoids fabricating vendor-failure risk or schedule impact.,10.717,1330
+H-016,Korean,Action and Deadline,Two future commitments + unresolved decision,Analytics Team은 새로운 기능의 운영 비용 추정치를 화요일까지 공유할 예정입니다. Product Team은 수요일에 제안 내용을 검토하기로 했습니다. 해당 기능을 실제로 추가할지는 아직 결정되지 않았습니다.,"Analytics Team은 화요일까지 새 기능의 운영 비용 추정치를 공유할 예정이며, Product Team은 수요일에 제안 내용을 검토할 계획입니다. 기능의 실제 추가 여부는 아직 결정되지 않았습니다.","{
+  ""summary"": ""Analytics Team은 화요일까지 새 기능의 운영 비용 추정치를 공유할 예정이며, Product Team은 수요일에 제안 내용을 검토할 계획입니다. 기능의 실제 추가 여부는 아직 결정되지 않았습니다."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [
+    {
+      ""action"": ""새로운 기능의 운영 비용 추정치 공유"",
+      ""owner"": ""Analytics Team"",
+      ""due_date"": ""화요일"",
+      ""evidence"": [
+        ""Analytics Team은 새로운 기능의 운영 비용 추정치를 화요일까지 공유할 예정입니다.""
+      ]
+    },
+    {
+      ""action"": ""제안 내용 검토"",
+      ""owner"": ""Product Team"",
+      ""due_date"": ""수요일"",
+      ""evidence"": [
+        ""Product Team은 수요일에 제안 내용을 검토하기로 했습니다.""
+      ]
+    }
+  ],
+  ""uncertainties"": [
+    {
+      ""item"": ""새로운 기능 추가 여부"",
+      ""reason"": ""해당 기능을 실제로 추가할지는 아직 결정되지 않았습니다."",
+      ""needed_information"": ""기능 추가 여부에 대한 최종 결정""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 2, ""uncertainties"": 1}","[
+  {
+    ""path"": ""actions.0.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Analytics Team""
+  },
+  {
+    ""path"": ""actions.1.owner"",
+    ""op"": ""contains"",
+    ""value"": ""Product Team""
+  }
+]",The Analytics Team cost estimate and Product Team review are two separate actions. | Tuesday belongs to the cost-estimate action. | Wednesday belongs to the Product Team review. | Whether the feature will actually be added remains unresolved. | Do not invent a requirement change approval or schedule impact.,2,2,2,2,2,100.0,Correctly separates the two future commitments and preserves the unresolved feature-addition decision without inventing approval or schedule impact.,126.235,1492
+H-017,English,Conflict and Negative,Conflicting requirement information without approval,"The signed operations requirement specifies seven days of log retention. During today's meeting, the Product Manager said that 30 days may be preferable for the enterprise launch, but the client has not approved a change. Operations continues to use the seven-day setting.","The signed operations requirement currently specifies a seven-day log retention policy, which Operations continues to follow. The Product Manager suggested that 30 days may be preferable for the enterprise launch, but no change has been approved by the client.","{
+  ""summary"": ""The signed operations requirement currently specifies a seven-day log retention policy, which Operations continues to follow. The Product Manager suggested that 30 days may be preferable for the enterprise launch, but no change has been approved by the client."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [
+    {
+      ""requirement"": ""Log retention duration for enterprise launch"",
+      ""previous_state"": ""7 days"",
+      ""new_state"": ""30 days"",
+      ""change_status"": ""proposed"",
+      ""evidence"": [
+        ""The signed operations requirement specifies seven days of log retention."",
+        ""During today's meeting, the Product Manager said that 30 days may be preferable for the enterprise launch, but the client has not approved a change.""
+      ]
+    }
+  ],
+  ""schedule_impacts"": [],
+  ""actions"": [],
+  ""uncertainties"": [
+    {
+      ""item"": ""Enterprise launch log retention requirement approval"",
+      ""reason"": ""The Product Manager suggested 30 days, but the client has not approved a change."",
+      ""needed_information"": ""Approval or rejection from the client regarding changing log retention from seven days to 30 days.""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 1, ""dependencies"": 0, ""requirement_changes"": 1, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 1}","[
+  {
+    ""path"": ""risks.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""inferred""
+  },
+  {
+    ""path"": ""requirement_changes.0.previous_state"",
+    ""op"": ""contains"",
+    ""value"": ""7""
+  },
+  {
+    ""path"": ""requirement_changes.0.new_state"",
+    ""op"": ""contains"",
+    ""value"": ""30""
+  },
+  {
+    ""path"": ""requirement_changes.0.change_status"",
+    ""op"": ""equals"",
+    ""value"": ""proposed""
+  }
+]",Seven days remains the signed/current requirement. | Thirty days is only a proposed value. | The conflicting current and proposed values support an inferred consistency/readiness risk. | Do not invent a schedule impact. | The final retention requirement remains unresolved.,2,1,2,1,2,80.0,"Current seven-day requirement, proposed 30-day state, and unresolved approval are preserved, but the supported inferred consistency/readiness risk is omitted.",4.307,1486
+H-018,Korean,Conflict and Negative,Conflicting schedule statements without final decision,현재 공식 Launch Date는 10월 10일입니다. Engineering Lead는 오늘 회의에서 10월 12일이 더 현실적이라고 말했지만 Project Manager는 공식 일정이 변경되지 않았다고 확인했습니다. 최종 일정 변경 결정은 내려지지 않았습니다.,"현재 공식 Launch Date는 10월 10일로 유지되고 있으며, Engineering Lead가 제안한 10월 12일로의 일정 변경에 대한 최종 결정은 아직 내려지지 않았습니다.","{
+  ""summary"": ""현재 공식 Launch Date는 10월 10일로 유지되고 있으며, Engineering Lead가 제안한 10월 12일로의 일정 변경에 대한 최종 결정은 아직 내려지지 않았습니다."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [
+    {
+      ""description"": ""Engineering Lead가 현실적인 Launch Date로 10월 12일을 제시하였으나 공식 일정은 변경되지 않았습니다."",
+      ""affected_milestone"": ""Launch Date"",
+      ""duration_change"": null,
+      ""impact_status"": ""potential"",
+      ""evidence"": [
+        ""Engineering Lead는 오늘 회의에서 10월 12일이 더 현실적이라고 말했지만 Project Manager는 공식 일정이 변경되지 않았다고 확인했습니다.""
+      ]
+    }
+  ],
+  ""actions"": [],
+  ""uncertainties"": [
+    {
+      ""item"": ""최종 Launch Date"",
+      ""reason"": ""최종 일정 변경 결정은 내려지지 않았습니다."",
+      ""needed_information"": ""Launch Date 일정 변경 여부에 대한 최종 결정""
+    }
+  ]
+}","{""issues"": 0, ""risks"": 1, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 1}","[
+  {
+    ""path"": ""risks.0.basis"",
+    ""op"": ""equals"",
+    ""value"": ""inferred""
+  }
+]","October 10 remains the official Launch Date. | October 12 is an Engineering Lead opinion, not an approved schedule change. | Do not select October 12 as the final schedule. | Do not create a confirmed schedule impact. | The unresolved item is the final schedule-change decision.",2,1,2,1,2,80.0,"The official October 10 date and unresolved decision are preserved, but the supported inferred risk is omitted and the unapproved October 12 opinion is instead represented as a potential schedule impact.",6.351,1482
+H-019,English,Conflict and Negative,Successful rollout with no findings,"The feature rollout was completed successfully across all target regions. Monitoring remained within normal ranges for 24 hours, and no incidents were reported. No follow-up action is required.","The feature rollout finished successfully across all target regions with normal monitoring for 24 hours and no incidents reported, requiring no follow-up action.","{
+  ""summary"": ""The feature rollout finished successfully across all target regions with normal monitoring for 24 hours and no incidents reported, requiring no follow-up action."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [],
+  ""uncertainties"": []
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 0}",[],The rollout completed successfully. | Monitoring remained normal and no incidents were reported. | No follow-up work is required. | Do not create any findings.,2,2,2,2,2,100.0,Clean successful-rollout negative case handled correctly with no fabricated findings.,19.42,1265
+H-020,Korean,Conflict and Negative,Clean status update without fabricated findings,고객은 현재 Scope에 추가 변경이 없다고 확인했습니다. Development Team은 기존 계획대로 작업 중이며 현재 Blocker나 새로운 Risk는 보고되지 않았습니다. 추가 Action Item도 없습니다.,"고객이 현재 범위에 추가 변경이 없음을 확인하였으며, 개발팀은 기존 계획대로 작업을 진행 중입니다. 현재 보고된 장애 요인(Blocker), 신규 리스크, 추가 액션 아이템은 없습니다.","{
+  ""summary"": ""고객이 현재 범위에 추가 변경이 없음을 확인하였으며, 개발팀은 기존 계획대로 작업을 진행 중입니다. 현재 보고된 장애 요인(Blocker), 신규 리스크, 추가 액션 아이템은 없습니다."",
+  ""issues"": [],
+  ""risks"": [],
+  ""dependencies"": [],
+  ""requirement_changes"": [],
+  ""schedule_impacts"": [],
+  ""actions"": [],
+  ""uncertainties"": []
+}","{""issues"": 0, ""risks"": 0, ""dependencies"": 0, ""requirement_changes"": 0, ""schedule_impacts"": 0, ""actions"": 0, ""uncertainties"": 0}",[],"This is a clean status-update negative case. | No scope change, blocker, risk, or action exists. | Do not create findings or uncertainties.",2,2,2,2,2,100.0,"Clean status-update negative case handled correctly with no fabricated issue, risk, uncertainty, or action.",18.906,1290

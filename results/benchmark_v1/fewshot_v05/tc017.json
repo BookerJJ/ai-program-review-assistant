@@ -1,0 +1,68 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-017",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Issue + dependency + potential test impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:29:38+04:00",
+  "completed_at": "2026-09-12T12:30:04+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 25.446,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1077,
+    "output_tokens": 388,
+    "total_tokens": 1465
+  },
+  "result": {
+    "summary": "The Data Team has identified that approximately 40% of the required test records are missing, which impacts the ability to proceed with integration testing scheduled for Friday. No revised test schedule has been approved, and the Data Team has not provided a completion date.",
+    "issues": [
+      {
+        "description": "Approximately 40% of the required test records are still missing.",
+        "impact": "Integration testing cannot proceed without the complete dataset.",
+        "evidence": [
+          "The Data Team reported that approximately 40% of the required test records are still missing."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "Integration testing may be delayed if the missing test records are not resolved before Friday.",
+        "impact": "Integration testing may be affected.",
+        "basis": "inferred",
+        "evidence": [
+          "Integration testing requires the complete dataset and is scheduled for Friday."
+        ]
+      }
+    ],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "The Friday integration test has a potential timing impact due to the missing test records.",
+        "affected_milestone": "Integration testing",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Integration testing requires the complete dataset and is scheduled for Friday."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Completion date for test records",
+        "reason": "The Data Team has not provided a completion date.",
+        "needed_information": "Completion date for test records"
+      },
+      {
+        "item": "Revised test schedule",
+        "reason": "No revised test schedule has been approved.",
+        "needed_information": "Revised test schedule"
+      }
+    ]
+  }
+}

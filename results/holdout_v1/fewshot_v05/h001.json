@@ -1,0 +1,60 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-001",
+  "language": "English",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Existing issue + action binding + unresolved release impact",
+  "status": "success",
+  "started_at": "2026-09-12T20:21:42+04:00",
+  "completed_at": "2026-09-12T20:22:09+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 27.628,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1081,
+    "output_tokens": 308,
+    "total_tokens": 1389
+  },
+  "result": {
+    "summary": "During checkout validation, the payment gateway returned 503 errors for all test transactions, leading QA to stop the checkout validation cycle. The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today. The release date has not been reviewed yet.",
+    "issues": [
+      {
+        "description": "Payment gateway returned 503 errors for all test transactions during checkout validation.",
+        "impact": null,
+        "evidence": [
+          "During checkout validation, the payment gateway returned 503 errors for all test transactions."
+        ]
+      },
+      {
+        "description": "QA stopped the checkout validation cycle.",
+        "impact": null,
+        "evidence": [
+          "QA stopped the checkout validation cycle."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Provide a status update on the gateway configuration investigation.",
+        "owner": "Platform Team",
+        "due_date": "4 PM today",
+        "evidence": [
+          "The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Release date",
+        "reason": "The release date has not been reviewed yet.",
+        "needed_information": "Release date review status"
+      }
+    ]
+  }
+}

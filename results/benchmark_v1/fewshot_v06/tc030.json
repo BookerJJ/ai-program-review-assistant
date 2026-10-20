@@ -1,0 +1,55 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-030",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Bilingual technical terms + unresolved requirement",
+  "status": "success",
+  "started_at": "2026-09-12T13:24:58+04:00",
+  "completed_at": "2026-09-12T13:25:26+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 28.25,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1377,
+    "output_tokens": 334,
+    "total_tokens": 1711
+  },
+  "result": {
+    "summary": "Production 기준에서 Feature Flag는 기본적으로 Disabled 상태입니다. 고객은 다음 Pilot Build에서 Default를 Enabled로 변경할 수 있는지 요청했으며, Engineering은 기술적으로 가능하다고 확인했지만 변경 승인은 아직 없습니다. Product Team은 다음 주 화요일 Review에서 최종 결정을 논의할 예정입니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Feature Flag Default State",
+        "previous_state": "Disabled",
+        "new_state": "Enabled",
+        "change_status": "proposed",
+        "evidence": [
+          "고객은 다음 Pilot Build에서 Default를 Enabled로 변경할 수 있는지 요청했습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Review the proposed change to enable Feature Flag by default in the next Pilot Build.",
+        "owner": "Product Team",
+        "due_date": "next week's Tuesday Review",
+        "evidence": [
+          "Product Team은 다음 주 화요일 Review에서 최종 결정을 논의할 예정입니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Approval of Feature Flag Default State change",
+        "reason": "The change has not been approved yet and depends on the Product Team's decision in the next Review meeting.",
+        "needed_information": "Approval status of the Feature Flag Default State change."
+      }
+    ]
+  }
+}

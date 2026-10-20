@@ -1,0 +1,57 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-011",
+  "language": "English",
+  "scenario_type": "Dependency and Schedule",
+  "primary_target": "Explicit dependency without invented timing risk",
+  "status": "success",
+  "started_at": "2026-09-12T20:24:51+04:00",
+  "completed_at": "2026-09-12T20:25:07+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 16.436,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1064,
+    "output_tokens": 268,
+    "total_tokens": 1332
+  },
+  "result": {
+    "summary": "Localization signoff is a prerequisite for store submission, which is scheduled for Wednesday. The Localization Team will complete the signoff on Monday.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Store submission",
+        "dependency_item": "Localization signoff",
+        "relationship": "Localization signoff must be completed before the store submission can begin.",
+        "basis": "explicit",
+        "evidence": [
+          "Localization signoff must be completed before the store submission can begin."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Store submission is scheduled for Wednesday, which depends on the Localization Team completing signoff on Monday.",
+        "affected_milestone": "Store submission",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Store submission is scheduled for Wednesday.",
+          "Localization Team will complete signoff on Monday."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Schedule concern",
+        "reason": "No schedule concern has been reported.",
+        "needed_information": "No additional information provided."
+      }
+    ]
+  }
+}

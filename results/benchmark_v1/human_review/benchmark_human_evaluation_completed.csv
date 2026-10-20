@@ -1,0 +1,31 @@
+test_case,language,difficulty,factual_correctness,completeness,unsupported_claim_control,classification_accuracy,meaning_preservation,semantic_score,review_notes
+TC-001,English,Simple,2,2,2,2,2,100.0,"Correctly captures the issue, action, Wednesday update deadline, and release-date uncertainty without inventing schedule impact."
+TC-006,English,Simple,2,2,1,1,2,80.0,Core issue and DevOps rerun action are correct. The extra uncertainty about whether the rerun will succeed is speculative and unnecessary.
+TC-007,Korean,Simple,2,2,1,2,2,90.0,"Issue and vendor Friday delivery action are correct. The uncertainty about QA resumption is plausible, but it adds speculative concern about whether the vendor will meet the committed date."
+TC-008,English,Simple,2,2,2,2,2,100.0,Clean negative case: no unsupported findings are created.
+TC-009,Korean,Simple,2,2,2,2,2,100.0,Correctly identifies the expired certificate issue and Infrastructure action with the proper deadline.
+TC-010,English,Simple,2,2,2,0,2,80.0,"All facts are preserved, but a successful backup and verification are incorrectly classified as an issue."
+TC-011,Korean,Simple,2,1,0,0,1,40.0,Misses the explicit UI Team Friday delivery action and replaces it with a speculative uncertainty that the delivery date may change.
+TC-012,English,Simple,2,2,2,1,2,90.0,Issue and 2 PM confirmation action are correct. The extra restoration-time uncertainty is unnecessary but does not materially distort the source.
+TC-013,Korean,Simple,1,2,0,1,2,60.0,"Issue and remediation action are correct, but an unsupported potential QA schedule impact is invented."
+TC-014,Korean,Simple,2,2,2,1,2,90.0,Confirmed 20-to-30 minute requirement change is correct. 'No schedule impact' is incorrectly emitted as a schedule-impact item.
+TC-002,Korean,Medium,1,1,0,0,1,30.0,"Still invents a risk that the Thursday delivery plan may fail, misses the explicit customer delivery action, and labels the System Test impact as unknown rather than potential."
+TC-003,English,Medium,1,1,1,1,2,60.0,"Requirement change and Friday review action are accurate, but the supported two-day effort impact and inferred risk are omitted; legal/compliance approval is introduced without support."
+TC-015,English,Medium,2,1,2,1,1,70.0,"Dependency, risk, and potential deployment impact are mostly preserved, but the gating condition is also misclassified as an issue and the Security Team Tuesday completion action is omitted."
+TC-016,Korean,Medium,1,1,1,1,1,50.0,"Requirement change is correct, but the supported conditional effort is mishandled: inferred risk is missing, Storage configuration is treated as a milestone, and the impact is marked confirmed instead of potential."
+TC-017,English,Medium,2,1,2,1,2,80.0,"Issue, future test risk, schedule impact, and uncertainties are well captured, but the explicit complete-dataset dependency is omitted."
+TC-018,Korean,Medium,1,1,0,0,1,30.0,"Issue and dependency are captured, but the model invents delivery-failure risk and schedule impact, misses the vendor's explicit Thursday action, and invents an Animation Team follow-up action."
+TC-019,English,Medium,2,2,2,2,2,100.0,Correctly separates both actions and binds Tuesday and Wednesday to the proper owners and deliverables.
+TC-020,Korean,Medium,2,1,2,0,2,70.0,"Current and proposed upload-size values are preserved, but the conflict is classified as an issue instead of the expected inferred risk."
+TC-021,English,Medium,2,2,2,2,2,100.0,"Correctly handles the technical issue, null owner/date for profiling, and unresolved follow-up information without inventing schedule delay."
+TC-022,Korean,Medium,2,1,2,1,1,70.0,"Confirmed timeout change is correct, but the Backend Team implementation action is omitted and an explicit 'no impact' statement is incorrectly represented as a schedule-impact object."
+TC-004,Korean,Difficult,2,1,2,1,2,80.0,"Issue and null impact are correct with no invented delay, but the explicit profiling dependency and profiling action are omitted and an extra release-plan uncertainty is created."
+TC-005,English,Difficult,1,1,2,1,2,70.0,"Requirement values and proposed status are correctly separated, but the conflict is incorrectly classified as an issue, the supported inferred risk is missed, and one evidence quote corrupts 90% as 9,0%."
+TC-023,English,Difficult,2,2,2,2,2,100.0,"Correctly preserves Thursday as the official plan, Friday as an unapproved alternative, and the resulting inferred risk/uncertainty without inventing a confirmed schedule change."
+TC-024,Korean,Difficult,2,1,2,1,1,70.0,"Correctly binds Tuesday to sharing investigation results, but misses the fix-to-retest dependency and the QA retest action."
+TC-025,English,Difficult,2,1,2,1,2,80.0,"Proposed audit-logging change and conditional three-day effort are preserved in the summary, but the supported risk and schedule-impact structures are omitted and an unnecessary release-milestone uncertainty is added."
+TC-026,Korean,Difficult,2,2,2,2,2,100.0,Correctly captures both explicit dependency links and the unresolved Security Review owner without inventing release impact.
+TC-027,English,Difficult,2,2,2,2,2,100.0,"Correctly captures the performance issue, Engineering investigation, null remediation deadline, and explicitly ruled-out release-date impact."
+TC-028,Korean,Difficult,2,2,2,0,1,70.0,"Proposed Export removal and current scope are preserved, but both facts are incorrectly emitted as issues and 'proposed' is redundantly mixed into new_state."
+TC-029,English,Difficult,2,1,2,0,2,70.0,"Requirement change, Account Team action, Friday deadline, and uncertainty are correct, but the current signed criterion is misclassified as an issue and the expected inferred risk is missed."
+TC-030,Korean,Difficult,2,2,2,1,2,90.0,"Requirement change, Product Team review action, and unresolved approval are preserved; the current Disabled state is unnecessarily classified as an issue. The translated Tuesday deadline preserves meaning."

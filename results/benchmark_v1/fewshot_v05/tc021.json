@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-021",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Technical issue with unknown impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:31:23+04:00",
+  "completed_at": "2026-09-12T12:31:43+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.645,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1067,
+    "output_tokens": 291,
+    "total_tokens": 1358
+  },
+  "result": {
+    "summary": "Load testing revealed that CPU utilization on two application servers exceeded internal targets. Engineering is conducting additional profiling, but no owner or completion date has been assigned. The release plan remains unchanged until profiling results are available.",
+    "issues": [
+      {
+        "description": "CPU utilization on two application servers exceeded internal targets during load testing.",
+        "impact": null,
+        "evidence": [
+          "Load testing showed CPU utilization above the internal target on two application servers."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Perform additional profiling to address CPU utilization issues.",
+        "owner": null,
+        "due_date": null,
+        "evidence": [
+          "Engineering will perform additional profiling."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Owner and completion date for profiling",
+        "reason": "No owner or completion date has been assigned for the profiling task.",
+        "needed_information": "Owner and completion date for the profiling task."
+      },
+      {
+        "item": "Release plan status",
+        "reason": "The release plan remains unchanged pending the profiling results.",
+        "needed_information": "Profiling results to determine if the release plan needs adjustment."
+      }
+    ]
+  }
+}

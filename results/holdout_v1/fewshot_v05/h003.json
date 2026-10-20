@@ -1,0 +1,30 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-003",
+  "language": "English",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Completed activity without false findings",
+  "status": "success",
+  "started_at": "2026-09-12T20:22:27+04:00",
+  "completed_at": "2026-09-12T20:22:32+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 4.166,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1058,
+    "output_tokens": 73,
+    "total_tokens": 1131
+  },
+  "result": {
+    "summary": "The nightly data export completed successfully, and QA confirmed no errors in the exported records. No further action is required.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

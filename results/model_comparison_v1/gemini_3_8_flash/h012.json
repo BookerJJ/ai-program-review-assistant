@@ -1,0 +1,68 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-012",
+  "language": "Korean",
+  "scenario_type": "Dependency and Schedule",
+  "primary_target": "Multi-step dependency chain + missing owner",
+  "status": "success",
+  "started_at": "2026-09-13T16:45:50+04:00",
+  "completed_at": "2026-09-13T16:45:52+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 2.288,
+    "input_tokens": 1186,
+    "output_tokens": 377,
+    "thinking_tokens": 0,
+    "total_tokens": 1563
+  },
+  "result": {
+    "summary": "Pilot Access 활성화를 위해 Security Review 완료 후 Privacy Approval을 거쳐야 하는 선행 조건이 있으나, Security Review 담당자가 아직 지정되지 않은 상태입니다. 현재 일정 변경은 없습니다.",
+    "issues": [
+      {
+        "description": "Security Review 담당자가 아직 지정되지 않았습니다.",
+        "impact": null,
+        "evidence": [
+          "Security Review 담당자는 아직 지정되지 않았으며"
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Privacy Approval",
+        "dependency_item": "Security Review",
+        "relationship": "Security Review가 완료된 이후에 Privacy Approval을 받을 수 있습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "Security Review가 완료된 이후에 Privacy Approval을 받을 수 있습니다."
+        ]
+      },
+      {
+        "dependent_item": "Pilot Access 활성화",
+        "dependency_item": "Privacy Approval",
+        "relationship": "Privacy Approval이 완료되어야 Pilot Access를 활성화할 수 있습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "Privacy Approval이 완료되어야 Pilot Access를 활성화할 수 있습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Security Review 담당자",
+        "reason": "Security Review 담당자가 아직 지정되지 않았습니다.",
+        "needed_information": "지정될 Security Review 담당자 정보"
+      }
+    ]
+  }
+}

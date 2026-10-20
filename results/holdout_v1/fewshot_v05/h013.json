@@ -1,0 +1,61 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-013",
+  "language": "English",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Two owners + two deadlines + unresolved remediation date",
+  "status": "success",
+  "started_at": "2026-09-12T20:25:26+04:00",
+  "completed_at": "2026-09-12T20:25:42+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 15.527,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1062,
+    "output_tokens": 260,
+    "total_tokens": 1322
+  },
+  "result": {
+    "summary": "An intermittent connection drop is under investigation. Support will collect session logs by Tuesday, and Engineering will review them by Thursday. No remediation date has been committed.",
+    "issues": [
+      {
+        "description": "An intermittent connection drop is under investigation.",
+        "impact": null,
+        "evidence": [
+          "An intermittent connection drop is under investigation."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Collect the affected session logs.",
+        "owner": "Support",
+        "due_date": "Tuesday",
+        "evidence": [
+          "Support will collect the affected session logs by Tuesday."
+        ]
+      },
+      {
+        "action": "Review the collected logs.",
+        "owner": "Engineering",
+        "due_date": "Thursday",
+        "evidence": [
+          "Engineering will review the collected logs by Thursday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Remediation timeline",
+        "reason": "No remediation date has been committed.",
+        "needed_information": "Remediation date commitment"
+      }
+    ]
+  }
+}

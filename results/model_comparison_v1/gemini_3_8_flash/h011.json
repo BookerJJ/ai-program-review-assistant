@@ -1,0 +1,54 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-011",
+  "language": "English",
+  "scenario_type": "Dependency and Schedule",
+  "primary_target": "Explicit dependency without invented timing risk",
+  "status": "success",
+  "started_at": "2026-09-13T16:45:48+04:00",
+  "completed_at": "2026-09-13T16:45:50+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 2.399,
+    "input_tokens": 1179,
+    "output_tokens": 238,
+    "thinking_tokens": 0,
+    "total_tokens": 1417
+  },
+  "result": {
+    "summary": "Store submission requires completion of localization signoff. The Localization Team is scheduled to complete signoff on Monday, ahead of the store submission scheduled for Wednesday, with no reported schedule concerns.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Store submission",
+        "dependency_item": "Localization signoff",
+        "relationship": "Localization signoff must be completed before the store submission can begin.",
+        "basis": "explicit",
+        "evidence": [
+          "Localization signoff must be completed before the store submission can begin."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Complete signoff",
+        "owner": "Localization Team",
+        "due_date": "Monday",
+        "evidence": [
+          "The Localization Team will complete signoff on Monday."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

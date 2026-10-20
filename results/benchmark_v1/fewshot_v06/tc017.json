@@ -1,0 +1,59 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-017",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Issue + dependency + potential test impact",
+  "status": "success",
+  "started_at": "2026-09-12T13:19:07+04:00",
+  "completed_at": "2026-09-12T13:19:33+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 25.095,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1352,
+    "output_tokens": 324,
+    "total_tokens": 1676
+  },
+  "result": {
+    "summary": "The Data Team reported that approximately 40% of the required test records are still missing, which impacts the integration testing that is scheduled for Friday. The Data Team has not provided a completion date, and no revised test schedule has been approved.",
+    "issues": [
+      {
+        "description": "Approximately 40% of the required test records are still missing.",
+        "impact": null,
+        "evidence": [
+          "The Data Team reported that approximately 40% of the required test records are still missing."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Integration testing is scheduled for Friday, but the missing test records may delay the testing.",
+        "affected_milestone": "Integration testing",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Integration testing requires the complete dataset and is scheduled for Friday."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Completion date for the missing test records",
+        "reason": "The Data Team has not provided a completion date for the missing test records.",
+        "needed_information": "Completion date for the missing test records"
+      },
+      {
+        "item": "Revised test schedule",
+        "reason": "No revised test schedule has been approved.",
+        "needed_information": "Revised test schedule"
+      }
+    ]
+  }
+}

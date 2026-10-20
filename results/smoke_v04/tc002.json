@@ -1,0 +1,74 @@
+{
+  "test_case": "TC-002",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "prompt_version": "grounded-v0.4",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 33.351,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 858,
+    "output_tokens": 596,
+    "total_tokens": 1454
+  },
+  "result": {
+    "summary": "최종 API 명세서의 전달 일정이 변경되었으며, 이에 따라 Integration Module 개발이 지연될 수 있습니다. System Test 일정은 아직 합의되지 않았습니다.",
+    "issues": [
+      {
+        "description": "최종 API 명세서는 월요일까지 전달될 예정이었지만, 아직 고객으로부터 전달되지 않았습니다.",
+        "impact": "Integration Module 개발을 시작할 수 없습니다.",
+        "evidence": [
+          "최종 API 명세서는 월요일까지 전달될 예정이었지만, 아직 고객으로부터 전달되지 않았습니다."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "고객이 목요일까지 명세서를 전달할 계획이라고 했지만, 이는 확정된 일정이 아닙니다.",
+        "impact": "Integration Module 개발 시작 시점이 지연될 수 있습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "고객은 목요일까지 명세서를 전달할 계획이라고 했습니다."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "Integration Module 개발",
+        "dependency_item": "최종 API 명세서",
+        "relationship": "must be completed before",
+        "basis": "explicit",
+        "evidence": [
+          "최종 명세서를 받기 전에는 Integration Module 개발을 시작할 수 없습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다.",
+        "affected_milestone": "System Test",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "System Test 일정",
+        "reason": "현재까지 수정된 일정은 합의되지 않았습니다.",
+        "needed_information": "System Test 일정에 대한 최종 합의"
+      },
+      {
+        "item": "최종 API 명세서 전달 일정",
+        "reason": "고객이 목요일까지 전달할 계획이라고 했지만, 이는 확정된 일정이 아닙니다.",
+        "needed_information": "고객의 명세서 전달 일정에 대한 확정"
+      }
+    ]
+  }
+}

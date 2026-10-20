@@ -1,0 +1,36 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-019",
+  "language": "English",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Successful rollout with no findings",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-15T11:01:03+04:00",
+  "completed_at": "2026-09-15T11:01:31+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 19.42,
+    "input_tokens": 1178,
+    "output_tokens": 87,
+    "thinking_tokens": 0,
+    "total_tokens": 1265
+  },
+  "result": {
+    "summary": "The feature rollout finished successfully across all target regions with normal monitoring for 24 hours and no incidents reported, requiring no follow-up action.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

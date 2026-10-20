@@ -1,0 +1,65 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-025",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conditional change + explicit effort + no milestone",
+  "status": "success",
+  "started_at": "2026-09-12T13:22:52+04:00",
+  "completed_at": "2026-09-12T13:23:25+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 32.986,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1347,
+    "output_tokens": 396,
+    "total_tokens": 1743
+  },
+  "result": {
+    "summary": "The client proposed enabling audit logging for all administrator actions. Engineering estimated that the change would require approximately three additional development days if approved. The client has not yet confirmed the change, and no release milestone was referenced.",
+    "issues": [],
+    "risks": [
+      {
+        "description": "If approved, the proposed change would add engineering effort.",
+        "impact": null,
+        "basis": "inferred",
+        "evidence": [
+          "The client proposed enabling audit logging for all administrator actions. Engineering estimated that the proposal would require approximately three additional development days if approved. The client has not yet confirmed the change, and no release milestone was referenced in the discussion."
+        ]
+      }
+    ],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Audit logging for administrator actions",
+        "previous_state": null,
+        "new_state": "Enabled",
+        "change_status": "proposed",
+        "evidence": [
+          "The client proposed enabling audit logging for all administrator actions."
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "The proposed change would require approximately three additional development days if approved.",
+        "affected_milestone": null,
+        "duration_change": "approximately three additional development days",
+        "impact_status": "potential",
+        "evidence": [
+          "The client proposed enabling audit logging for all administrator actions. Engineering estimated that the proposal would require approximately three additional development days if approved. The client has not yet confirmed the change, and no release milestone was referenced in the discussion."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Approval of audit logging for administrator actions",
+        "reason": "The change is proposed and has not been approved.",
+        "needed_information": "Approval status of the audit logging change."
+      }
+    ]
+  }
+}

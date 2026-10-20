@@ -1,0 +1,71 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-014",
+  "language": "Korean",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Multiple independent actions with separate deadlines",
+  "status": "success",
+  "started_at": "2026-09-12T20:25:42+04:00",
+  "completed_at": "2026-09-12T20:26:10+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 28.491,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1097,
+    "output_tokens": 466,
+    "total_tokens": 1563
+  },
+  "result": {
+    "summary": "Mobile Client에서 간헐적인 Crash가 보고되었으며, 고객은 영향을 받은 Device 목록을 월요일까지 전달하기로 했습니다. QA는 수요일까지 Crash 재현을 완료할 예정입니다. 수정 완료 일정은 아직 정해지지 않았습니다.",
+    "issues": [
+      {
+        "description": "Mobile Client에서 간헐적인 Crash가 발생하고 있습니다.",
+        "impact": null,
+        "evidence": [
+          "Mobile Client에서 간헐적인 Crash가 보고되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "수정 완료 일정이 아직 정해지지 않았기 때문에 수정 작업의 일정에 대한 영향이 있습니다.",
+        "affected_milestone": "수정 완료",
+        "duration_change": null,
+        "impact_status": "unknown",
+        "evidence": [
+          "수정 완료 일정은 아직 정해지지 않았습니다."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "고객으로부터 영향을 받은 Device 목록을 받습니다.",
+        "owner": "고객",
+        "due_date": "월요일",
+        "evidence": [
+          "고객은 영향을 받은 Device 목록을 월요일까지 전달하기로 했습니다."
+        ]
+      },
+      {
+        "action": "Crash 재현을 완료합니다.",
+        "owner": "QA",
+        "due_date": "수요일",
+        "evidence": [
+          "QA는 수요일까지 Crash 재현을 완료할 예정입니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "수정 완료 일정",
+        "reason": "수정 완료 일정은 아직 정해지지 않았습니다.",
+        "needed_information": "수정 완료 일정이 정해지면 추가 분석이 가능합니다."
+      }
+    ]
+  }
+}

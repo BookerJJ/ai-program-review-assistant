@@ -1,0 +1,63 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-029",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conflicting criteria + explicit clarification action",
+  "status": "success",
+  "started_at": "2026-09-12T12:35:11+04:00",
+  "completed_at": "2026-09-12T12:35:42+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 30.506,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1092,
+    "output_tokens": 396,
+    "total_tokens": 1488
+  },
+  "result": {
+    "summary": "The project has a specified minimum throughput of 1,000 requests per second. A recent client message suggests that 900 requests per second may be sufficient for the pilot, but no formal change has been approved. The Account Team will seek written confirmation by Friday, and no schedule changes have been discussed.",
+    "issues": [
+      {
+        "description": "The project is bound by a minimum throughput requirement of 1,000 requests per second as per the signed acceptance document.",
+        "impact": null,
+        "evidence": [
+          "The signed acceptance document specifies a minimum throughput of 1,000 requests per second."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Minimum throughput for the pilot",
+        "previous_state": "1,000 requests per second",
+        "new_state": "900 requests per second",
+        "change_status": "proposed",
+        "evidence": [
+          "A recent client message mentioned that 900 requests per second may be sufficient for the pilot."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Request written confirmation of the proposed throughput change.",
+        "owner": "Account Team",
+        "due_date": "Friday",
+        "evidence": [
+          "The Account Team will request written confirmation by Friday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Final throughput requirement for the pilot",
+        "reason": "The client has not approved a formal change to the requirement, and the confirmation is pending written approval by the Account Team.",
+        "needed_information": "Formal approval of the proposed throughput change."
+      }
+    ]
+  }
+}

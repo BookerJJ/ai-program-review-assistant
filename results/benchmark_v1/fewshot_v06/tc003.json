@@ -1,0 +1,65 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-003",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Proposed requirement + supported effort impact",
+  "status": "success",
+  "started_at": "2026-09-12T13:17:54+04:00",
+  "completed_at": "2026-09-12T13:18:22+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 28.711,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1365,
+    "output_tokens": 364,
+    "total_tokens": 1729
+  },
+  "result": {
+    "summary": "The client proposed changing the encryption key rotation interval from every 90 days to every 30 days. The Security Lead indicated that this change would require configuration redesign and approximately two additional engineering days. The Architecture Team will review the proposal on Friday, and the change has not yet been approved.",
+    "issues": [],
+    "risks": [
+      {
+        "description": "If approved, the proposed change would add engineering effort.",
+        "impact": null,
+        "basis": "inferred",
+        "evidence": [
+          "The Security Lead said the change would require configuration redesign and approximately two additional engineering days."
+        ]
+      }
+    ],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Encryption key rotation interval",
+        "previous_state": "every 90 days",
+        "new_state": "every 30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The client proposed changing the interval to every 30 days."
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "The proposed change would require approximately two additional engineering days if approved.",
+        "affected_milestone": null,
+        "duration_change": "approximately two additional engineering days",
+        "impact_status": "potential",
+        "evidence": [
+          "The Security Lead said the change would require configuration redesign and approximately two additional engineering days."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Approval of encryption key rotation interval change",
+        "reason": "The change has not yet been approved.",
+        "needed_information": "Approval status of the proposed change."
+      }
+    ]
+  }
+}

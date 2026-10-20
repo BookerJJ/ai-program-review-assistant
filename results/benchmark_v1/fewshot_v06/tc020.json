@@ -1,0 +1,46 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-020",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Conflicting requirement information",
+  "status": "success",
+  "started_at": "2026-09-12T13:20:22+04:00",
+  "completed_at": "2026-09-12T13:20:43+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.774,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1368,
+    "output_tokens": 243,
+    "total_tokens": 1611
+  },
+  "result": {
+    "summary": "The project's current requirement for maximum upload size is 100MB as defined in the Requirements document. The customer has requested an increase to 200MB in an email, but no official change approval has been received. Engineering is continuing development based on the existing 100MB requirement.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Maximum Upload Size",
+        "previous_state": "100MB",
+        "new_state": "200MB",
+        "change_status": "proposed",
+        "evidence": [
+          "오늘 고객 이메일에서는 200MB가 필요하다고 언급했지만 공식 변경 승인은 아직 없습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final maximum upload size",
+        "reason": "The proposed change has not been approved yet.",
+        "needed_information": "Official change approval"
+      }
+    ]
+  }
+}

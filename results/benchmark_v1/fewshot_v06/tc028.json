@@ -1,0 +1,46 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-028",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Proposed scope removal with current state preserved",
+  "status": "success",
+  "started_at": "2026-09-12T13:24:12+04:00",
+  "completed_at": "2026-09-12T13:24:33+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 21.006,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1365,
+    "output_tokens": 270,
+    "total_tokens": 1635
+  },
+  "result": {
+    "summary": "고객은 Pilot 버전에서 Export 기능을 제외하는 방안을 제안했으나, Product Lead는 고객의 최종 확인 전까지 기존 Scope를 유지하겠다고 했습니다. 현재 개발팀은 Export 기능을 포함한 기존 Scope 기준으로 작업 중입니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Export 기능",
+        "previous_state": "포함",
+        "new_state": "제외",
+        "change_status": "proposed",
+        "evidence": [
+          "고객은 Pilot 버전에서 Export 기능을 제외하는 방안을 제안했습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Export 기능의 포함 여부",
+        "reason": "고객의 제안은 아직 최종 확인이 이루어지지 않았으며, Product Lead는 고객의 최종 확인 전까지 기존 Scope를 유지하겠다고 했습니다.",
+        "needed_information": "고객의 최종 확인 여부"
+      }
+    ]
+  }
+}

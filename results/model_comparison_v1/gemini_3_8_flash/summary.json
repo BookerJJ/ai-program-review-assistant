@@ -1,0 +1,114 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "evaluation_role": "frozen_cross_model_comparison",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "low",
+  "temperature": 0.0,
+  "comparison_started_at": "2026-09-15T11:00:57+04:00",
+  "comparison_completed_at": "2026-09-15T11:01:50+04:00",
+  "total_cases": 20,
+  "artifacts_present": 20,
+  "pending_cases": 0,
+  "pending_case_ids": [],
+  "successful_cases": 20,
+  "failed_cases": 0,
+  "failed_case_ids": [],
+  "average_latency_seconds": 19.257,
+  "token_usage": {
+    "input_tokens": 23739,
+    "output_tokens": 6260,
+    "thinking_tokens": 0,
+    "total_tokens": 29999
+  },
+  "rate_limit_handling": {
+    "request_interval_seconds": 15.0,
+    "max_attempts_per_case": 4,
+    "retryable_error_types": [
+      "RateLimitError"
+    ],
+    "same_run_retries": {},
+    "archived_error_artifacts_by_case": {
+      "H-004": 1,
+      "H-005": 1,
+      "H-006": 1,
+      "H-007": 1,
+      "H-013": 11,
+      "H-014": 9,
+      "H-015": 6,
+      "H-016": 6,
+      "H-017": 6,
+      "H-018": 7,
+      "H-019": 6,
+      "H-020": 6
+    },
+    "observed_free_tier_rpd_limit": 20
+  },
+  "by_language": {
+    "English": {
+      "total": 10,
+      "artifacts_present": 10,
+      "success": 10,
+      "failed": 0,
+      "pending": 0
+    },
+    "Korean": {
+      "total": 10,
+      "artifacts_present": 10,
+      "success": 10,
+      "failed": 0,
+      "pending": 0
+    }
+  },
+  "by_scenario_type": {
+    "Action and Deadline": {
+      "total": 4,
+      "artifacts_present": 4,
+      "success": 4,
+      "failed": 0,
+      "pending": 0
+    },
+    "Conflict and Negative": {
+      "total": 4,
+      "artifacts_present": 4,
+      "success": 4,
+      "failed": 0,
+      "pending": 0
+    },
+    "Dependency and Schedule": {
+      "total": 4,
+      "artifacts_present": 4,
+      "success": 4,
+      "failed": 0,
+      "pending": 0
+    },
+    "Operational Incident": {
+      "total": 4,
+      "artifacts_present": 4,
+      "success": 4,
+      "failed": 0,
+      "pending": 0
+    },
+    "Requirement Change": {
+      "total": 4,
+      "artifacts_present": 4,
+      "success": 4,
+      "failed": 0,
+      "pending": 0
+    }
+  },
+  "methodology": {
+    "same_holdout_inputs": true,
+    "same_golden_expectations": true,
+    "same_prompt_semantics": true,
+    "same_output_schema": true,
+    "gemini_specific_prompt_tuning": false,
+    "local_baseline_modified": false,
+    "synthetic_data_only": true,
+    "successful_outputs_regenerated": false,
+    "transient_rate_limits_retryable": true,
+    "daily_quota_exhaustion_retried_in_process": false
+  }
+}

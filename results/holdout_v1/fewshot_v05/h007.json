@@ -1,0 +1,46 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-007",
+  "language": "English",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Proposed setting change + approval dependency",
+  "status": "success",
+  "started_at": "2026-09-12T20:23:25+04:00",
+  "completed_at": "2026-09-12T20:23:38+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 12.697,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1067,
+    "output_tokens": 228,
+    "total_tokens": 1295
+  },
+  "result": {
+    "summary": "Telemetry collection is currently disabled by default. The Product team proposed enabling it by default for the Beta release. Legal has stated that the change cannot be approved until client consent is received. No final decision has been made.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Telemetry collection default state for Beta",
+        "previous_state": "disabled",
+        "new_state": "enabled",
+        "change_status": "proposed",
+        "evidence": [
+          "Telemetry collection is currently disabled by default. Product proposed enabling it by default for the Beta."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final approval for telemetry collection change",
+        "reason": "Legal stated that the change cannot be approved until client consent is received. No final decision has been made.",
+        "needed_information": "Client consent status and legal approval status."
+      }
+    ]
+  }
+}

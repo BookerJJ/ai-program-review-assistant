@@ -1,0 +1,56 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-002",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Risk vs issue + dependency + missing duration",
+  "status": "success",
+  "started_at": "2026-09-12T13:17:24+04:00",
+  "completed_at": "2026-09-12T13:17:54+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 30.135,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1401,
+    "output_tokens": 404,
+    "total_tokens": 1805
+  },
+  "result": {
+    "summary": "최종 API 명세서는 고객이 목요일까지 전달할 계획이라고 했지만, 아직 전달되지 않았습니다. Integration Module 개발은 명세서 전달 후 시작해야 하며, System Test 일정은 현재까지 수정된 상태가 합의되지 않았습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Integration Module 개발",
+        "dependency_item": "최종 API 명세서 전달",
+        "relationship": "must happen after",
+        "basis": "inferred",
+        "evidence": [
+          "최종 명세서를 받기 전에는 Integration Module 개발을 시작할 수 없습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "System Test 일정은 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다.",
+        "affected_milestone": "System Test",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "최종 API 명세서 전달",
+        "reason": "최종 API 명세서는 월요일까지 전달될 예정이었지만 아직 고객으로부터 전달되지 않았습니다. 고객은 목요일까지 전달할 계획이라고 했습니다. 고객의 전달 여부는 불확실합니다.",
+        "needed_information": "최종 API 명세서 전달 여부 및 정확한 일정"
+      }
+    ]
+  }
+}

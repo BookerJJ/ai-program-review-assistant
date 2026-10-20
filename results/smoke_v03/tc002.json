@@ -1,0 +1,92 @@
+{
+  "test_case": "TC-002",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "prompt_version": "grounded-v0.3",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 43.234,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1010,
+    "output_tokens": 788,
+    "total_tokens": 1798
+  },
+  "result": {
+    "summary": "최종 API 명세서의 전달 일정이 변경되었으며, 이에 따라 Integration Module 개발 시작이 지연될 수 있습니다. System Test 일정은 아직 합의되지 않았습니다.",
+    "issues": [
+      {
+        "description": "최종 API 명spec서는 월요일까지 전달될 예정이었지만, 아직 고객으로부터 전달되지 않았습니다.",
+        "impact": "Integration Module 개발을 시작할 수 없습니다.",
+        "evidence": [
+          "최종 API 명세서는 월요일까지 전달될 예정이었지만, 아직 고객으로부터 전달되지 않았습니다."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "고객이 목요일까지 명세서를 전달할 계획이라고 했지만, 이는 확정된 일정이 아닙니다.",
+        "impact": "Integration Module 개발 시작이 지연될 수 있습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "고객은 목요일까지 명세서를 전달할 계획이라고 했습니다."
+        ]
+      },
+      {
+        "description": "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다.",
+        "impact": "System Test 일정이 확정되지 않았습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "Integration Module 개발",
+        "dependency_item": "최종 API 명세서 전달",
+        "relationship": "must be completed before",
+        "basis": "explicit",
+        "evidence": [
+          "최종 명세서를 받기 전에는 Integration Module 개발을 시작할 수 없습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Integration Module 개발 시작이 지연될 수 있습니다.",
+        "affected_milestone": "Integration Module 개발 시작",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "최종 API 명세서는 월요일까지 전달될 예정이었지만, 아직 고객으로부터 전달되지 않았습니다.",
+          "고객은 목요일까지 명세서를 전달할 계획이라고 했습니다."
+        ]
+      },
+      {
+        "description": "System Test 일정이 확정되지 않았습니다.",
+        "affected_milestone": "System Test",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "System Test는 다음 주 월요일로 예정되어 있지만, 현재까지 수정된 일정은 합의되지 않았습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "최종 API 명세서 전달 일정",
+        "reason": "고객이 목요일까지 전달할 계획이라고 했지만, 이는 확정된 일정이 아닙니다.",
+        "needed_information": "고객이 명세서를 전달할 정확한 일정"
+      },
+      {
+        "item": "System Test 일정",
+        "reason": "현재까지 수정된 일정은 합의되지 않았습니다.",
+        "needed_information": "System Test 일정에 대한 최종 합의"
+      }
+    ]
+  }
+}

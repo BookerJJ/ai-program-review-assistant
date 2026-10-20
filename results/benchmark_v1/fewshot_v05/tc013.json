@@ -1,0 +1,57 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-013",
+  "language": "Korean",
+  "difficulty": "Simple",
+  "primary_target": "Issue + explicit remediation action",
+  "status": "success",
+  "started_at": "2026-09-12T12:27:26+04:00",
+  "completed_at": "2026-09-12T12:27:46+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.068,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1070,
+    "output_tokens": 333,
+    "total_tokens": 1403
+  },
+  "result": {
+    "summary": "Accessibility Review에서 두 개의 버튼에 Screen Reader Label이 누락된 문제가 발견되었습니다. UI Engineering이 해당 Label을 추가하고, 수요일까지 QA에 수정 내용을 전달하기로 했습니다.",
+    "issues": [
+      {
+        "description": "두 개의 버튼에 Screen Reader Label이 없습니다.",
+        "impact": null,
+        "evidence": [
+          "Accessibility Review에서 두 개의 버튼에 Screen Reader Label이 없는 것이 확인되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "UI Engineering이 수요일까지 QA에 수정 내용을 전달해야 하므로, QA의 검증 일정에 영향을 줄 수 있습니다.",
+        "affected_milestone": "QA 검증",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "UI Engineering이 해당 Label을 추가하고 수요일까지 수정 내용을 QA에 전달하기로 했습니다."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "UI Engineering이 Screen Reader Label을 추가하고, 수요일까지 QA에 수정 내용을 전달합니다.",
+        "owner": "UI Engineering",
+        "due_date": "수요일",
+        "evidence": [
+          "UI Engineering이 해당 Label을 추가하고 수요일까지 수정 내용을 QA에 전달하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

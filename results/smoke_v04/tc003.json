@@ -1,0 +1,56 @@
+{
+  "test_case": "TC-003",
+  "language": "English",
+  "difficulty": "Medium",
+  "prompt_version": "grounded-v0.4",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 17.518,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 822,
+    "output_tokens": 312,
+    "total_tokens": 1134
+  },
+  "result": {
+    "summary": "The client has proposed reducing the encryption key rotation interval from 90 days to 30 days. This change requires configuration redesign and approximately two additional engineering days. The Architecture Team is scheduled to review the proposal on Friday, and the change has not yet been approved.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "encryption key rotation interval",
+        "previous_state": "90 days",
+        "new_state": "30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The client proposed changing the interval to every 30 days."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "review the proposal",
+        "owner": "Architecture Team",
+        "due_date": "Friday",
+        "evidence": [
+          "The Architecture Team will review the proposal on Friday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "approval status of the requirement change",
+        "reason": "The change has not yet been approved.",
+        "needed_information": "approval status"
+      },
+      {
+        "item": "impact of the requirement change on schedule",
+        "reason": "The change has not been approved and its impact on schedule is not yet determined.",
+        "needed_information": "schedule impact details"
+      }
+    ]
+  }
+}

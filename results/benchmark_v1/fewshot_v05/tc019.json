@@ -1,0 +1,61 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-019",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Multiple actions with different deadlines",
+  "status": "success",
+  "started_at": "2026-09-12T12:30:44+04:00",
+  "completed_at": "2026-09-12T12:31:01+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 17.503,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1058,
+    "output_tokens": 256,
+    "total_tokens": 1314
+  },
+  "result": {
+    "summary": "Engineering is investigating a crash and will provide an initial analysis by Tuesday. QA will prepare a reproduction package by Wednesday. No fix date has been committed.",
+    "issues": [
+      {
+        "description": "A crash is under investigation.",
+        "impact": null,
+        "evidence": [
+          "Engineering is investigating the crash"
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Provide an initial analysis of the crash.",
+        "owner": "Engineering",
+        "due_date": "Tuesday",
+        "evidence": [
+          "Engineering is investigating the crash and will provide an initial analysis by Tuesday"
+        ]
+      },
+      {
+        "action": "Prepare a reproduction package.",
+        "owner": "QA",
+        "due_date": "Wednesday",
+        "evidence": [
+          "QA will prepare a reproduction package by Wednesday"
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Fix date",
+        "reason": "A fix date has not been committed.",
+        "needed_information": "Fix date commitment"
+      }
+    ]
+  }
+}

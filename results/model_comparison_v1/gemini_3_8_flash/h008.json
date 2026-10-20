@@ -1,0 +1,67 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-008",
+  "language": "Korean",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Conditional scope change + explicit additional effort",
+  "status": "success",
+  "started_at": "2026-09-13T16:44:26+04:00",
+  "completed_at": "2026-09-13T16:44:34+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 7.482,
+    "input_tokens": 1199,
+    "output_tokens": 428,
+    "thinking_tokens": 0,
+    "total_tokens": 1627
+  },
+  "result": {
+    "summary": "고객이 High-Resolution Texture 지원 추가를 제안했으며, Engineering은 변경 승인 시 약 이틀의 추가 작업이 소요될 것으로 파악했습니다. 해당 안건은 아직 미승인 상태이며 Release Milestone은 논의되지 않았습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "High-Resolution Texture 지원",
+        "previous_state": null,
+        "new_state": "High-Resolution Texture 지원 추가",
+        "change_status": "proposed",
+        "evidence": [
+          "고객은 High-Resolution Texture 지원을 추가하는 방안을 제안했습니다.",
+          "변경안은 아직 승인되지 않았으며"
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "High-Resolution Texture 지원 변경 승인 시 약 이틀의 추가 작업 필요",
+        "affected_milestone": null,
+        "duration_change": "약 이틀",
+        "impact_status": "potential",
+        "evidence": [
+          "Engineering은 해당 변경이 승인될 경우 약 이틀의 추가 작업이 필요하다고 설명했습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "High-Resolution Texture 지원 변경안 승인 여부",
+        "reason": "변경안이 아직 승인되지 않았음",
+        "needed_information": "제안된 요구사항 변경에 대한 최종 승인 여부"
+      },
+      {
+        "item": "Release Milestone 영향",
+        "reason": "Release Milestone은 논의되지 않았음",
+        "needed_information": "추가 작업 소요에 따른 Release Milestone 논의 및 일정 영향 여부"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-005",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conflicting criteria + proposed change",
+  "status": "success",
+  "started_at": "2026-09-12T13:21:47+04:00",
+  "completed_at": "2026-09-12T13:22:09+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 21.704,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1367,
+    "output_tokens": 257,
+    "total_tokens": 1624
+  },
+  "result": {
+    "summary": "The project requires client acceptance with a 95% test pass rate. The Product Manager proposed a lower threshold of 90% for the pilot, but client approval has not been obtained. QA continues to use the 95% standard in the acceptance checklist. No schedule impact was discussed.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Test pass rate for client acceptance",
+        "previous_state": "95%",
+        "new_state": "90%",
+        "change_status": "proposed",
+        "evidence": [
+          "The Product Manager said that 90% would be acceptable for the pilot, but client approval has not been obtained."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Client approval for the 90% test pass rate",
+        "reason": "Client approval has not been obtained for the proposed change to the test pass rate requirement.",
+        "needed_information": "Client approval status for the 90% test pass rate."
+      }
+    ]
+  }
+}

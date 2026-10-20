@@ -1,0 +1,36 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-011",
+  "language": "Korean",
+  "difficulty": "Simple",
+  "primary_target": "Future commitment without invented risk",
+  "status": "success",
+  "started_at": "2026-09-12T12:27:01+04:00",
+  "completed_at": "2026-09-12T12:27:12+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 10.507,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1072,
+    "output_tokens": 180,
+    "total_tokens": 1252
+  },
+  "result": {
+    "summary": "UI Team은 신규 아이콘 Asset을 금요일까지 전달할 예정이며, 현재 개발 작업은 기존 Asset을 사용하여 진행 중입니다. 일정 영향은 보고되지 않았습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "신규 아이콘 Asset 전달 일정",
+        "reason": "UI Team은 금요일까지 전달할 예정이지만, 실제 전달 일정이 변경될 수 있습니다.",
+        "needed_information": "실제 전달 일정 및 기존 Asset 사용의 지속 가능성 여부"
+      }
+    ]
+  }
+}

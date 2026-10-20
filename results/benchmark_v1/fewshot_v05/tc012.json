@@ -1,0 +1,53 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-012",
+  "language": "English",
+  "difficulty": "Simple",
+  "primary_target": "Issue + action deadline",
+  "status": "success",
+  "started_at": "2026-09-12T12:27:12+04:00",
+  "completed_at": "2026-09-12T12:27:26+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 14.02,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1056,
+    "output_tokens": 239,
+    "total_tokens": 1295
+  },
+  "result": {
+    "summary": "The staging environment became unavailable, causing QA to pause regression testing. Infrastructure is working to restore the environment and will confirm service availability by 2 PM.",
+    "issues": [
+      {
+        "description": "The staging environment is unavailable, leading to paused regression testing.",
+        "impact": null,
+        "evidence": [
+          "The staging environment became unavailable this morning, so QA paused regression testing."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Confirm service availability after restarting the environment.",
+        "owner": "Infrastructure",
+        "due_date": "2 PM",
+        "evidence": [
+          "Infrastructure is restarting the environment and will confirm service availability by 2 PM."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Service availability restoration",
+        "reason": "The exact time of restoration is not specified beyond the confirmation by 2 PM.",
+        "needed_information": "Exact time of environment restoration."
+      }
+    ]
+  }
+}

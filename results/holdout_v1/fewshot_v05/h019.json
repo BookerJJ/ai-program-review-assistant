@@ -1,0 +1,30 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-019",
+  "language": "English",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Successful rollout with no findings",
+  "status": "success",
+  "started_at": "2026-09-12T20:27:08+04:00",
+  "completed_at": "2026-09-12T20:27:13+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 5.263,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1062,
+    "output_tokens": 78,
+    "total_tokens": 1140
+  },
+  "result": {
+    "summary": "The feature rollout was completed successfully across all target regions. Monitoring remained within normal ranges for 24 hours, and no incidents were reported.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

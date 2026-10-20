@@ -1,0 +1,51 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-008",
+  "language": "Korean",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Conditional scope change + explicit additional effort",
+  "status": "success",
+  "started_at": "2026-09-12T20:23:38+04:00",
+  "completed_at": "2026-09-12T20:23:54+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 15.924,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1090,
+    "output_tokens": 286,
+    "total_tokens": 1376
+  },
+  "result": {
+    "summary": "고객은 High-Resolution Texture 지원을 추가하는 변경안을 제안했습니다. Engineering은 변경 승인 시 약 이틀의 추가 작업이 필요하다고 설명했습니다. 변경안은 아직 승인되지 않았으며, Release Milestone은 논의되지 않았습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "High-Resolution Texture 지원",
+        "previous_state": null,
+        "new_state": "추가",
+        "change_status": "proposed",
+        "evidence": [
+          "고객은 High-Resolution Texture 지원을 추가하는 방안을 제안했습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "변경안 승인 여부",
+        "reason": "변경안은 아직 승인되지 않았습니다.",
+        "needed_information": "변경안 승인 여부"
+      },
+      {
+        "item": "Release Milestone",
+        "reason": "Release Milestone은 논의되지 않았습니다.",
+        "needed_information": "Release Milestone 논의 및 결정"
+      }
+    ]
+  }
+}

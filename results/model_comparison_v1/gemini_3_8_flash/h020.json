@@ -1,0 +1,36 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-020",
+  "language": "Korean",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Clean status update without fabricated findings",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-15T11:01:31+04:00",
+  "completed_at": "2026-09-15T11:01:50+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 18.906,
+    "input_tokens": 1183,
+    "output_tokens": 107,
+    "thinking_tokens": 0,
+    "total_tokens": 1290
+  },
+  "result": {
+    "summary": "고객이 현재 범위에 추가 변경이 없음을 확인하였으며, 개발팀은 기존 계획대로 작업을 진행 중입니다. 현재 보고된 장애 요인(Blocker), 신규 리스크, 추가 액션 아이템은 없습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

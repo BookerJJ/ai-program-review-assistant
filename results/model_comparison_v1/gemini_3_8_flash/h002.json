@@ -1,0 +1,52 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-002",
+  "language": "Korean",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Existing issue + remediation action + no schedule impact",
+  "status": "success",
+  "started_at": "2026-09-13T16:43:58+04:00",
+  "completed_at": "2026-09-13T16:44:01+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 2.488,
+    "input_tokens": 1192,
+    "output_tokens": 256,
+    "thinking_tokens": 0,
+    "total_tokens": 1448
+  },
+  "result": {
+    "summary": "Texture Streaming 테스트 중 3개 Asset에서 Mip Level 누락이 확인되어 Art Tech Team이 내일 정오까지 재생성 및 전달하기로 합의하였으며, 현재까지 Milestone 영향은 확인되지 않았습니다.",
+    "issues": [
+      {
+        "description": "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락되었습니다.",
+        "impact": null,
+        "evidence": [
+          "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 것이 확인되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "해당 Asset을 다시 생성해 전달하기",
+        "owner": "Art Tech Team",
+        "due_date": "내일 정오",
+        "evidence": [
+          "Art Tech Team은 해당 Asset을 다시 생성해 내일 정오까지 전달하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

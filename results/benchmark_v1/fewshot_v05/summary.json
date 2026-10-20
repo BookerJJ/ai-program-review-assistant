@@ -1,0 +1,38 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "started_at": "2026-09-12T12:25:34+04:00",
+  "completed_at": "2026-09-12T12:36:13+04:00",
+  "total_cases": 30,
+  "successful_cases": 30,
+  "failed_cases": 0,
+  "average_latency_seconds": 21.296,
+  "total_input_tokens": 32423,
+  "total_output_tokens": 9188,
+  "total_tokens": 41611,
+  "by_language": {
+    "English": {
+      "total": 15,
+      "success": 15
+    },
+    "Korean": {
+      "total": 15,
+      "success": 15
+    }
+  },
+  "by_difficulty": {
+    "Simple": {
+      "total": 10,
+      "success": 10
+    },
+    "Medium": {
+      "total": 10,
+      "success": 10
+    },
+    "Difficult": {
+      "total": 10,
+      "success": 10
+    }
+  },
+  "failed_test_cases": []
+}

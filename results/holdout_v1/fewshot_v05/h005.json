@@ -1,0 +1,60 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-005",
+  "language": "English",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Proposed requirement + review action + approval uncertainty",
+  "status": "success",
+  "started_at": "2026-09-12T20:22:55+04:00",
+  "completed_at": "2026-09-12T20:23:12+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 17.233,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1077,
+    "output_tokens": 315,
+    "total_tokens": 1392
+  },
+  "result": {
+    "summary": "The data retention requirement is currently set to 14 days. A client has requested an increase to 45 days, but the change has not been approved. The Security Team is scheduled to review the proposal on Tuesday. No implementation effort estimate has been provided.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Data retention period",
+        "previous_state": "14 days",
+        "new_state": "45 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The client requested increasing the retention period to 45 days, but the change has not been approved."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Review the proposal for increasing the data retention period.",
+        "owner": "Security Team",
+        "due_date": "Tuesday",
+        "evidence": [
+          "The Security Team will review the proposal on Tuesday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Implementation effort estimate",
+        "reason": "No implementation effort estimate has been provided.",
+        "needed_information": "Implementation effort estimate"
+      },
+      {
+        "item": "Final data retention requirement",
+        "reason": "The change has not been approved.",
+        "needed_information": "Approval status"
+      }
+    ]
+  }
+}

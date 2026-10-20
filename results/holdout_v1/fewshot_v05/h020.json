@@ -1,0 +1,30 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-020",
+  "language": "Korean",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Clean status update without fabricated findings",
+  "status": "success",
+  "started_at": "2026-09-12T20:27:13+04:00",
+  "completed_at": "2026-09-12T20:27:19+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 6.273,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1071,
+    "output_tokens": 91,
+    "total_tokens": 1162
+  },
+  "result": {
+    "summary": "The customer has confirmed there are no changes to the Scope. The Development Team is proceeding with the existing plan and has not reported any Blockers or new Risks. No additional Action Items have been identified.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

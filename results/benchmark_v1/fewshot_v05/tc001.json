@@ -1,0 +1,53 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-001",
+  "language": "English",
+  "difficulty": "Simple",
+  "primary_target": "Issue + action; no invented schedule impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:25:34+04:00",
+  "completed_at": "2026-09-12T12:26:01+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 26.906,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1081,
+    "output_tokens": 284,
+    "total_tokens": 1365
+  },
+  "result": {
+    "summary": "The authentication service returned 401 errors during today's integration test, preventing QA from completing the planned test cycle. Backend Engineering is investigating the issue and will provide an update by Wednesday. No change to the release date has been discussed.",
+    "issues": [
+      {
+        "description": "Authentication service returned 401 errors for all test accounts during integration testing.",
+        "impact": "QA could not complete the planned test cycle.",
+        "evidence": [
+          "During today's integration test, the authentication service returned 401 errors for all test accounts. QA could not complete the planned test cycle."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Provide an update on the authentication configuration investigation.",
+        "owner": "Backend Engineering",
+        "due_date": "Wednesday",
+        "evidence": [
+          "Backend Engineering is investigating the authentication configuration and will provide an update by Wednesday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Release date",
+        "reason": "No change to the release date has been discussed.",
+        "needed_information": "Whether the release date will be affected by the authentication issue."
+      }
+    ]
+  }
+}

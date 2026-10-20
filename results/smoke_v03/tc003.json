@@ -1,0 +1,71 @@
+{
+  "test_case": "TC-003",
+  "language": "English",
+  "difficulty": "Medium",
+  "prompt_version": "grounded-v0.3",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 23.128,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 974,
+    "output_tokens": 407,
+    "total_tokens": 1381
+  },
+  "result": {
+    "summary": "The client has proposed changing the encryption key rotation interval from every 90 days to every 30 days. The Security Lead indicated that this change would require configuration redesign and approximately two additional engineering days. The Architecture Team is scheduled to review the proposal on Friday, and the change has not yet been approved.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "configuration redesign",
+        "dependency_item": "encryption key rotation interval change",
+        "relationship": "requires",
+        "basis": "explicit",
+        "evidence": [
+          "The Security Lead said the change would require configuration redesign and approximately two additional engineering days."
+        ]
+      }
+    ],
+    "requirement_changes": [
+      {
+        "requirement": "encryption key rotation interval",
+        "previous_state": "every 90 days",
+        "new_state": "every 30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The client proposed changing the interval to every 30 days."
+        ]
+      }
+    ],
+    "schedule_impacts": [
+      {
+        "description": "The change may require two additional engineering days.",
+        "affected_milestone": null,
+        "duration_change": "potential",
+        "impact_status": "potential",
+        "evidence": [
+          "The Security Lead said the change would require configuration redesign and approximately two additional engineering days."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "review the proposal",
+        "owner": "Architecture Team",
+        "due_date": "Friday",
+        "evidence": [
+          "The Architecture Team will review the proposal on Friday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "encryption key rotation interval change",
+        "reason": "the change has not yet been approved",
+        "needed_information": "approval status of the change"
+      }
+    ]
+  }
+}

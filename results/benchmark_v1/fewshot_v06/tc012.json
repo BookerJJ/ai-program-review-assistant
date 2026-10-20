@@ -1,0 +1,70 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-012",
+  "language": "English",
+  "difficulty": "Simple",
+  "primary_target": "Issue + action deadline",
+  "status": "success",
+  "started_at": "2026-09-12T13:16:31+04:00",
+  "completed_at": "2026-09-12T13:16:52+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.567,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1331,
+    "output_tokens": 339,
+    "total_tokens": 1670
+  },
+  "result": {
+    "summary": "The staging environment became unavailable, causing QA to pause regression testing. Infrastructure is restarting the environment and will confirm service availability by 2 PM.",
+    "issues": [
+      {
+        "description": "The staging environment became unavailable.",
+        "impact": null,
+        "evidence": [
+          "The staging environment became unavailable this morning, so QA paused regression testing."
+        ]
+      },
+      {
+        "description": "QA paused regression testing.",
+        "impact": null,
+        "evidence": [
+          "The staging environment became unavailable this morning, so QA paused regression testing."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "QA paused regression testing due to staging environment unavailability.",
+        "affected_milestone": null,
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "The staging environment became unavailable this morning, so QA paused regression testing."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "Restart the staging environment.",
+        "owner": "Infrastructure",
+        "due_date": "2 PM",
+        "evidence": [
+          "Infrastructure is restarting the environment and will confirm service availability by 2 PM."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Service availability confirmation",
+        "reason": "Infrastructure will confirm service availability by 2 PM, but the exact timing is not specified beyond that milestone.",
+        "needed_information": "Exact time of service availability confirmation."
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "test_case": "TC-001",
+  "language": "English",
+  "difficulty": "Simple",
+  "prompt_version": "grounded-v0.3",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 30.824,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 965,
+    "output_tokens": 415,
+    "total_tokens": 1380
+  },
+  "result": {
+    "summary": "During today's integration test, the authentication service returned 401 errors for all test accounts, preventing QA from completing the planned test cycle. Backend Engineering is investigating the authentication configuration and will provide an update by Wednesday. No change to the release date has been discussed.",
+    "issues": [
+      {
+        "description": "Authentication service returned 401 errors for all test accounts during integration test.",
+        "impact": "QA could not complete the planned test cycle.",
+        "evidence": [
+          "During today's integration test, the authentication service returned 401 errors for all test accounts. QA could not complete the planned test cycle."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "No change to the release date has been discussed.",
+        "affected_milestone": null,
+        "duration_change": null,
+        "impact_status": "confirmed",
+        "evidence": [
+          "No change to the release date has been discussed."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "Investigating the authentication configuration.",
+        "owner": "Backend Engineering",
+        "due_date": "Wednesday",
+        "evidence": [
+          "Backend Engineering is investigating the authentication configuration and will provide an update by Wednesday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Authentication configuration issue resolution.",
+        "reason": "The exact cause of the 401 errors and the resolution timeline are not specified.",
+        "needed_information": "Details on the root cause and resolution plan."
+      },
+      {
+        "item": "Impact on test cycle completion.",
+        "reason": "The extent of the impact on the test cycle and the time required to resolve the issue are not specified.",
+        "needed_information": "Details on how the issue will affect the test cycle and resolution time."
+      }
+    ]
+  }
+}

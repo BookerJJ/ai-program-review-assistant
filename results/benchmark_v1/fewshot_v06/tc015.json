@@ -1,0 +1,56 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-015",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Dependency + future milestone risk",
+  "status": "success",
+  "started_at": "2026-09-12T13:18:22+04:00",
+  "completed_at": "2026-09-12T13:18:43+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.164,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1341,
+    "output_tokens": 266,
+    "total_tokens": 1607
+  },
+  "result": {
+    "summary": "Production deployment is scheduled for Wednesday morning, but it cannot begin until the security scan is completed. The Security Team expects to finish the scan on Tuesday.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Production deployment",
+        "dependency_item": "Security scan completion",
+        "relationship": "Cannot begin until",
+        "basis": "explicit",
+        "evidence": [
+          "Production deployment cannot begin until the security scan is completed."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Production deployment is planned for Wednesday morning, but the security scan is expected to finish on Tuesday.",
+        "affected_milestone": "Production deployment",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Production deployment is planned for Wednesday morning. The Security Team expects to finish the scan on Tuesday."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Revised deployment schedule",
+        "reason": "No revised deployment schedule has been agreed.",
+        "needed_information": "Agreement on revised deployment schedule"
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "cases": 30,
+  "average_semantic_score": 79.7,
+  "by_language": {
+    "English": {
+      "cases": 15,
+      "average_semantic_score": 82.7
+    },
+    "Korean": {
+      "cases": 15,
+      "average_semantic_score": 76.7
+    }
+  },
+  "by_difficulty": {
+    "Simple": {
+      "cases": 10,
+      "average_semantic_score": 81.0
+    },
+    "Medium": {
+      "cases": 10,
+      "average_semantic_score": 72.0
+    },
+    "Difficult": {
+      "cases": 10,
+      "average_semantic_score": 86.0
+    }
+  },
+  "dimension_averages": {
+    "factual_correctness": 1.8,
+    "completeness": 1.433,
+    "unsupported_claim_control": 1.7,
+    "classification_accuracy": 1.267,
+    "meaning_preservation": 1.767
+  },
+  "comparison_to_v05": {
+    "v0.5": {
+      "semantic_score": 77.3,
+      "factual_correctness": 1.8,
+      "completeness": 1.533,
+      "unsupported_claim_control": 1.6,
+      "classification_accuracy": 1.067,
+      "meaning_preservation": 1.733
+    },
+    "v0.6": {
+      "semantic_score": 79.7,
+      "factual_correctness": 1.8,
+      "completeness": 1.433,
+      "unsupported_claim_control": 1.7,
+      "classification_accuracy": 1.267,
+      "meaning_preservation": 1.767
+    },
+    "delta_v06_minus_v05": {
+      "semantic_score": 2.4,
+      "factual_correctness": 0.0,
+      "completeness": -0.1,
+      "unsupported_claim_control": 0.1,
+      "classification_accuracy": 0.2,
+      "meaning_preservation": 0.034
+    }
+  },
+  "adoption_decision": {
+    "predeclared_gate": {
+      "semantic_score_at_least_80": false,
+      "classification_accuracy_at_least_1_20": true,
+      "unsupported_claim_control_at_least_v05": true,
+      "requirement_change_no_major_regression": true
+    },
+    "all_gate_conditions_passed": false,
+    "decision": "Do not adopt v0.6 under the predeclared acceptance gate; keep v0.5 as the frozen prompt candidate.",
+    "reason": "v0.6 improved classification and unsupported-claim control, but its human semantic score was 79.7, below the predeclared >=80.0 adoption threshold."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-013",
+  "language": "English",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Two owners + two deadlines + unresolved remediation date",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-14T11:03:50+04:00",
+  "completed_at": "2026-09-14T11:03:58+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 8.068,
+    "input_tokens": 1176,
+    "output_tokens": 411,
+    "thinking_tokens": 0,
+    "total_tokens": 1587
+  },
+  "result": {
+    "summary": "An intermittent connection drop is currently under investigation, with Support scheduled to collect session logs by Tuesday and Engineering scheduled to review them by Thursday. No remediation date has been committed.",
+    "issues": [
+      {
+        "description": "An intermittent connection drop is occurring and under investigation.",
+        "impact": null,
+        "evidence": [
+          "An intermittent connection drop is under investigation."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Engineering review of session logs",
+        "dependency_item": "Support collecting affected session logs",
+        "relationship": "Engineering will review the collected logs after/once they are collected by Support.",
+        "basis": "inferred",
+        "evidence": [
+          "Support will collect the affected session logs by Tuesday.",
+          "Engineering will review the collected logs by Thursday."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Collect the affected session logs",
+        "owner": "Support",
+        "due_date": "Tuesday",
+        "evidence": [
+          "Support will collect the affected session logs by Tuesday."
+        ]
+      },
+      {
+        "action": "Review the collected logs",
+        "owner": "Engineering",
+        "due_date": "Thursday",
+        "evidence": [
+          "Engineering will review the collected logs by Thursday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Remediation date",
+        "reason": "No remediation date has been committed.",
+        "needed_information": "A committed timeline or date for remediation."
+      }
+    ]
+  }
+}

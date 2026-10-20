@@ -1,0 +1,36 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-018",
+  "language": "Korean",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Conflicting schedule statements without final decision",
+  "status": "success",
+  "started_at": "2026-09-12T20:26:54+04:00",
+  "completed_at": "2026-09-12T20:27:08+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 13.26,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1096,
+    "output_tokens": 178,
+    "total_tokens": 1274
+  },
+  "result": {
+    "summary": "The official launch date remains October 10th. While the Engineering Lead suggested October 12th as more realistic during a meeting, the Project Manager confirmed that the official schedule has not been changed. No final decision on the schedule change has been made.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final launch date",
+        "reason": "No final decision on the schedule change has been made. The official launch date remains October 10th, but the Engineering Lead suggested October 12th as more realistic.",
+        "needed_information": "Final decision on the launch date change."
+      }
+    ]
+  }
+}

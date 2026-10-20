@@ -1,0 +1,47 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-007",
+  "language": "Korean",
+  "difficulty": "Simple",
+  "primary_target": "Issue + vendor action",
+  "status": "success",
+  "started_at": "2026-09-12T13:15:41+04:00",
+  "completed_at": "2026-09-12T13:15:54+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 12.976,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1356,
+    "output_tokens": 232,
+    "total_tokens": 1588
+  },
+  "result": {
+    "summary": "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다. Localization Vendor는 수정된 파일을 금요일까지 다시 전달하기로 했습니다. 현재 Release 일정 변경은 논의되지 않았습니다.",
+    "issues": [
+      {
+        "description": "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다.",
+        "impact": null,
+        "evidence": [
+          "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "수정된 Localization 파일 전달",
+        "owner": "Localization Vendor",
+        "due_date": "금요일",
+        "evidence": [
+          "Localization Vendor는 수정된 파일을 금요일까지 다시 전달하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": []
+  }
+}

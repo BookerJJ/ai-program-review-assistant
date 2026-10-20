@@ -1,0 +1,55 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-005",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conflicting criteria + proposed change",
+  "status": "success",
+  "started_at": "2026-09-12T12:32:25+04:00",
+  "completed_at": "2026-09-12T12:32:54+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 28.267,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1092,
+    "output_tokens": 367,
+    "total_tokens": 1459
+  },
+  "result": {
+    "summary": "The project requires client acceptance with a 95% test pass rate, but the Product Manager has proposed a lower threshold of 90% for the pilot. However, client approval has not been obtained, and QA continues to use the 95% requirement in the acceptance checklist. No schedule impact was discussed.",
+    "issues": [
+      {
+        "description": "Client acceptance requires a 95% test pass rate, but the Product Manager has proposed a lower threshold of 90% for the pilot.",
+        "impact": null,
+        "evidence": [
+          "Earlier meeting notes state that client acceptance requires a 95% test pass rate.",
+          "In today's update, the Product Manager said that 9,0% would be acceptable for the pilot, but client approval has not been obtained."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Test pass rate for client acceptance",
+        "previous_state": "95%",
+        "new_state": "90%",
+        "change_status": "proposed",
+        "evidence": [
+          "In today's update, the Product Manager said that 90% would be acceptable for the pilot."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final test pass rate requirement",
+        "reason": "Client approval has not been obtained for the 90% threshold proposal, and QA is still using the 95% requirement in the acceptance checklist.",
+        "needed_information": "Client approval status for the 90% test pass rate requirement."
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-025",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conditional change + explicit effort + no milestone",
+  "status": "success",
+  "started_at": "2026-09-12T12:33:44+04:00",
+  "completed_at": "2026-09-12T12:34:03+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 19.829,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1072,
+    "output_tokens": 243,
+    "total_tokens": 1315
+  },
+  "result": {
+    "summary": "The client proposed enabling audit logging for all administrator actions, which Engineering estimates would require three additional development days if approved. The client has not yet confirmed the change, and no release milestone was referenced.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Audit logging for administrator actions",
+        "previous_state": null,
+        "new_state": "Enabled",
+        "change_status": "proposed",
+        "evidence": [
+          "The client proposed enabling audit logging for all administrator actions."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Audit logging implementation",
+        "reason": "The client has not yet confirmed the change.",
+        "needed_information": "Client confirmation of the audit logging requirement."
+      },
+      {
+        "item": "Release milestone",
+        "reason": "No release milestone was referenced in the discussion.",
+        "needed_information": "Reference to a release milestone or timeline."
+      }
+    ]
+  }
+}

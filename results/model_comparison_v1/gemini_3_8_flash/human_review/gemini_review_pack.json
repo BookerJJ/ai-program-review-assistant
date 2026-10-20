@@ -1,0 +1,1000 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "evaluation_role": "cross_model_human_semantic_review",
+  "human_evaluation_scale": {
+    "0": "Incorrect or substantially fails the dimension.",
+    "1": "Partially correct, with meaningful errors or omissions.",
+    "2": "Correct or substantially correct for the dimension."
+  },
+  "dimensions": {
+    "factual_correctness": "Are extracted facts consistent with the supplied input?",
+    "completeness": "Are the important supported findings captured?",
+    "unsupported_claim_control": "Does the output avoid claims, causes, impacts, dates, owners, or outcomes not supported by the input?",
+    "classification_accuracy": "Are findings placed in the correct categories such as issue, risk, dependency, requirement change, schedule impact, action, or uncertainty?",
+    "meaning_preservation": "Does the output preserve relationships such as owner, action, deadline, approval status, dependency, and conditional meaning?"
+  },
+  "semantic_score_formula": "sum of five dimension scores / 10 * 100",
+  "total_cases": 20,
+  "cases": [
+    {
+      "test_case": "H-001",
+      "language": "English",
+      "scenario_type": "Operational Incident",
+      "primary_target": "Existing issue + action binding + unresolved release impact",
+      "input": "During checkout validation, the payment gateway returned 503 errors for all test transactions. QA stopped the checkout validation cycle. The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today. The release date has not been reviewed yet.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 1,
+          "risks": 0,
+          "dependencies": 0,
+          "requirement_changes": 0,
+          "schedule_impacts": 0,
+          "actions": 1,
+          "uncertainties": 1
+        },
+        "assertions": [
+          {
+            "path": "actions.0.owner",
+            "op": "equals",
+            "value": "Platform Team"
+          },
+          {
+            "path": "actions.0.due_date",
+            "op": "contains",
+            "value": "4 PM"
+          }
+        ],
+        "manual_review": [
+          "The 503 authentication/payment gateway failure is an existing issue.",
+          "QA stopping the checkout validation cycle is the supported impact.",
+          "4 PM applies to providing the status update, not necessarily completing the investigation.",
+          "Do not create a release-delay risk or schedule impact.",
+          "The release-date impact remains unresolved because it has not been reviewed yet."
+        ]
+      },
+      "model_output": {
+        "summary": "During checkout validation, all test transactions failed with 503 errors from the payment gateway, causing QA to halt the validation cycle. The Platform Team is investigating the configuration and will provide an update by 4 PM today, while the release date remains unreviewed.",
+        "issues": [
+          {
+            "description": "The payment gateway returned 503 errors for all test transactions during checkout validation.",
+            "impact": "QA stopped the checkout validation cycle.",
+            "evidence": [
+              "During checkout validation, the payment gateway returned 503 errors for all test transactions.",
+              "QA stopped the checkout validation cycle."
+            ]
+          }
+        ],
+        "risks": [],
+        "dependencies": [],
+        "requirement_changes": [],
+        "schedule_impacts": [],
+        "actions": [
+          {
+            "action": "Investigate the gateway configuration and provide a status update.",
+            "owner": "Platform Team",
+            "due_date": "4 PM today",
+            "evidence": [
+              "The Platform Team is investigating the gateway configuration and will provide a status update by 4 PM today."
+            ]
+          }
+        ],
+        "uncertainties": [
+          {
+            "item": "Release date impact",
+            "reason": "The release date has not been reviewed yet.",
+            "needed_information": "Review of the release date following the investigation."
+          }
+        ]
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 22.487,
+        "input_tokens": 1196,
+        "output_tokens": 326,
+        "total_tokens": 1522
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-002",
+      "language": "Korean",
+      "scenario_type": "Operational Incident",
+      "primary_target": "Existing issue + remediation action + no schedule impact",
+      "input": "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 것이 확인되었습니다. Art Tech Team은 해당 Asset을 다시 생성해 내일 정오까지 전달하기로 했습니다. 현재까지 Milestone 영향은 확인되지 않았습니다.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 1,
+          "risks": 0,
+          "dependencies": 0,
+          "requirement_changes": 0,
+          "schedule_impacts": 0,
+          "actions": 1,
+          "uncertainties": 0
+        },
+        "assertions": [
+          {
+            "path": "actions.0.owner",
+            "op": "contains",
+            "value": "Art Tech Team"
+          }
+        ],
+        "manual_review": [
+          "Missing Mip Levels are the current issue.",
+          "The Art Tech Team commitment to regenerate and deliver the assets is an action.",
+          "The delivery deadline is tomorrow at noon.",
+          "Do not create a schedule impact because no milestone impact has been identified.",
+          "Do not invent a delivery-failure risk."
+        ]
+      },
+      "model_output": {
+        "summary": "Texture Streaming 테스트 중 3개 Asset에서 Mip Level 누락이 확인되어 Art Tech Team이 내일 정오까지 재생성 및 전달하기로 합의하였으며, 현재까지 Milestone 영향은 확인되지 않았습니다.",
+        "issues": [
+          {
+            "description": "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락되었습니다.",
+            "impact": null,
+            "evidence": [
+              "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 것이 확인되었습니다."
+            ]
+          }
+        ],
+        "risks": [],
+        "dependencies": [],
+        "requirement_changes": [],
+        "schedule_impacts": [],
+        "actions": [
+          {
+            "action": "해당 Asset을 다시 생성해 전달하기",
+            "owner": "Art Tech Team",
+            "due_date": "내일 정오",
+            "evidence": [
+              "Art Tech Team은 해당 Asset을 다시 생성해 내일 정오까지 전달하기로 했습니다."
+            ]
+          }
+        ],
+        "uncertainties": []
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 2.488,
+        "input_tokens": 1192,
+        "output_tokens": 256,
+        "total_tokens": 1448
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-003",
+      "language": "English",
+      "scenario_type": "Operational Incident",
+      "primary_target": "Completed activity without false findings",
+      "input": "The nightly data export completed successfully. QA performed a spot check on the exported records and found no errors. No additional investigation or follow-up work is required.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 0,
+          "risks": 0,
+          "dependencies": 0,
+          "requirement_changes": 0,
+          "schedule_impacts": 0,
+          "actions": 0,
+          "uncertainties": 0
+        },
+        "assertions": [],
+        "manual_review": [
+          "This is a completed-success negative case.",
+          "The export and QA spot check both completed successfully.",
+          "Do not create an issue, risk, action, schedule impact, or uncertainty."
+        ]
+      },
+      "model_output": {
+        "summary": "The nightly data export finished successfully, and a spot check by QA identified no errors, requiring no further investigation or follow-up.",
+        "issues": [],
+        "risks": [],
+        "dependencies": [],
+        "requirement_changes": [],
+        "schedule_impacts": [],
+        "actions": [],
+        "uncertainties": []
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 3.788,
+        "input_tokens": 1174,
+        "output_tokens": 84,
+        "total_tokens": 1258
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-004",
+      "language": "Korean",
+      "scenario_type": "Operational Incident",
+      "primary_target": "Current blocking issue + explicit recovery action",
+      "input": "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다. Database Team이 정상 상태로 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 1,
+          "risks": 0,
+          "dependencies": 0,
+          "requirement_changes": 0,
+          "schedule_impacts": 0,
+          "actions": 1,
+          "uncertainties": 0
+        },
+        "assertions": [
+          {
+            "path": "actions.0.owner",
+            "op": "contains",
+            "value": "Database Team"
+          }
+        ],
+        "manual_review": [
+          "The Read-Only Staging Database is an existing issue.",
+          "Integration testing being blocked is the directly supported impact.",
+          "The Database Team restoration / access confirmation is an explicit action.",
+          "11 AM applies to confirming access availability, not necessarily the restoration completion time.",
+          "Do not invent a release or milestone delay."
+        ]
+      },
+      "model_output": {
+        "summary": "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트 진행이 불가능한 상태이며, Database Team이 복구 작업 및 오전 11시까지 접근 가능 여부 확인을 진행하고 있습니다.",
+        "issues": [
+          {
+            "description": "Staging Database가 예기치 않게 Read-Only 상태로 전환되었습니다.",
+            "impact": "Integration 테스트를 진행할 수 없습니다.",
+            "evidence": [
+              "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다."
+            ]
+          }
+        ],
+        "risks": [],
+        "dependencies": [
+          {
+            "dependent_item": "Integration 테스트 진행",
+            "dependency_item": "Staging Database 정상 상태 복구",
+            "relationship": "Staging Database가 Read-Only 상태가 아닐 때 Integration 테스트를 진행할 수 있습니다.",
+            "basis": "explicit",
+            "evidence": [
+              "Staging Database가 예기치 않게 Read-Only 상태로 전환되어 Integration 테스트를 진행할 수 없습니다."
+            ]
+          }
+        ],
+        "requirement_changes": [],
+        "schedule_impacts": [],
+        "actions": [
+          {
+            "action": "Staging Database를 정상 상태로 복구",
+            "owner": "Database Team",
+            "due_date": null,
+            "evidence": [
+              "Database Team이 정상 상태로 복구 중이며"
+            ]
+          },
+          {
+            "action": "접근 가능 여부 확인",
+            "owner": "Database Team",
+            "due_date": "오전 11시",
+            "evidence": [
+              "Database Team이 정상 상태로 복구 중이며 오전 11시까지 접근 가능 여부를 확인할 예정입니다."
+            ]
+          }
+        ],
+        "uncertainties": [
+          {
+            "item": "Staging Database 복구 완료 시점 및 접근 가능 여부",
+            "reason": "오전 11시까지 접근 가능 여부를 확인할 예정이므로 실제 정상 복구 여부와 완료 시점이 아직 확정되지 않았습니다.",
+            "needed_information": "오전 11시 Database Team의 접근 가능 여부 확인 결과 및 최종 복구 완료 시점"
+          }
+        ]
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 4.059,
+        "input_tokens": 1190,
+        "output_tokens": 539,
+        "total_tokens": 1729
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-005",
+      "language": "English",
+      "scenario_type": "Requirement Change",
+      "primary_target": "Proposed requirement + review action + approval uncertainty",
+      "input": "The current data retention requirement is 14 days. The client requested increasing the retention period to 45 days, but the change has not been approved. The Security Team will review the proposal on Tuesday. No implementation effort estimate has been provided.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 0,
+          "risks": 0,
+          "dependencies": 0,
+          "requirement_changes": 1,
+          "schedule_impacts": 0,
+          "actions": 1,
+          "uncertainties": 1
+        },
+        "assertions": [
+          {
+            "path": "requirement_changes.0.previous_state",
+            "op": "contains",
+            "value": "14"
+          },
+          {
+            "path": "requirement_changes.0.new_state",
+            "op": "contains",
+            "value": "45"
+          },
+          {
+            "path": "requirement_changes.0.change_status",
+            "op": "equals",
+            "value": "proposed"
+          },
+          {
+            "path": "actions.0.owner",
+            "op": "contains",
+            "value": "Security Team"
+          },
+          {
+            "path": "actions.0.due_date",
+            "op": "contains",
+            "value": "Tuesday"
+          }
+        ],
+        "manual_review": [
+          "The 45-day retention value is proposed, not approved.",
+          "The Security Team Tuesday review is an explicit action.",
+          "No implementation effort estimate exists.",
+          "Do not invent a schedule impact or implementation risk.",
+          "Final approval remains uncertain."
+        ]
+      },
+      "model_output": {
+        "summary": "The client requested an increase in the data retention period from 14 days to 45 days. The change is not yet approved, and the Security Team will review it on Tuesday, while no implementation effort estimate is currently available.",
+        "issues": [],
+        "risks": [],
+        "dependencies": [],
+        "requirement_changes": [
+          {
+            "requirement": "Data retention period",
+            "previous_state": "14 days",
+            "new_state": "45 days",
+            "change_status": "proposed",
+            "evidence": [
+              "The current data retention requirement is 14 days.",
+              "The client requested increasing the retention period to 45 days, but the change has not been approved."
+            ]
+          }
+        ],
+        "schedule_impacts": [],
+        "actions": [
+          {
+            "action": "Review the proposal",
+            "owner": "Security Team",
+            "due_date": "Tuesday",
+            "evidence": [
+              "The Security Team will review the proposal on Tuesday."
+            ]
+          }
+        ],
+        "uncertainties": [
+          {
+            "item": "Approval status of requested data retention period",
+            "reason": "The change has not been approved.",
+            "needed_information": "Decision from the proposal review."
+          },
+          {
+            "item": "Implementation effort estimate",
+            "reason": "No implementation effort estimate has been provided.",
+            "needed_information": "An estimate of the implementation effort required for increasing data retention."
+          }
+        ]
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 13.186,
+        "input_tokens": 1192,
+        "output_tokens": 365,
+        "total_tokens": 1557
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-006",
+      "language": "Korean",
+      "scenario_type": "Requirement Change",
+      "primary_target": "Confirmed requirement change + implementation action",
+      "input": "Login Retry Limit을 기존 5회에서 3회로 변경하는 안이 최종 승인되었습니다. Backend Team은 다음 Sprint부터 변경된 값을 적용할 예정입니다. 이 변경으로 인한 추가 일정 영향은 없습니다.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 0,
+          "risks": 0,
+          "dependencies": 0,
+          "requirement_changes": 1,
+          "schedule_impacts": 0,
+          "actions": 1,
+          "uncertainties": 0
+        },
+        "assertions": [
+          {
+            "path": "requirement_changes.0.previous_state",
+            "op": "contains",
+            "value": "5"
+          },
+          {
+            "path": "requirement_changes.0.new_state",
+            "op": "contains",
+            "value": "3"
+          },
+          {
+            "path": "requirement_changes.0.change_status",
+            "op": "equals",
+            "value": "confirmed"
+          },
+          {
+            "path": "actions.0.owner",
+            "op": "contains",
+            "value": "Backend Team"
+          },
+          {
+            "path": "actions.0.due_date",
+            "op": "contains",
+            "value": "Sprint"
+          }
+        ],
+        "manual_review": [
+          "The retry-limit change from 5 to 3 is confirmed.",
+          "Applying the value from the next Sprint is an explicit Backend Team action.",
+          "No schedule impact should be generated."
+        ]
+      },
+      "model_output": {
+        "summary": "Login Retry Limit이 기존 5회에서 3회로 변경 승인되었으며, Backend Team이 다음 Sprint부터 적용할 예정입니다. 이로 인한 추가 일정 영향은 없습니다.",
+        "issues": [],
+        "risks": [],
+        "dependencies": [],
+        "requirement_changes": [
+          {
+            "requirement": "Login Retry Limit",
+            "previous_state": "5회",
+            "new_state": "3회",
+            "change_status": "confirmed",
+            "evidence": [
+              "Login Retry Limit을 기존 5회에서 3회로 변경하는 안이 최종 승인되었습니다."
+            ]
+          }
+        ],
+        "schedule_impacts": [],
+        "actions": [
+          {
+            "action": "변경된 Login Retry Limit 값 적용",
+            "owner": "Backend Team",
+            "due_date": null,
+            "evidence": [
+              "Backend Team은 다음 Sprint부터 변경된 값을 적용할 예정입니다."
+            ]
+          }
+        ],
+        "uncertainties": []
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 2.03,
+        "input_tokens": 1188,
+        "output_tokens": 248,
+        "total_tokens": 1436
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-007",
+      "language": "English",
+      "scenario_type": "Requirement Change",
+      "primary_target": "Proposed setting change + approval dependency",
+      "input": "Telemetry collection is currently disabled by default. Product proposed enabling it by default for the Beta. Legal stated that the change cannot be approved until client consent is received. No final decision has been made.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 0,
+          "risks": 0,
+          "dependencies": 1,
+          "requirement_changes": 1,
+          "schedule_impacts": 0,
+          "actions": 0,
+          "uncertainties": 1
+        },
+        "assertions": [
+          {
+            "path": "dependencies.0.basis",
+            "op": "equals",
+            "value": "explicit"
+          },
+          {
+            "path": "requirement_changes.0.previous_state",
+            "op": "contains",
+            "value": "disabled"
+          },
+          {
+            "path": "requirement_changes.0.new_state",
+            "op": "contains",
+            "value": "enabled"
+          },
+          {
+            "path": "requirement_changes.0.change_status",
+            "op": "equals",
+            "value": "proposed"
+          }
+        ],
+        "manual_review": [
+          "Telemetry remains disabled by default.",
+          "Enabling telemetry for Beta is proposed, not approved.",
+          "Client consent explicitly gates Legal approval.",
+          "The final decision remains unresolved.",
+          "Do not invent a schedule impact."
+        ]
+      },
+      "model_output": {
+        "summary": "Product proposed enabling telemetry collection by default for the Beta, changing it from its current disabled default. Legal requires client consent before approving the change, and no final decision has been made.",
+        "issues": [],
+        "risks": [],
+        "dependencies": [
+          {
+            "dependent_item": "Approval of telemetry collection enabled by default",
+            "dependency_item": "Receipt of client consent",
+            "relationship": "The change cannot be approved until client consent is received.",
+            "basis": "explicit",
+            "evidence": [
+              "Legal stated that the change cannot be approved until client consent is received."
+            ]
+          }
+        ],
+        "requirement_changes": [
+          {
+            "requirement": "Default telemetry collection setting for Beta",
+            "previous_state": "disabled by default",
+            "new_state": "enabled by default",
+            "change_status": "proposed",
+            "evidence": [
+              "Telemetry collection is currently disabled by default. Product proposed enabling it by default for the Beta."
+            ]
+          }
+        ],
+        "schedule_impacts": [],
+        "actions": [],
+        "uncertainties": [
+          {
+            "item": "Final decision on enabling telemetry collection by default",
+            "reason": "No final decision has been made, and legal approval is awaiting client consent.",
+            "needed_information": "Receipt of client consent and legal approval decision."
+          }
+        ]
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 6.104,
+        "input_tokens": 1181,
+        "output_tokens": 331,
+        "total_tokens": 1512
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-008",
+      "language": "Korean",
+      "scenario_type": "Requirement Change",
+      "primary_target": "Conditional scope change + explicit additional effort",
+      "input": "고객은 High-Resolution Texture 지원을 추가하는 방안을 제안했습니다. Engineering은 해당 변경이 승인될 경우 약 이틀의 추가 작업이 필요하다고 설명했습니다. 변경안은 아직 승인되지 않았으며 Release Milestone은 논의되지 않았습니다.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 0,
+          "risks": 1,
+          "dependencies": 0,
+          "requirement_changes": 1,
+          "schedule_impacts": 1,
+          "actions": 0,
+          "uncertainties": 1
+        },
+        "assertions": [
+          {
+            "path": "risks.0.basis",
+            "op": "equals",
+            "value": "inferred"
+          },
+          {
+            "path": "requirement_changes.0.previous_state",
+            "op": "is_null"
+          },
+          {
+            "path": "requirement_changes.0.change_status",
+            "op": "equals",
+            "value": "proposed"
+          },
+          {
+            "path": "schedule_impacts.0.affected_milestone",
+            "op": "is_null"
+          },
+          {
+            "path": "schedule_impacts.0.impact_status",
+            "op": "equals",
+            "value": "potential"
+          }
+        ],
+        "manual_review": [
+          "High-Resolution Texture support is proposed, not approved.",
+          "Approximately two additional work days are explicitly supported if approved.",
+          "The additional effort supports an inferred risk / potential schedule impact.",
+          "No release milestone should be invented."
+        ]
+      },
+      "model_output": {
+        "summary": "고객이 High-Resolution Texture 지원 추가를 제안했으며, Engineering은 변경 승인 시 약 이틀의 추가 작업이 소요될 것으로 파악했습니다. 해당 안건은 아직 미승인 상태이며 Release Milestone은 논의되지 않았습니다.",
+        "issues": [],
+        "risks": [],
+        "dependencies": [],
+        "requirement_changes": [
+          {
+            "requirement": "High-Resolution Texture 지원",
+            "previous_state": null,
+            "new_state": "High-Resolution Texture 지원 추가",
+            "change_status": "proposed",
+            "evidence": [
+              "고객은 High-Resolution Texture 지원을 추가하는 방안을 제안했습니다.",
+              "변경안은 아직 승인되지 않았으며"
+            ]
+          }
+        ],
+        "schedule_impacts": [
+          {
+            "description": "High-Resolution Texture 지원 변경 승인 시 약 이틀의 추가 작업 필요",
+            "affected_milestone": null,
+            "duration_change": "약 이틀",
+            "impact_status": "potential",
+            "evidence": [
+              "Engineering은 해당 변경이 승인될 경우 약 이틀의 추가 작업이 필요하다고 설명했습니다."
+            ]
+          }
+        ],
+        "actions": [],
+        "uncertainties": [
+          {
+            "item": "High-Resolution Texture 지원 변경안 승인 여부",
+            "reason": "변경안이 아직 승인되지 않았음",
+            "needed_information": "제안된 요구사항 변경에 대한 최종 승인 여부"
+          },
+          {
+            "item": "Release Milestone 영향",
+            "reason": "Release Milestone은 논의되지 않았음",
+            "needed_information": "추가 작업 소요에 따른 Release Milestone 논의 및 일정 영향 여부"
+          }
+        ]
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 7.482,
+        "input_tokens": 1199,
+        "output_tokens": 428,
+        "total_tokens": 1627
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-009",
+      "language": "English",
+      "scenario_type": "Dependency and Schedule",
+      "primary_target": "Explicit dependency + nearby milestone timing risk",
+      "input": "Certification testing cannot begin until the signed firmware package is available. The Security Team will provide the signed package on Wednesday. Certification testing is planned for Thursday morning. No revised test schedule has been agreed.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 0,
+          "risks": 1,
+          "dependencies": 1,
+          "requirement_changes": 0,
+          "schedule_impacts": 1,
+          "actions": 1,
+          "uncertainties": 1
+        },
+        "assertions": [
+          {
+            "path": "risks.0.basis",
+            "op": "equals",
+            "value": "inferred"
+          },
+          {
+            "path": "dependencies.0.basis",
+            "op": "equals",
+            "value": "explicit"
+          },
+          {
+            "path": "schedule_impacts.0.affected_milestone",
+            "op": "contains",
+            "value": "Certification"
+          },
+          {
+            "path": "schedule_impacts.0.duration_change",
+            "op": "is_null"
+          },
+          {
+            "path": "schedule_impacts.0.impact_status",
+            "op": "equals",
+            "value": "potential"
+          },
+          {
+            "path": "actions.0.owner",
+            "op": "contains",
+            "value": "Security Team"
+          },
+          {
+            "path": "actions.0.due_date",
+            "op": "contains",
+            "value": "Wednesday"
+          }
+        ],
+        "manual_review": [
+          "The signed firmware package explicitly gates Certification testing.",
+          "The Wednesday package delivery followed by Thursday testing supports a future timing risk.",
+          "Do not invent a specific delay duration.",
+          "The Security Team package delivery is an explicit action.",
+          "The revised test schedule remains unresolved."
+        ]
+      },
+      "model_output": {
+        "summary": "Certification testing planned for Thursday morning is dependent on the delivery of a signed firmware package by the Security Team on Wednesday. Currently, no revised test schedule has been agreed.",
+        "issues": [],
+        "risks": [
+          {
+            "description": "Certification testing planned for Thursday morning may be affected if there are issues or delays with the Security Team providing the signed firmware package on Wednesday.",
+            "impact": "Certification testing schedule may be affected.",
+            "basis": "inferred",
+            "evidence": [
+              "Certification testing cannot begin until the signed firmware package is available.",
+              "The Security Team will provide the signed package on Wednesday.",
+              "Certification testing is planned for Thursday morning."
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "dependent_item": "Certification testing",
+            "dependency_item": "Signed firmware package",
+            "relationship": "Certification testing cannot begin until the signed firmware package is available.",
+            "basis": "explicit",
+            "evidence": [
+              "Certification testing cannot begin until the signed firmware package is available."
+            ]
+          }
+        ],
+        "requirement_changes": [],
+        "schedule_impacts": [
+          {
+            "description": "Certification testing scheduled for Thursday morning has a potential schedule impact because it depends on the delivery of the signed firmware package on Wednesday.",
+            "affected_milestone": "Certification testing",
+            "duration_change": null,
+            "impact_status": "potential",
+            "evidence": [
+              "Certification testing cannot begin until the signed firmware package is available.",
+              "The Security Team will provide the signed package on Wednesday.",
+              "Certification testing is planned for Thursday morning."
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "action": "Provide the signed firmware package",
+            "owner": "Security Team",
+            "due_date": "Wednesday",
+            "evidence": [
+              "The Security Team will provide the signed package on Wednesday."
+            ]
+          }
+        ],
+        "uncertainties": [
+          {
+            "item": "Revised test schedule",
+            "reason": "No revised test schedule has been agreed.",
+            "needed_information": "Agreement on whether a revised schedule is required or finalized."
+          }
+        ]
+      },
+      "metadata": {
+        "comparison_version": "model-comparison-v1",
+        "holdout_version": "holdout-v1",
+        "prompt_version": "fewshot-v0.5",
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "latency_seconds": 68.16,
+        "input_tokens": 1181,
+        "output_tokens": 521,
+        "total_tokens": 1702
+      },
+      "human_evaluation": {
+        "factual_correctness": null,
+        "completeness": null,
+        "unsupported_claim_control": null,
+        "classification_accuracy": null,
+        "meaning_preservation": null,
+        "semantic_score": null,
+        "review_notes": ""
+      }
+    },
+    {
+      "test_case": "H-010",
+      "language": "Korean",
+      "scenario_type": "Dependency and Schedule",
+      "primary_target": "Missing prerequisite + dependency + unknown ETA",
+      "input": "License Server Whitelist가 아직 적용되지 않았습니다. Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다. Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다.",
+      "golden_expectations": {
+        "expected_counts": {
+          "issues": 1,
+          "risks": 1,
+          "dependencies": 1,
+          "requirement_changes": 0,
+          "schedule_impacts": 1,
+          "actions": 0,
+          "uncertainties": 1
+        },
+        "assertions": [
+          {
+            "path": "risks.0.basis",
+            "op": "equals",
+            "value": "inferred"
+          },
+          {
+            "path": "dependencies.0.basis",
+            "op": "equals",
+            "value": "explicit"
+          },
+          {
+            "path": "schedule_impacts.0.affected_milestone",
+            "op": "contains",
+            "value": "Build Validation"
+          },
+          {
+            "path": "schedule_impacts.0.duration_change",
+            "op": "is_null"
+          },
+          {
+            "path": "schedule_impacts.0.impact_status",
+            "op": "equals",
+            "value": "potential"
+          }
+        ],
+        "manual_review": [
+          "The missing Whitelist is an existing issue.",
+          "Whitelist activation explicitly gates Build Validation.",
+          "The unknown Whitelist completion time creates a supported risk to Friday Build Validation.",
+          "Do not invent a specific delay duration.",
+          "The unresolved item is the Whitelist completion timing."
+        ]
+      },
+      "model_output": {
+        "summary": "License Server Whitelist가 아직 적용되지 않아 금요일 예정된 Build Validation 시작이 지연될 위험이 있으며, Infrastructure Team은 적용 완료 일정을 아직 제공하지 않았습니다.",
+        "issues": [
+          {
+            "description": "License Server Whitelist가 아직 적용되지 않았습니다.",
+            "impact": null,
+            "evidence": [
+              "License Server Whitelist가 아직 적용되지 않았습니다."
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "description": "Whitelist 적용 완료 일정이 불확실하여 금요일 예정된 Build Validation 시작에 영향이 있을 수 있습니다.",
+            "impact": "금요일 Build Validation 시작 일정에 영향 가능성",
+            "basis": "inferred",
+            "evidence": [
+              "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다.",
+              "Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다."
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "dependent_item": "Build Validation 시작",
+            "dependency_item": "License Server Whitelist 활성화",
+            "relationship": "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다.",
+            "basis": "explicit",
+            "evidence": [
+              "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다."
+            ]
+          }
+        ],
+        "requirement_changes": [],
+        "schedule_impacts": [
+          {

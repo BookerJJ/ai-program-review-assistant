@@ -1,0 +1,82 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-018",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Vendor delay + explicit recovery commitment",
+  "status": "success",
+  "started_at": "2026-09-12T12:30:04+04:00",
+  "completed_at": "2026-09-12T12:30:44+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 40.078,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1087,
+    "output_tokens": 596,
+    "total_tokens": 1683
+  },
+  "result": {
+    "summary": "Vendor가 화요일까지 전달하기로 한 Character Animation 파일을 아직 전달하지 않았으며, Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다. Vendor는 목요일 오전까지 파일을 전달하겠다고 했습니다.",
+    "issues": [
+      {
+        "description": "Character Animation 파일이 아직 전달되지 않았습니다.",
+        "impact": "Animation Team은 파일이 있어야 최종 Integration을 진행할 수 있습니다.",
+        "evidence": [
+          "외부 Vendor가 화요일까지 전달하기로 한 Character Animation 파일을 아직 전달하지 않았습니다."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "Vendor가 목요일 오전까지 파일을 전달하지 못할 경우, Animation Team의 최종 Integration 작업이 지연될 수 있습니다.",
+        "impact": "최종 Integration 작업이 지연될 수 있습니다.",
+        "basis": "inferred",
+        "evidence": [
+          "Vendor는 목요일 오전까지 파일을 전달하겠다고 했습니다."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "최종 Integration",
+        "dependency_item": "Character Animation 파일 전달",
+        "relationship": "Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Vendor가 목요일 오전까지 파일을 전달하지 못할 경우, 최종 Integration 작업의 일정에 영향을 줄 수 있습니다.",
+        "affected_milestone": "최종 Integration",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Vendor는 목요일 오전까지 파일을 전달하겠다고 했습니다."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "Vendor에게 파일 전달 일정을 확인하고, 추가적인 지원을 요청합니다.",
+        "owner": "Animation Team",
+        "due_date": null,
+        "evidence": [
+          "Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Vendor의 파일 전달 일정",
+        "reason": "Vendor는 목요일 오전까지 파일을 전달하겠다고 했지만, 이는 확정적인 약속이 아닙니다.",
+        "needed_information": "Vendor의 확정적인 파일 전달 일정 및 전달 가능성"
+      }
+    ]
+  }
+}

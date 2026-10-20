@@ -1,0 +1,53 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-016",
+  "language": "Korean",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Two future commitments + unresolved decision",
+  "status": "success",
+  "started_at": "2026-09-12T20:26:16+04:00",
+  "completed_at": "2026-09-12T20:26:33+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 17.212,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1086,
+    "output_tokens": 273,
+    "total_tokens": 1359
+  },
+  "result": {
+    "summary": "Analytics Team will share operational cost estimates for a new feature by Tuesday. The Product Team has scheduled a review of the proposal for Wednesday. However, whether the feature will be added is still undetermined.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Share operational cost estimates for the new feature",
+        "owner": "Analytics Team",
+        "due_date": "Tuesday",
+        "evidence": [
+          "Analytics Team은 새로운 기능의 운영 비용 추정치를 화요일까지 공유할 예정입니다."
+        ]
+      },
+      {
+        "action": "Review the proposal for the new feature",
+        "owner": "Product Team",
+        "due_date": "Wednesday",
+        "evidence": [
+          "Product Team은 수요일에 제안 내용을 검토하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Whether the new feature will be added",
+        "reason": "해당 기능을 실제로 추가할지는 아직 결정되지 않았습니다.",
+        "needed_information": "Final decision on feature addition"
+      }
+    ]
+  }
+}

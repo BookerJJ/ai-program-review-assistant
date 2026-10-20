@@ -1,0 +1,41 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-004",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Null handling + conservative analysis",
+  "status": "success",
+  "started_at": "2026-09-12T13:21:27+04:00",
+  "completed_at": "2026-09-12T13:21:47+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.286,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1379,
+    "output_tokens": 240,
+    "total_tokens": 1619
+  },
+  "result": {
+    "summary": "Load Test에서 메모리 사용량이 내부 기준치를 초과했습니다. Performance Review 전에 추가 Memory Profiling이 필요합니다. 담당자와 일정은 아직 결정되지 않았으며, 분석 결과가 나오기 전까지 Release Plan은 변경하지 않기로 했습니다.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Memory Profiling 담당자 및 일정",
+        "reason": "담당자는 지정되지 않았고, Profiling 완료 일정도 결정되지 않았습니다.",
+        "needed_information": "Memory Profiling 담당자 및 일정"
+      },
+      {
+        "item": "Release Plan 변경 여부",
+        "reason": "분석 결과가 나오기 전까지 Release Plan은 변경하지 않기로 했습니다.",
+        "needed_information": "분석 결과"
+      }
+    ]
+  }
+}

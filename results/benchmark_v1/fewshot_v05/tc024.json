@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-024",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Multi-clause action/deadline binding",
+  "status": "success",
+  "started_at": "2026-09-12T12:33:12+04:00",
+  "completed_at": "2026-09-12T12:33:44+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 31.58,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1091,
+    "output_tokens": 355,
+    "total_tokens": 1446
+  },
+  "result": {
+    "summary": "Engineering 팀은 Login Crash 문제를 조사 중이며, 조사 결과를 화요일까지 공유할 예정입니다. 수정 사항이 준비되면 QA 팀이 재테스트를 수행할 계획이지만, 수정 완료일과 재테스트 일정은 아직 정해지지 않았습니다.",
+    "issues": [
+      {
+        "description": "Login Crash 문제는 현재 조사 중입니다.",
+        "impact": null,
+        "evidence": [
+          "Engineering은 Login Crash를 조사 중이며 화요일까지 조사 결과를 공유하기로 했습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "조사 결과를 공유합니다.",
+        "owner": "Engineering",
+        "due_date": "화요일",
+        "evidence": [
+          "Engineering은 Login Crash를 조사 중이며 화요일까지 조사 결과를 공유하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "수정 완료일",
+        "reason": "수정 완료일은 아직 정해지지 않았습니다.",
+        "needed_information": "수정 완료일"
+      },
+      {
+        "item": "재테스트 일정",
+        "reason": "재테스트 일정은 아직 정해지지 않았습니다.",
+        "needed_information": "재테스트 일정"
+      }
+    ]
+  }
+}

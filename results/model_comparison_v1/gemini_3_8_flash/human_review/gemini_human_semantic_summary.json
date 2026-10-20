@@ -1,0 +1,46 @@
+{
+  "evaluation": "Gemini Human Semantic Review",
+  "model": "gemini-3.8-flash",
+  "holdout_cases": 20,
+  "overall_human_semantic_score": 94.0,
+  "dimension_averages_0_to_2": {
+    "factual_correctness": 2.0,
+    "completeness": 1.8,
+    "unsupported_claim_control": 2.0,
+    "classification_accuracy": 1.7,
+    "meaning_preservation": 1.9
+  },
+  "by_language": {
+    "English": 96.0,
+    "Korean": 92.0
+  },
+  "by_scenario_type": {
+    "Operational Incident": 95.0,
+    "Requirement Change": 90.0,
+    "Dependency and Schedule": 97.5,
+    "Action and Deadline": 97.5,
+    "Conflict and Negative": 90.0
+  },
+  "case_scores": {
+    "H-001": 90.0,
+    "H-002": 100.0,
+    "H-003": 100.0,
+    "H-004": 90.0,
+    "H-005": 100.0,
+    "H-006": 80.0,
+    "H-007": 100.0,
+    "H-008": 80.0,
+    "H-009": 100.0,
+    "H-010": 100.0,
+    "H-011": 100.0,
+    "H-012": 90.0,
+    "H-013": 90.0,
+    "H-014": 100.0,
+    "H-015": 100.0,
+    "H-016": 100.0,
+    "H-017": 80.0,
+    "H-018": 80.0,
+    "H-019": 100.0,
+    "H-020": 100.0
+  }
+}

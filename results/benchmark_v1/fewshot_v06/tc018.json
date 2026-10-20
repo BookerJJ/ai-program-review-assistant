@@ -1,0 +1,64 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-018",
+  "language": "Korean",
+  "difficulty": "Medium",
+  "primary_target": "Vendor delay + explicit recovery commitment",
+  "status": "success",
+  "started_at": "2026-09-12T13:19:33+04:00",
+  "completed_at": "2026-09-12T13:20:07+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 34.597,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1362,
+    "output_tokens": 431,
+    "total_tokens": 1793
+  },
+  "result": {
+    "summary": "Vendor가 화요일까지 전달하기로 한 Character Animation 파일을 아직 전달하지 않았으며, Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다. Vendor는 목요일 오전까지 파일을 전달하겠다고 했습니다.",
+    "issues": [
+      {
+        "description": "Vendor가 화요일까지 전달하기로 한 Character Animation 파일을 아직 전달하지 않았습니다.",
+        "impact": null,
+        "evidence": [
+          "외부 Vendor가 화요일까지 전달하기로 한 Character Animation 파일을 아직 전달하지 않았습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "최종 Integration",
+        "dependency_item": "Character Animation 파일",
+        "relationship": "Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다.",
+        "basis": "inferred",
+        "evidence": [
+          "Animation Team은 해당 파일이 있어야 최종 Integration을 진행할 수 있습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Vendor는 목요일 오전까지 파일을 전달하겠다고 했습니다.",
+        "affected_milestone": null,
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Vendor는 목요일 오전까지 파일을 전달하겠다고 했습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Character Animation 파일 전달 여부",
+        "reason": "Vendor가 화요일까지 전달하기로 한 파일을 아직 전달하지 않았으며, 목요일 오전까지 전달하겠다고 했으나, 실제 전달 여부는 확정되지 않았습니다.",
+        "needed_information": "Vendor가 파일을 실제로 전달하는지 여부"
+      }
+    ]
+  }
+}

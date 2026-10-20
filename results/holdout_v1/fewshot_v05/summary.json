@@ -1,0 +1,47 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "evaluation_role": "final_unseen_holdout",
+  "started_at": "2026-09-12T20:21:42+04:00",
+  "completed_at": "2026-09-12T20:27:19+04:00",
+  "total_cases": 20,
+  "successful_cases": 20,
+  "failed_cases": 0,
+  "average_latency_seconds": 16.861,
+  "total_input_tokens": 21529,
+  "total_output_tokens": 5429,
+  "total_tokens": 26958,
+  "by_language": {
+    "English": {
+      "total": 10,
+      "success": 10
+    },
+    "Korean": {
+      "total": 10,
+      "success": 10
+    }
+  },
+  "by_scenario_type": {
+    "Action and Deadline": {
+      "total": 4,
+      "success": 4
+    },
+    "Conflict and Negative": {
+      "total": 4,
+      "success": 4
+    },
+    "Dependency and Schedule": {
+      "total": 4,
+      "success": 4
+    },
+    "Operational Incident": {
+      "total": 4,
+      "success": 4
+    },
+    "Requirement Change": {
+      "total": 4,
+      "success": 4
+    }
+  },
+  "failed_test_cases": []
+}

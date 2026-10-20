@@ -1,0 +1,40 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-014",
+  "language": "Korean",
+  "difficulty": "Simple",
+  "primary_target": "Confirmed requirement change",
+  "status": "success",
+  "started_at": "2026-09-12T13:17:13+04:00",
+  "completed_at": "2026-09-12T13:17:24+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 10.961,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1346,
+    "output_tokens": 165,
+    "total_tokens": 1511
+  },
+  "result": {
+    "summary": "The customer has finalized the approval to change the existing session timeout requirement from 20 minutes to 30 minutes. The change does not affect the schedule.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Session Timeout",
+        "previous_state": "20 minutes",
+        "new_state": "30 minutes",
+        "change_status": "confirmed",
+        "evidence": [
+          "기존 세션 Timeout 요구사항은 20분이었습니다. 고객이 이를 30분으로 변경하는 안을 최종 승인했습니다."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": []
+  }
+}

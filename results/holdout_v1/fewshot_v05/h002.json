@@ -1,0 +1,53 @@
+{
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "H-002",
+  "language": "Korean",
+  "scenario_type": "Operational Incident",
+  "primary_target": "Existing issue + remediation action + no schedule impact",
+  "status": "success",
+  "started_at": "2026-09-12T20:22:09+04:00",
+  "completed_at": "2026-09-12T20:22:27+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 18.045,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1085,
+    "output_tokens": 321,
+    "total_tokens": 1406
+  },
+  "result": {
+    "summary": "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 문제가 확인되어, Art Tech Team이 해당 Asset을 재생성하여 내일 정오까지 전달하기로 했습니다. 현재까지 Milestone 영향은 확인되지 않았습니다.",
+    "issues": [
+      {
+        "description": "세 개의 Asset에 필요한 Mip Level이 Texture Streaming 테스트에서 누락된 것으로 확인되었습니다.",
+        "impact": null,
+        "evidence": [
+          "Texture Streaming 테스트에서 세 개의 Asset에 필요한 Mip Level이 누락된 것이 확인되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Art Tech Team이 해당 Asset을 다시 생성하여 내일 정오까지 전달하기로 했습니다.",
+        "owner": "Art Tech Team",
+        "due_date": "내일 정오",
+        "evidence": [
+          "Art Tech Team은 해당 Asset을 다시 생성해 내일 정오까지 전달하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Milestone 영향",
+        "reason": "현재까지 Milestone 영향은 확인되지 않았습니다.",
+        "needed_information": "Milestone 영향 여부에 대한 추가 확인이 필요합니다."
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+category,count_accuracy,assertion_accuracy,assertion_count
+issues,0.95,,0
+risks,0.85,0.4,5
+dependencies,0.9,1.0,6
+requirement_changes,1.0,1.0,14
+schedule_impacts,0.95,1.0,8
+actions,0.95,0.955,22
+uncertainties,0.85,,0

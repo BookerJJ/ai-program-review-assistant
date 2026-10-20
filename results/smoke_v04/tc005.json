@@ -1,0 +1,47 @@
+{
+  "test_case": "TC-005",
+  "language": "English",
+  "difficulty": "Difficult",
+  "prompt_version": "grounded-v0.4",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 18.24,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 824,
+    "output_tokens": 324,
+    "total_tokens": 1148
+  },
+  "result": {
+    "summary": "The client originally required a 95% test pass rate for acceptance. The Product Manager now suggests 90% is acceptable for the pilot, but client approval has not been formally obtained. QA continues to use the 95% threshold in the acceptance checklist.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "test pass rate for client acceptance",
+        "previous_state": "95%",
+        "new_state": "proposed: 90%",
+        "change_status": "proposed",
+        "evidence": [
+          "Earlier meeting notes state that client acceptance requires a 95% test pass rate. In today's update, the Product Manager said that 90% would be acceptable for the pilot, but client approval has not been obtained."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "client approval for the 90% test pass rate",
+        "reason": "Client approval has not been obtained.",
+        "needed_information": "Client approval status for the proposed 90% test pass rate."
+      },
+      {
+        "item": "QA checklist alignment",
+        "reason": "QA is still using the 95% threshold in the acceptance checklist.",
+        "needed_information": "Whether QA will update the checklist to reflect the proposed 90% threshold."
+      }
+    ]
+  }
+}

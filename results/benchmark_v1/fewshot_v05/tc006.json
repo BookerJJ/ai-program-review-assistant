@@ -1,0 +1,53 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-006",
+  "language": "English",
+  "difficulty": "Simple",
+  "primary_target": "Issue + explicit action + null schedule impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:26:01+04:00",
+  "completed_at": "2026-09-12T12:26:16+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 14.832,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1067,
+    "output_tokens": 263,
+    "total_tokens": 1330
+  },
+  "result": {
+    "summary": "The nightly build failed due to a missing deployment configuration file. DevOps has restored the file and will rerun the build by 3 PM today. No release milestone has been changed.",
+    "issues": [
+      {
+        "description": "The nightly build failed because the deployment configuration file was missing from the build package.",
+        "impact": null,
+        "evidence": [
+          "The nightly build failed because the deployment configuration file was missing from the build package."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Rerun the build after restoring the deployment configuration file.",
+        "owner": "DevOps",
+        "due_date": "3 PM today",
+        "evidence": [
+          "DevOps will rerun the build by 3 PM today."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Build success after rerun",
+        "reason": "The outcome of the rerun is not guaranteed and depends on the restoration and execution of the build process.",
+        "needed_information": "Build outcome after rerun"
+      }
+    ]
+  }
+}

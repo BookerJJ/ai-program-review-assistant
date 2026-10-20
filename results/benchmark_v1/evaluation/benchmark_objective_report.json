@@ -1,0 +1,1000 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "evaluation_type": "objective_structural",
+  "note": "Structural Score excludes Evidence Traceability. Evidence is reported separately, and Structural scores do not represent full semantic accuracy. Manual review is still required.",
+  "overall": {
+    "cases": 30,
+    "average_structural_score": 82.2,
+    "average_evidence_traceability": 0.886,
+    "average_latency_seconds": 21.296,
+    "total_tokens": 41611
+  },
+  "by_language": {
+    "English": {
+      "cases": 15,
+      "average_structural_score": 86.5,
+      "average_evidence_traceability": 0.839,
+      "average_latency_seconds": 19.45,
+      "total_tokens": 20232
+    },
+    "Korean": {
+      "cases": 15,
+      "average_structural_score": 77.9,
+      "average_evidence_traceability": 0.933,
+      "average_latency_seconds": 23.142,
+      "total_tokens": 21379
+    }
+  },
+  "by_difficulty": {
+    "Simple": {
+      "cases": 10,
+      "average_structural_score": 91.7,
+      "average_evidence_traceability": 0.95,
+      "average_latency_seconds": 14.476,
+      "total_tokens": 12999
+    },
+    "Medium": {
+      "cases": 10,
+      "average_structural_score": 76.6,
+      "average_evidence_traceability": 0.775,
+      "average_latency_seconds": 24.223,
+      "total_tokens": 14514
+    },
+    "Difficult": {
+      "cases": 10,
+      "average_structural_score": 78.3,
+      "average_evidence_traceability": 0.933,
+      "average_latency_seconds": 25.19,
+      "total_tokens": 14098
+    }
+  },
+  "by_category": {
+    "issues": {
+      "count_accuracy": 0.767,
+      "assertion_accuracy": 1.0,
+      "assertion_count": 3
+    },
+    "risks": {
+      "count_accuracy": 0.767,
+      "assertion_accuracy": 0.364,
+      "assertion_count": 11
+    },
+    "dependencies": {
+      "count_accuracy": 0.9,
+      "assertion_accuracy": 0.625,
+      "assertion_count": 8
+    },
+    "requirement_changes": {
+      "count_accuracy": 1.0,
+      "assertion_accuracy": 0.931,
+      "assertion_count": 29
+    },
+    "schedule_impacts": {
+      "count_accuracy": 0.8,
+      "assertion_accuracy": 0.444,
+      "assertion_count": 18
+    },
+    "actions": {
+      "count_accuracy": 0.8,
+      "assertion_accuracy": 0.643,
+      "assertion_count": 42
+    },
+    "uncertainties": {
+      "count_accuracy": 0.733,
+      "assertion_accuracy": null,
+      "assertion_count": 0
+    }
+  },
+  "cases": [
+    {
+      "test_case": "TC-001",
+      "language": "English",
+      "difficulty": "Simple",
+      "primary_target": "Issue + action; no invented schedule impact",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 11,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "equals",
+          "expected": "Backend Engineering",
+          "actual": "Backend Engineering",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "equals",
+          "expected": "Wednesday",
+          "actual": "Wednesday",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 26.906,
+      "input_tokens": 1081,
+      "output_tokens": 284,
+      "total_tokens": 1365,
+      "manual_review": [
+        "Wednesday applies to providing the update, not completing the investigation.",
+        "Do not create a release-delay risk.",
+        "No schedule impact should be created."
+      ],
+      "checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "The authentication service returned 401 errors during today's integration test, preventing QA from completing the planned test cycle. Backend Engineering is investigating the issue and will provide an update by Wednesday. No change to the release date has been discussed."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Backend Engineering",
+          "actual": "Backend Engineering"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "Wednesday",
+          "actual": "Wednesday"
+        },
+        {
+          "name": "evidence_traceability",
+          "category": "evidence",
+          "passed": true,
+          "expected": 1.0,
+          "actual": 1.0
+        }
+      ]
+    },
+    {
+      "test_case": "TC-006",
+      "language": "English",
+      "difficulty": "Simple",
+      "primary_target": "Issue + explicit action + null schedule impact",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 90.9,
+      "passed_checks": 10,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 1,
+          "count_match": false
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "equals",
+          "expected": "DevOps",
+          "actual": "DevOps",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "3 PM",
+          "actual": "3 PM today",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 1,
+        "rate": 0.5,
+        "failures": [
+          {
+            "category": "actions",
+            "item_index": 0,
+            "evidence": "DevOps will rerun the build by 3 PM today."
+          }
+        ]
+      },
+      "latency_seconds": 14.832,
+      "input_tokens": 1067,
+      "output_tokens": 263,
+      "total_tokens": 1330,
+      "manual_review": [
+        "The failed nightly build is the issue.",
+        "The missing configuration file is explicitly identified as the cause.",
+        "No release schedule impact should be invented."
+      ],
+      "checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "The nightly build failed due to a missing deployment configuration file. DevOps has restored the file and will rerun the build by 3 PM today. No release milestone has been changed."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": false,
+          "expected": 0,
+          "actual": 1
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "DevOps",
+          "actual": "DevOps"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "3 PM",
+          "actual": "3 PM today"
+        },
+        {
+          "name": "evidence_traceability",
+          "category": "evidence",
+          "passed": false,
+          "expected": 1.0,
+          "actual": 0.5
+        }
+      ]
+    },
+    {
+      "test_case": "TC-007",
+      "language": "Korean",
+      "difficulty": "Simple",
+      "primary_target": "Issue + vendor action",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 11,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Localization Vendor",
+          "actual": "Localization Vendor",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "equals",
+          "expected": "금요일",
+          "actual": "금요일",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 18.692,
+      "input_tokens": 1081,
+      "output_tokens": 317,
+      "total_tokens": 1398,
+      "manual_review": [
+        "The missing localization strings are an existing issue.",
+        "Friday is the corrected-file delivery date.",
+        "Do not convert 'release schedule change has not been discussed' into a delay risk.",
+        "Korean input should normally produce Korean analysis."
+      ],
+      "checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다. Localization Vendor는 수정된 파일을 금요일까지 다시 전달하기로 했습니다. 현재 Release 일정 변경은 논의되지 않았습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Localization Vendor",
+          "actual": "Localization Vendor"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "금요일",
+          "actual": "금요일"
+        },
+        {
+          "name": "evidence_traceability",
+          "category": "evidence",
+          "passed": true,
+          "expected": 1.0,
+          "actual": 1.0
+        }
+      ]
+    },
+    {
+      "test_case": "TC-008",
+      "language": "English",
+      "difficulty": "Simple",
+      "primary_target": "Negative case; avoid creating findings",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 9,
+      "total_checks": 9,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [],
+      "evidence_traceability": {
+        "total": 0,
+        "traceable": 0,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 4.71,
+      "input_tokens": 1067,
+      "output_tokens": 80,
+      "total_tokens": 1147,
+      "manual_review": [
+        "This is a negative case.",
+        "Do not invent issues, risks, requirement changes, schedule impacts, actions, or uncertainties."
+      ],
+      "checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "The client confirmed no requirement changes are needed, and engineering is proceeding with the existing plan. No new issues, risks, or schedule changes were identified."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "evidence_traceability",
+          "category": "evidence",
+          "passed": true,
+          "expected": 1.0,
+          "actual": 1.0
+        }
+      ]
+    },
+    {
+      "test_case": "TC-009",
+      "language": "Korean",
+      "difficulty": "Simple",
+      "primary_target": "Existing issue + explicit action",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 11,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Infrastructure",
+          "actual": "Infrastructure Team",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "오늘 오후",
+          "actual": "오늘 오후",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 14.248,
+      "input_tokens": 1075,
+      "output_tokens": 250,
+      "total_tokens": 1325,
+      "manual_review": [
+        "Expired SSL certificate is an existing issue.",
+        "QA access failure is the directly supported impact.",
+        "Do not invent a release delay."
+      ],
+      "checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "테스트 서버의 SSL 인증서가 만료되어 QA가 서버에 접속할 수 없는 문제가 발생했습니다. Infrastructure Team이 인증서를 갱신하고, 오늘 오후까지 서버 접속 상태를 확인할 예정입니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Infrastructure",
+          "actual": "Infrastructure Team"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "오늘 오후",
+          "actual": "오늘 오후"
+        },
+        {
+          "name": "evidence_traceability",
+          "category": "evidence",
+          "passed": true,
+          "expected": 1.0,
+          "actual": 1.0
+        }
+      ]
+    },
+    {
+      "test_case": "TC-010",
+      "language": "English",
+      "difficulty": "Simple",
+      "primary_target": "Completed activity; avoid false issue",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 88.9,
+      "passed_checks": 8,
+      "total_checks": 9,
+      "category_results": {

@@ -1,0 +1,80 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-010",
+  "language": "Korean",
+  "scenario_type": "Dependency and Schedule",
+  "primary_target": "Missing prerequisite + dependency + unknown ETA",
+  "status": "success",
+  "started_at": "2026-09-13T16:45:42+04:00",
+  "completed_at": "2026-09-13T16:45:48+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 5.874,
+    "input_tokens": 1193,
+    "output_tokens": 561,
+    "thinking_tokens": 0,
+    "total_tokens": 1754
+  },
+  "result": {
+    "summary": "License Server Whitelist가 아직 적용되지 않아 금요일 예정된 Build Validation 시작이 지연될 위험이 있으며, Infrastructure Team은 적용 완료 일정을 아직 제공하지 않았습니다.",
+    "issues": [
+      {
+        "description": "License Server Whitelist가 아직 적용되지 않았습니다.",
+        "impact": null,
+        "evidence": [
+          "License Server Whitelist가 아직 적용되지 않았습니다."
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "description": "Whitelist 적용 완료 일정이 불확실하여 금요일 예정된 Build Validation 시작에 영향이 있을 수 있습니다.",
+        "impact": "금요일 Build Validation 시작 일정에 영향 가능성",
+        "basis": "inferred",
+        "evidence": [
+          "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다.",
+          "Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependent_item": "Build Validation 시작",
+        "dependency_item": "License Server Whitelist 활성화",
+        "relationship": "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다.",
+        "basis": "explicit",
+        "evidence": [
+          "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [
+      {
+        "description": "Infrastructure Team의 Whitelist 적용 완료 일정이 미정인 상태에서 Whitelist 활성화 전에는 작업을 시작할 수 없어 금요일 Build Validation에 잠재적 일정 영향이 있습니다.",
+        "affected_milestone": "Build Validation",
+        "duration_change": null,
+        "impact_status": "potential",
+        "evidence": [
+          "Whitelist가 활성화되기 전에는 Build Validation을 시작할 수 없습니다.",
+          "Build Validation은 금요일로 예정되어 있지만 Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다."
+        ]
+      }
+    ],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "License Server Whitelist 적용 완료 일정",
+        "reason": "Infrastructure Team은 Whitelist 적용 완료 일정을 아직 제공하지 않았습니다.",
+        "needed_information": "Infrastructure Team의 Whitelist 적용 완료 예정일"
+      }
+    ]
+  }
+}

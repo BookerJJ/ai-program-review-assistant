@@ -1,0 +1,62 @@
+{
+  "test_case": "TC-005",
+  "language": "English",
+  "difficulty": "Difficult",
+  "prompt_version": "grounded-v0.3",
+  "status": "success",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 25.628,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 976,
+    "output_tokens": 456,
+    "total_tokens": 1432
+  },
+  "result": {
+    "summary": "The client previously required a 95% test pass rate for acceptance. The Product Manager now suggests 90% is acceptable for the pilot, but client approval has not been obtained. QA continues to use 95% in the acceptance checklist. No schedule impact was discussed.",
+    "issues": [
+      {
+        "description": "QA is still using 95% in the acceptance checklist despite the Product Manager suggesting 90% is acceptable for the pilot.",
+        "impact": "The acceptance criteria are not aligned with the proposed pilot requirement, which may lead to confusion or rejection of the pilot.",
+        "evidence": [
+          "QA is still using 95% in the acceptance checklist."
+        ]
+      },
+      {
+        "description": "Client approval has not been obtained for the 90% pass rate proposal.",
+        "impact": "The project is still operating under the original 95% requirement, which may not align with the pilot's actual needs.",
+        "evidence": [
+          "Client approval has not been obtained."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "95% test pass rate",
+        "previous_state": "95%",
+        "new_state": "proposed: 90%",
+        "change_status": "proposed",
+        "evidence": [
+          "Product Manager said that 90% would be acceptable for the pilot."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Client approval for the 90% pass rate proposal",
+        "reason": "Client approval has not been obtained.",
+        "needed_information": "Whether the client will approve the 90% pass rate for the pilot."
+      },
+      {
+        "item": "Alignment of acceptance criteria",
+        "reason": "QA is still using 95% in the acceptance checklist.",
+        "needed_information": "Whether the acceptance checklist will be updated to reflect the 90% pass rate for the pilot."
+      }
+    ]
+  }
+}

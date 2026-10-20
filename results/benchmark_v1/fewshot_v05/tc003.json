@@ -1,0 +1,60 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-003",
+  "language": "English",
+  "difficulty": "Medium",
+  "primary_target": "Proposed requirement + supported effort impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:28:33+04:00",
+  "completed_at": "2026-09-12T12:28:53+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 20.398,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1090,
+    "output_tokens": 321,
+    "total_tokens": 1411
+  },
+  "result": {
+    "summary": "The client has proposed reducing the encryption key rotation interval from 90 days to 30 days. This change requires configuration redesign and additional engineering effort, but it has not yet been approved.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Encryption key rotation interval",
+        "previous_state": "90 days",
+        "new_state": "30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The client proposed changing the interval to every 30 days."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Review the proposal for changing the encryption key rotation interval.",
+        "owner": "Architecture Team",
+        "due_date": "Friday",
+        "evidence": [
+          "The Architecture Team will review the proposal on Friday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Approval status of the encryption key rotation change",
+        "reason": "The change has not yet been approved.",
+        "needed_information": "Legal or compliance approval status."
+      },
+      {
+        "item": "Implementation timeline for the encryption key rotation change",
+        "reason": "The change requires configuration redesign and additional engineering days, but no specific schedule has been committed.",
+        "needed_information": "Confirmed timeline for implementation."
+      }
+    ]
+  }
+}

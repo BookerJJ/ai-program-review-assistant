@@ -1,0 +1,53 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-027",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Existing issue with explicitly ruled-out schedule impact",
+  "status": "success",
+  "started_at": "2026-09-12T12:34:27+04:00",
+  "completed_at": "2026-09-12T12:34:45+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 17.901,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1074,
+    "output_tokens": 240,
+    "total_tokens": 1314
+  },
+  "result": {
+    "summary": "A performance testing issue identified a 12% response-time regression in the reporting service. Engineering is investigating the issue, and the release date remains unchanged. No remediation deadline has been set.",
+    "issues": [
+      {
+        "description": "A 12% response-time regression was found in the reporting service during performance testing.",
+        "impact": null,
+        "evidence": [
+          "Performance testing found a 12% response-time regression in the reporting service."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Investigate the response-time regression in the reporting service.",
+        "owner": "Engineering",
+        "due_date": null,
+        "evidence": [
+          "Engineering is investigating the regression."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Remediation timeline",
+        "reason": "No remediation deadline has been set.",
+        "needed_information": "Remediation deadline"
+      }
+    ]
+  }
+}

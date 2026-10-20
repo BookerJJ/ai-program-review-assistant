@@ -1,0 +1,62 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-007",
+  "language": "English",
+  "scenario_type": "Requirement Change",
+  "primary_target": "Proposed setting change + approval dependency",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-13T16:55:57+04:00",
+  "completed_at": "2026-09-13T16:56:16+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 6.104,
+    "input_tokens": 1181,
+    "output_tokens": 331,
+    "thinking_tokens": 0,
+    "total_tokens": 1512
+  },
+  "result": {
+    "summary": "Product proposed enabling telemetry collection by default for the Beta, changing it from its current disabled default. Legal requires client consent before approving the change, and no final decision has been made.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Approval of telemetry collection enabled by default",
+        "dependency_item": "Receipt of client consent",
+        "relationship": "The change cannot be approved until client consent is received.",
+        "basis": "explicit",
+        "evidence": [
+          "Legal stated that the change cannot be approved until client consent is received."
+        ]
+      }
+    ],
+    "requirement_changes": [
+      {
+        "requirement": "Default telemetry collection setting for Beta",
+        "previous_state": "disabled by default",
+        "new_state": "enabled by default",
+        "change_status": "proposed",
+        "evidence": [
+          "Telemetry collection is currently disabled by default. Product proposed enabling it by default for the Beta."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Final decision on enabling telemetry collection by default",
+        "reason": "No final decision has been made, and legal approval is awaiting client consent.",
+        "needed_information": "Receipt of client consent and legal approval decision."
+      }
+    ]
+  }
+}

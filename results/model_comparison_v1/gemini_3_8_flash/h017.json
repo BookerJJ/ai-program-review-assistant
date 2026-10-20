@@ -1,0 +1,53 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-017",
+  "language": "English",
+  "scenario_type": "Conflict and Negative",
+  "primary_target": "Conflicting requirement information without approval",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-14T11:07:17+04:00",
+  "completed_at": "2026-09-14T11:07:21+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 4.307,
+    "input_tokens": 1195,
+    "output_tokens": 291,
+    "thinking_tokens": 0,
+    "total_tokens": 1486
+  },
+  "result": {
+    "summary": "The signed operations requirement currently specifies a seven-day log retention policy, which Operations continues to follow. The Product Manager suggested that 30 days may be preferable for the enterprise launch, but no change has been approved by the client.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Log retention duration for enterprise launch",
+        "previous_state": "7 days",
+        "new_state": "30 days",
+        "change_status": "proposed",
+        "evidence": [
+          "The signed operations requirement specifies seven days of log retention.",
+          "During today's meeting, the Product Manager said that 30 days may be preferable for the enterprise launch, but the client has not approved a change."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Enterprise launch log retention requirement approval",
+        "reason": "The Product Manager suggested 30 days, but the client has not approved a change.",
+        "needed_information": "Approval or rejection from the client regarding changing log retention from seven days to 30 days."
+      }
+    ]
+  }
+}

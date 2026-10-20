@@ -1,0 +1,55 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-026",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Dependency chain",
+  "status": "success",
+  "started_at": "2026-09-12T12:34:03+04:00",
+  "completed_at": "2026-09-12T12:34:27+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 23.497,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1087,
+    "output_tokens": 309,
+    "total_tokens": 1396
+  },
+  "result": {
+    "summary": "Security Review must be completed to obtain Production Access approval. Deployment Validation can only begin after Production Access approval is obtained. The Security Review owner is not yet determined, and there are no changes to the release schedule.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [
+      {
+        "dependent_item": "Deployment Validation",
+        "dependency_item": "Production Access approval",
+        "relationship": "Deployment Validation can only begin after Production Access approval is obtained.",
+        "basis": "explicit",
+        "evidence": [
+          "Production Access 승인이 완료된 이후에만 Deployment Validation을 시작할 수 있습니다."
+        ]
+      },
+      {
+        "dependent_item": "Production Access approval",
+        "dependency_item": "Security Review",
+        "relationship": "Production Access approval can only be obtained after Security Review is completed.",
+        "basis": "explicit",
+        "evidence": [
+          "Security Review가 완료되어야 Production Access 승인을 받을 수 있습니다."
+        ]
+      }
+    ],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [],
+    "uncertainties": [
+      {
+        "item": "Security Review owner",
+        "reason": "Security Review 담당자는 아직 정해지지 않았으며 현재 Release 일정 변경은 없습니다.",
+        "needed_information": "Security Review 담당자 지정"
+      }
+    ]
+  }
+}

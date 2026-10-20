@@ -1,0 +1,67 @@
+{
+  "comparison_version": "model-comparison-v1",
+  "holdout_version": "holdout-v1",
+  "prompt_version": "fewshot-v0.5",
+  "provider": "google",
+  "model": "gemini-3.8-flash",
+  "test_case": "H-014",
+  "language": "Korean",
+  "scenario_type": "Action and Deadline",
+  "primary_target": "Multiple independent actions with separate deadlines",
+  "status": "success",
+  "api_attempt": 1,
+  "started_at": "2026-09-14T11:03:58+04:00",
+  "completed_at": "2026-09-14T11:04:56+04:00",
+  "metadata": {
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "temperature": 0.0,
+    "latency_seconds": 50.797,
+    "input_tokens": 1193,
+    "output_tokens": 349,
+    "thinking_tokens": 0,
+    "total_tokens": 1542
+  },
+  "result": {
+    "summary": "Mobile Client에서 간헐적인 Crash가 보고되어 고객이 월요일까지 영향받은 기기 목록을 전달하고 QA가 수요일까지 재현을 완료할 예정이나, 수정 완료 일정은 미정인 상태입니다.",
+    "issues": [
+      {
+        "description": "Mobile Client에서 간헐적인 Crash가 발생함.",
+        "impact": null,
+        "evidence": [
+          "Mobile Client에서 간헐적인 Crash가 보고되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "영향을 받은 Device 목록 전달",
+        "owner": "고객",
+        "due_date": "월요일",
+        "evidence": [
+          "고객은 영향을 받은 Device 목록을 월요일까지 전달하기로 했습니다."
+        ]
+      },
+      {
+        "action": "Crash 재현 완료",
+        "owner": "QA",
+        "due_date": "수요일",
+        "evidence": [
+          "QA는 수요일까지 Crash 재현을 완료할 예정입니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "수정 완료 일정",
+        "reason": "수정 완료 일정이 아직 정해지지 않음.",
+        "needed_information": "Crash 수정 완료 목표 일정 또는 기한"
+      }
+    ]
+  }
+}

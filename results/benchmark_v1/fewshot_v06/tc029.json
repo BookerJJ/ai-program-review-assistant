@@ -1,0 +1,55 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-029",
+  "language": "English",
+  "difficulty": "Difficult",
+  "primary_target": "Conflicting criteria + explicit clarification action",
+  "status": "success",
+  "started_at": "2026-09-12T13:24:33+04:00",
+  "completed_at": "2026-09-12T13:24:58+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 25.306,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1367,
+    "output_tokens": 290,
+    "total_tokens": 1657
+  },
+  "result": {
+    "summary": "The project has a specified minimum throughput of 1,000 requests per second. The client suggested that 900 requests per second may be sufficient for the pilot, but this change has not been formally approved. The Account Team will seek written confirmation by Friday. No schedule changes have been discussed.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [
+      {
+        "requirement": "Throughput",
+        "previous_state": "1,000 requests per second",
+        "new_state": "900 requests per second",
+        "change_status": "proposed",
+        "evidence": [
+          "A recent client message mentioned that 900 requests per second may be sufficient for the pilot."
+        ]
+      }
+    ],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Request written confirmation",
+        "owner": "Account Team",
+        "due_date": "Friday",
+        "evidence": [
+          "The Account Team will request written confirmation by Friday."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Formal approval of throughput change",
+        "reason": "The client has not approved a formal change.",
+        "needed_information": "Formal approval status of the throughput change."
+      }
+    ]
+  }
+}

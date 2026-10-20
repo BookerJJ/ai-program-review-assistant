@@ -1,0 +1,53 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-v0.5",
+  "test_case": "TC-007",
+  "language": "Korean",
+  "difficulty": "Simple",
+  "primary_target": "Issue + vendor action",
+  "status": "success",
+  "started_at": "2026-09-12T12:26:16+04:00",
+  "completed_at": "2026-09-12T12:26:35+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 18.692,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1081,
+    "output_tokens": 317,
+    "total_tokens": 1398
+  },
+  "result": {
+    "summary": "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다. Localization Vendor는 수정된 파일을 금요일까지 다시 전달하기로 했습니다. 현재 Release 일정 변경은 논의되지 않았습니다.",
+    "issues": [
+      {
+        "description": "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다.",
+        "impact": null,
+        "evidence": [
+          "한국어 Localization 파일에 일부 문자열이 누락되어 QA 검수가 중단되었습니다."
+        ]
+      }
+    ],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Localization Vendor가 수정된 파일을 금요일까지 전달하기로 했습니다.",
+        "owner": "Localization Vendor",
+        "due_date": "금요일",
+        "evidence": [
+          "Localization Vendor는 수정된 파일을 금요일까지 다시 전달하기로 했습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "QA 검수 재개 일정",
+        "reason": "Localization Vendor의 수정 파일 전달 일정에 따라 달라질 수 있습니다.",
+        "needed_information": "Localization Vendor의 수정 파일 전달 일정이 정확히 지켜질지 여부"
+      }
+    ]
+  }
+}

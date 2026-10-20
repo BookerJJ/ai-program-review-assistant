@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "prompt_version": "fewshot-boundary-v0.6",
+  "test_case": "TC-024",
+  "language": "Korean",
+  "difficulty": "Difficult",
+  "primary_target": "Multi-clause action/deadline binding",
+  "status": "success",
+  "started_at": "2026-09-12T13:22:22+04:00",
+  "completed_at": "2026-09-12T13:22:52+04:00",
+  "metadata": {
+    "model": "qwen3:8b",
+    "latency_seconds": 29.822,
+    "temperature": 0,
+    "thinking": false,
+    "input_tokens": 1366,
+    "output_tokens": 340,
+    "total_tokens": 1706
+  },
+  "result": {
+    "summary": "Engineering is investigating a Login Crash and will share the findings by Tuesday. Once the fix is ready, QA plans to retest, but the completion date of the fix and the retest schedule are not yet determined.",
+    "issues": [],
+    "risks": [],
+    "dependencies": [],
+    "requirement_changes": [],
+    "schedule_impacts": [],
+    "actions": [
+      {
+        "action": "Share the investigation results of the Login Crash.",
+        "owner": "Engineering",
+        "due_date": "Tuesday",
+        "evidence": [
+          "Engineering은 Login Crash를 조사 중이며 화요일까지 조사 결과를 공유하기로 했습니다."
+        ]
+      },
+      {
+        "action": "Perform retesting after the fix is ready.",
+        "owner": "QA",
+        "due_date": null,
+        "evidence": [
+          "수정 사항이 준비되면 QA가 재테스트를 수행할 예정이지만 수정 완료일과 재테스트 일정은 아직 정해지지 않았습니다."
+        ]
+      }
+    ],
+    "uncertainties": [
+      {
+        "item": "Completion date of the fix",
+        "reason": "The completion date of the fix is not yet determined.",
+        "needed_information": "The exact date when the fix will be completed."
+      },
+      {
+        "item": "Retest schedule",
+        "reason": "The retest schedule is not yet determined.",
+        "needed_information": "The exact date or timeline for the retest."
+      }
+    ]
+  }
+}

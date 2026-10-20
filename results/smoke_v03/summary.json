@@ -1,0 +1,73 @@
+{
+  "prompt_version": "grounded-v0.3",
+  "total_tests": 5,
+  "successful_tests": 5,
+  "failed_tests": 0,
+  "tests": [
+    {
+      "test_case": "TC-001",
+      "status": "success",
+      "metadata": {
+        "model": "qwen3:8b",
+        "latency_seconds": 30.824,
+        "temperature": 0,
+        "thinking": false,
+        "input_tokens": 965,
+        "output_tokens": 415,
+        "total_tokens": 1380
+      }
+    },
+    {
+      "test_case": "TC-002",
+      "status": "success",
+      "metadata": {
+        "model": "qwen3:8b",
+        "latency_seconds": 43.234,
+        "temperature": 0,
+        "thinking": false,
+        "input_tokens": 1010,
+        "output_tokens": 788,
+        "total_tokens": 1798
+      }
+    },
+    {
+      "test_case": "TC-003",
+      "status": "success",
+      "metadata": {
+        "model": "qwen3:8b",
+        "latency_seconds": 23.128,
+        "temperature": 0,
+        "thinking": false,
+        "input_tokens": 974,
+        "output_tokens": 407,
+        "total_tokens": 1381
+      }
+    },
+    {
+      "test_case": "TC-004",
+      "status": "success",
+      "metadata": {
+        "model": "qwen3:8b",
+        "latency_seconds": 17.739,
+        "temperature": 0,
+        "thinking": false,
+        "input_tokens": 988,
+        "output_tokens": 320,
+        "total_tokens": 1308
+      }
+    },
+    {
+      "test_case": "TC-005",
+      "status": "success",
+      "metadata": {
+        "model": "qwen3:8b",
+        "latency_seconds": 25.628,
+        "temperature": 0,
+        "thinking": false,
+        "input_tokens": 976,
+        "output_tokens": 456,
+        "total_tokens": 1432
+      }
+    }
+  ]
+}

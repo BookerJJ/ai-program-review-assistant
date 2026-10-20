@@ -998,3 +998,2924 @@
       "passed_checks": 13,
       "total_checks": 14,
       "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "operation": "contains",
+          "expected": "5",
+          "actual": "5회",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.new_state",
+          "category": "requirement_changes",
+          "operation": "contains",
+          "expected": "3",
+          "actual": "3회",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "operation": "equals",
+          "expected": "confirmed",
+          "actual": "confirmed",
+          "passed": true
+        },
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Backend Team",
+          "actual": "Backend Team",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Sprint",
+          "actual": null,
+          "passed": false
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 2.03,
+      "input_tokens": 1188,
+      "output_tokens": 248,
+      "total_tokens": 1436,
+      "manual_review": [
+        "The retry-limit change from 5 to 3 is confirmed.",
+        "Applying the value from the next Sprint is an explicit Backend Team action.",
+        "No schedule impact should be generated."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Login Retry Limit이 기존 5회에서 3회로 변경 승인되었으며, Backend Team이 다음 Sprint부터 적용할 예정입니다. 이로 인한 추가 일정 영향은 없습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "5",
+          "actual": "5회"
+        },
+        {
+          "name": "requirement_changes.0.new_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "3",
+          "actual": "3회"
+        },
+        {
+          "name": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "confirmed",
+          "actual": "confirmed"
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Backend Team",
+          "actual": "Backend Team"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": false,
+          "expected": "Sprint",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "test_case": "H-007",
+      "language": "English",
+      "scenario_type": "Requirement Change",
+      "primary_target": "Proposed setting change + approval dependency",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 13,
+      "total_checks": 13,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "dependencies.0.basis",
+          "category": "dependencies",
+          "operation": "equals",
+          "expected": "explicit",
+          "actual": "explicit",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "operation": "contains",
+          "expected": "disabled",
+          "actual": "disabled by default",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.new_state",
+          "category": "requirement_changes",
+          "operation": "contains",
+          "expected": "enabled",
+          "actual": "enabled by default",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "operation": "equals",
+          "expected": "proposed",
+          "actual": "proposed",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 6.104,
+      "input_tokens": 1181,
+      "output_tokens": 331,
+      "total_tokens": 1512,
+      "manual_review": [
+        "Telemetry remains disabled by default.",
+        "Enabling telemetry for Beta is proposed, not approved.",
+        "Client consent explicitly gates Legal approval.",
+        "The final decision remains unresolved.",
+        "Do not invent a schedule impact."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Product proposed enabling telemetry collection by default for the Beta, changing it from its current disabled default. Legal requires client consent before approving the change, and no final decision has been made."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "dependencies.0.basis",
+          "category": "dependencies",
+          "passed": true,
+          "expected": "explicit",
+          "actual": "explicit"
+        },
+        {
+          "name": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "disabled",
+          "actual": "disabled by default"
+        },
+        {
+          "name": "requirement_changes.0.new_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "enabled",
+          "actual": "enabled by default"
+        },
+        {
+          "name": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "proposed",
+          "actual": "proposed"
+        }
+      ]
+    },
+    {
+      "test_case": "H-008",
+      "language": "Korean",
+      "scenario_type": "Requirement Change",
+      "primary_target": "Conditional scope change + explicit additional effort",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 78.6,
+      "passed_checks": 11,
+      "total_checks": 14,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 1,
+          "actual_count": 0,
+          "count_match": false
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 2,
+          "count_match": false
+        }
+      },
+      "assertions": [
+        {
+          "path": "risks.0.basis",
+          "category": "risks",
+          "operation": "equals",
+          "expected": "inferred",
+          "actual": "<missing>",
+          "passed": false
+        },
+        {
+          "path": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "operation": "is_null",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "operation": "equals",
+          "expected": "proposed",
+          "actual": "proposed",
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.affected_milestone",
+          "category": "schedule_impacts",
+          "operation": "is_null",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.impact_status",
+          "category": "schedule_impacts",
+          "operation": "equals",
+          "expected": "potential",
+          "actual": "potential",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 3,
+        "traceable": 3,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 7.482,
+      "input_tokens": 1199,
+      "output_tokens": 428,
+      "total_tokens": 1627,
+      "manual_review": [
+        "High-Resolution Texture support is proposed, not approved.",
+        "Approximately two additional work days are explicitly supported if approved.",
+        "The additional effort supports an inferred risk / potential schedule impact.",
+        "No release milestone should be invented."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "고객이 High-Resolution Texture 지원 추가를 제안했으며, Engineering은 변경 승인 시 약 이틀의 추가 작업이 소요될 것으로 파악했습니다. 해당 안건은 아직 미승인 상태이며 Release Milestone은 논의되지 않았습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": false,
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": false,
+          "expected": 1,
+          "actual": 2
+        },
+        {
+          "name": "risks.0.basis",
+          "category": "risks",
+          "passed": false,
+          "expected": "inferred",
+          "actual": "<missing>"
+        },
+        {
+          "name": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "proposed",
+          "actual": "proposed"
+        },
+        {
+          "name": "schedule_impacts.0.affected_milestone",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "schedule_impacts.0.impact_status",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": "potential",
+          "actual": "potential"
+        }
+      ]
+    },
+    {
+      "test_case": "H-009",
+      "language": "English",
+      "scenario_type": "Dependency and Schedule",
+      "primary_target": "Explicit dependency + nearby milestone timing risk",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 16,
+      "total_checks": 16,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "risks.0.basis",
+          "category": "risks",
+          "operation": "equals",
+          "expected": "inferred",
+          "actual": "inferred",
+          "passed": true
+        },
+        {
+          "path": "dependencies.0.basis",
+          "category": "dependencies",
+          "operation": "equals",
+          "expected": "explicit",
+          "actual": "explicit",
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.affected_milestone",
+          "category": "schedule_impacts",
+          "operation": "contains",
+          "expected": "Certification",
+          "actual": "Certification testing",
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.duration_change",
+          "category": "schedule_impacts",
+          "operation": "is_null",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.impact_status",
+          "category": "schedule_impacts",
+          "operation": "equals",
+          "expected": "potential",
+          "actual": "potential",
+          "passed": true
+        },
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Security Team",
+          "actual": "Security Team",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Wednesday",
+          "actual": "Wednesday",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 8,
+        "traceable": 8,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 68.16,
+      "input_tokens": 1181,
+      "output_tokens": 521,
+      "total_tokens": 1702,
+      "manual_review": [
+        "The signed firmware package explicitly gates Certification testing.",
+        "The Wednesday package delivery followed by Thursday testing supports a future timing risk.",
+        "Do not invent a specific delay duration.",
+        "The Security Team package delivery is an explicit action.",
+        "The revised test schedule remains unresolved."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Certification testing planned for Thursday morning is dependent on the delivery of a signed firmware package by the Security Team on Wednesday. Currently, no revised test schedule has been agreed."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks.0.basis",
+          "category": "risks",
+          "passed": true,
+          "expected": "inferred",
+          "actual": "inferred"
+        },
+        {
+          "name": "dependencies.0.basis",
+          "category": "dependencies",
+          "passed": true,
+          "expected": "explicit",
+          "actual": "explicit"
+        },
+        {
+          "name": "schedule_impacts.0.affected_milestone",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": "Certification",
+          "actual": "Certification testing"
+        },
+        {
+          "name": "schedule_impacts.0.duration_change",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "schedule_impacts.0.impact_status",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": "potential",
+          "actual": "potential"
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Security Team",
+          "actual": "Security Team"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "Wednesday",
+          "actual": "Wednesday"
+        }
+      ]
+    },
+    {
+      "test_case": "H-010",
+      "language": "Korean",
+      "scenario_type": "Dependency and Schedule",
+      "primary_target": "Missing prerequisite + dependency + unknown ETA",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 14,
+      "total_checks": 14,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "risks.0.basis",
+          "category": "risks",
+          "operation": "equals",
+          "expected": "inferred",
+          "actual": "inferred",
+          "passed": true
+        },
+        {
+          "path": "dependencies.0.basis",
+          "category": "dependencies",
+          "operation": "equals",
+          "expected": "explicit",
+          "actual": "explicit",
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.affected_milestone",
+          "category": "schedule_impacts",
+          "operation": "contains",
+          "expected": "Build Validation",
+          "actual": "Build Validation",
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.duration_change",
+          "category": "schedule_impacts",
+          "operation": "is_null",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "path": "schedule_impacts.0.impact_status",
+          "category": "schedule_impacts",
+          "operation": "equals",
+          "expected": "potential",
+          "actual": "potential",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 6,
+        "traceable": 6,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 5.874,
+      "input_tokens": 1193,
+      "output_tokens": 561,
+      "total_tokens": 1754,
+      "manual_review": [
+        "The missing Whitelist is an existing issue.",
+        "Whitelist activation explicitly gates Build Validation.",
+        "The unknown Whitelist completion time creates a supported risk to Friday Build Validation.",
+        "Do not invent a specific delay duration.",
+        "The unresolved item is the Whitelist completion timing."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "License Server Whitelist가 아직 적용되지 않아 금요일 예정된 Build Validation 시작이 지연될 위험이 있으며, Infrastructure Team은 적용 완료 일정을 아직 제공하지 않았습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks.0.basis",
+          "category": "risks",
+          "passed": true,
+          "expected": "inferred",
+          "actual": "inferred"
+        },
+        {
+          "name": "dependencies.0.basis",
+          "category": "dependencies",
+          "passed": true,
+          "expected": "explicit",
+          "actual": "explicit"
+        },
+        {
+          "name": "schedule_impacts.0.affected_milestone",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": "Build Validation",
+          "actual": "Build Validation"
+        },
+        {
+          "name": "schedule_impacts.0.duration_change",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "schedule_impacts.0.impact_status",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": "potential",
+          "actual": "potential"
+        }
+      ]
+    },
+    {
+      "test_case": "H-011",
+      "language": "English",
+      "scenario_type": "Dependency and Schedule",
+      "primary_target": "Explicit dependency without invented timing risk",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 12,
+      "total_checks": 12,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "dependencies.0.basis",
+          "category": "dependencies",
+          "operation": "equals",
+          "expected": "explicit",
+          "actual": "explicit",
+          "passed": true
+        },
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Localization Team",
+          "actual": "Localization Team",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Monday",
+          "actual": "Monday",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 2.399,
+      "input_tokens": 1179,
+      "output_tokens": 238,
+      "total_tokens": 1417,
+      "manual_review": [
+        "Localization signoff explicitly gates store submission.",
+        "The Monday signoff is an explicit Localization Team action.",
+        "Do not create a risk solely because store submission is Wednesday.",
+        "No schedule concern has been reported."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Store submission requires completion of localization signoff. The Localization Team is scheduled to complete signoff on Monday, ahead of the store submission scheduled for Wednesday, with no reported schedule concerns."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies.0.basis",
+          "category": "dependencies",
+          "passed": true,
+          "expected": "explicit",
+          "actual": "explicit"
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Localization Team",
+          "actual": "Localization Team"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "Monday",
+          "actual": "Monday"
+        }
+      ]
+    },
+    {
+      "test_case": "H-012",
+      "language": "Korean",
+      "scenario_type": "Dependency and Schedule",
+      "primary_target": "Multi-step dependency chain + missing owner",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 90.9,
+      "passed_checks": 10,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 1,
+          "count_match": false
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 2,
+          "actual_count": 2,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "dependencies.0.basis",
+          "category": "dependencies",
+          "operation": "equals",
+          "expected": "explicit",
+          "actual": "explicit",
+          "passed": true
+        },
+        {
+          "path": "dependencies.1.basis",
+          "category": "dependencies",
+          "operation": "equals",
+          "expected": "explicit",
+          "actual": "explicit",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 3,
+        "traceable": 3,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 2.288,
+      "input_tokens": 1186,
+      "output_tokens": 377,
+      "total_tokens": 1563,
+      "manual_review": [
+        "Security Review completion gates Privacy Approval.",
+        "Privacy Approval gates Pilot Access activation.",
+        "Both dependencies are explicit.",
+        "The missing Security Review owner is the unresolved item.",
+        "Do not invent a schedule delay."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Pilot Access 활성화를 위해 Security Review 완료 후 Privacy Approval을 거쳐야 하는 선행 조건이 있으나, Security Review 담당자가 아직 지정되지 않은 상태입니다. 현재 일정 변경은 없습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": false,
+          "expected": 0,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "dependencies.0.basis",
+          "category": "dependencies",
+          "passed": true,
+          "expected": "explicit",
+          "actual": "explicit"
+        },
+        {
+          "name": "dependencies.1.basis",
+          "category": "dependencies",
+          "passed": true,
+          "expected": "explicit",
+          "actual": "explicit"
+        }
+      ]
+    },
+    {
+      "test_case": "H-013",
+      "language": "English",
+      "scenario_type": "Action and Deadline",
+      "primary_target": "Two owners + two deadlines + unresolved remediation date",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 92.3,
+      "passed_checks": 12,
+      "total_checks": 13,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 1,
+          "count_match": false
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 2,
+          "actual_count": 2,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Support",
+          "actual": "Support",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Tuesday",
+          "actual": "Tuesday",
+          "passed": true
+        },
+        {
+          "path": "actions.1.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Engineering",
+          "actual": "Engineering",
+          "passed": true
+        },
+        {
+          "path": "actions.1.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Thursday",
+          "actual": "Thursday",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 5,
+        "traceable": 5,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 8.068,
+      "input_tokens": 1176,
+      "output_tokens": 411,
+      "total_tokens": 1587,
+      "manual_review": [
+        "The intermittent connection drop is the existing issue.",
+        "Tuesday belongs to Support log collection.",
+        "Thursday belongs to Engineering log review.",
+        "Do not bind either date to remediation.",
+        "The remediation date remains uncertain."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "An intermittent connection drop is currently under investigation, with Support scheduled to collect session logs by Tuesday and Engineering scheduled to review them by Thursday. No remediation date has been committed."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": false,
+          "expected": 0,
+          "actual": 1
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Support",
+          "actual": "Support"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "Tuesday",
+          "actual": "Tuesday"
+        },
+        {
+          "name": "actions.1.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Engineering",
+          "actual": "Engineering"
+        },
+        {
+          "name": "actions.1.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "Thursday",
+          "actual": "Thursday"
+        }
+      ]
+    },
+    {
+      "test_case": "H-014",
+      "language": "Korean",
+      "scenario_type": "Action and Deadline",
+      "primary_target": "Multiple independent actions with separate deadlines",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 11,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 2,
+          "actual_count": 2,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "고객",
+          "actual": "고객",
+          "passed": true
+        },
+        {
+          "path": "actions.1.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "QA",
+          "actual": "QA",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 3,
+        "traceable": 3,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 50.797,
+      "input_tokens": 1193,
+      "output_tokens": 349,
+      "total_tokens": 1542,
+      "manual_review": [
+        "The intermittent Mobile Client crash is an existing issue.",
+        "The customer Device-list delivery and QA reproduction are separate actions.",
+        "Monday belongs to the customer Device-list action.",
+        "Wednesday belongs to QA crash reproduction.",
+        "The fix completion date remains unresolved."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Mobile Client에서 간헐적인 Crash가 보고되어 고객이 월요일까지 영향받은 기기 목록을 전달하고 QA가 수요일까지 재현을 완료할 예정이나, 수정 완료 일정은 미정인 상태입니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "고객",
+          "actual": "고객"
+        },
+        {
+          "name": "actions.1.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "QA",
+          "actual": "QA"
+        }
+      ]
+    },
+    {
+      "test_case": "H-015",
+      "language": "English",
+      "scenario_type": "Action and Deadline",
+      "primary_target": "Future commitment without hypothetical failure risk",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 11,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "audio vendor",
+          "actual": "external audio vendor",
+          "passed": true
+        },
+        {
+          "path": "actions.0.due_date",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Friday",
+          "actual": "Friday",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 1,
+        "traceable": 1,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 10.717,
+      "input_tokens": 1173,
+      "output_tokens": 157,
+      "total_tokens": 1330,
+      "manual_review": [
+        "The Friday final-mix delivery is an explicit action.",
+        "The internal team can continue with the temporary mix.",
+        "Do not invent a risk that the vendor may miss Friday.",
+        "No schedule impact has been identified."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "The external audio vendor is scheduled to deliver the final mix on Friday, while the internal team will continue utilizing the temporary mix in the interim, resulting in no identified schedule impact."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "audio vendor",
+          "actual": "external audio vendor"
+        },
+        {
+          "name": "actions.0.due_date",
+          "category": "actions",
+          "passed": true,
+          "expected": "Friday",
+          "actual": "Friday"
+        }
+      ]
+    },
+    {
+      "test_case": "H-016",
+      "language": "Korean",
+      "scenario_type": "Action and Deadline",
+      "primary_target": "Two future commitments + unresolved decision",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 11,
+      "total_checks": 11,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 2,
+          "actual_count": 2,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "actions.0.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Analytics Team",
+          "actual": "Analytics Team",
+          "passed": true
+        },
+        {
+          "path": "actions.1.owner",
+          "category": "actions",
+          "operation": "contains",
+          "expected": "Product Team",
+          "actual": "Product Team",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 126.235,
+      "input_tokens": 1188,
+      "output_tokens": 304,
+      "total_tokens": 1492,
+      "manual_review": [
+        "The Analytics Team cost estimate and Product Team review are two separate actions.",
+        "Tuesday belongs to the cost-estimate action.",
+        "Wednesday belongs to the Product Team review.",
+        "Whether the feature will actually be added remains unresolved.",
+        "Do not invent a requirement change approval or schedule impact."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "Analytics Team은 화요일까지 새 기능의 운영 비용 추정치를 공유할 예정이며, Product Team은 수요일에 제안 내용을 검토할 계획입니다. 기능의 실제 추가 여부는 아직 결정되지 않았습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "actions.0.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Analytics Team",
+          "actual": "Analytics Team"
+        },
+        {
+          "name": "actions.1.owner",
+          "category": "actions",
+          "passed": true,
+          "expected": "Product Team",
+          "actual": "Product Team"
+        }
+      ]
+    },
+    {
+      "test_case": "H-017",
+      "language": "English",
+      "scenario_type": "Conflict and Negative",
+      "primary_target": "Conflicting requirement information without approval",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 84.6,
+      "passed_checks": 11,
+      "total_checks": 13,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 1,
+          "actual_count": 0,
+          "count_match": false
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "risks.0.basis",
+          "category": "risks",
+          "operation": "equals",
+          "expected": "inferred",
+          "actual": "<missing>",
+          "passed": false
+        },
+        {
+          "path": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "operation": "contains",
+          "expected": "7",
+          "actual": "7 days",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.new_state",
+          "category": "requirement_changes",
+          "operation": "contains",
+          "expected": "30",
+          "actual": "30 days",
+          "passed": true
+        },
+        {
+          "path": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "operation": "equals",
+          "expected": "proposed",
+          "actual": "proposed",
+          "passed": true
+        }
+      ],
+      "evidence_traceability": {
+        "total": 2,
+        "traceable": 2,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 4.307,
+      "input_tokens": 1195,
+      "output_tokens": 291,
+      "total_tokens": 1486,
+      "manual_review": [
+        "Seven days remains the signed/current requirement.",
+        "Thirty days is only a proposed value.",
+        "The conflicting current and proposed values support an inferred consistency/readiness risk.",
+        "Do not invent a schedule impact.",
+        "The final retention requirement remains unresolved."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "The signed operations requirement currently specifies a seven-day log retention policy, which Operations continues to follow. The Product Manager suggested that 30 days may be preferable for the enterprise launch, but no change has been approved by the client."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": false,
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks.0.basis",
+          "category": "risks",
+          "passed": false,
+          "expected": "inferred",
+          "actual": "<missing>"
+        },
+        {
+          "name": "requirement_changes.0.previous_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "7",
+          "actual": "7 days"
+        },
+        {
+          "name": "requirement_changes.0.new_state",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "30",
+          "actual": "30 days"
+        },
+        {
+          "name": "requirement_changes.0.change_status",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": "proposed",
+          "actual": "proposed"
+        }
+      ]
+    },
+    {
+      "test_case": "H-018",
+      "language": "Korean",
+      "scenario_type": "Conflict and Negative",
+      "primary_target": "Conflicting schedule statements without final decision",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 70.0,
+      "passed_checks": 7,
+      "total_checks": 10,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 1,
+          "actual_count": 0,
+          "count_match": false
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 1,
+          "count_match": false
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 1,
+          "actual_count": 1,
+          "count_match": true
+        }
+      },
+      "assertions": [
+        {
+          "path": "risks.0.basis",
+          "category": "risks",
+          "operation": "equals",
+          "expected": "inferred",
+          "actual": "<missing>",
+          "passed": false
+        }
+      ],
+      "evidence_traceability": {
+        "total": 1,
+        "traceable": 1,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 6.351,
+      "input_tokens": 1202,
+      "output_tokens": 280,
+      "total_tokens": 1482,
+      "manual_review": [
+        "October 10 remains the official Launch Date.",
+        "October 12 is an Engineering Lead opinion, not an approved schedule change.",
+        "Do not select October 12 as the final schedule.",
+        "Do not create a confirmed schedule impact.",
+        "The unresolved item is the final schedule-change decision."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "현재 공식 Launch Date는 10월 10일로 유지되고 있으며, Engineering Lead가 제안한 10월 12일로의 일정 변경에 대한 최종 결정은 아직 내려지지 않았습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": false,
+          "expected": 1,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": false,
+          "expected": 0,
+          "actual": 1
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "risks.0.basis",
+          "category": "risks",
+          "passed": false,
+          "expected": "inferred",
+          "actual": "<missing>"
+        }
+      ]
+    },
+    {
+      "test_case": "H-019",
+      "language": "English",
+      "scenario_type": "Conflict and Negative",
+      "primary_target": "Successful rollout with no findings",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 9,
+      "total_checks": 9,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [],
+      "evidence_traceability": {
+        "total": 0,
+        "traceable": 0,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 19.42,
+      "input_tokens": 1178,
+      "output_tokens": 87,
+      "total_tokens": 1265,
+      "manual_review": [
+        "The rollout completed successfully.",
+        "Monitoring remained normal and no incidents were reported.",
+        "No follow-up work is required.",
+        "Do not create any findings."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "The feature rollout finished successfully across all target regions with normal monitoring for 24 hours and no incidents reported, requiring no follow-up action."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "test_case": "H-020",
+      "language": "Korean",
+      "scenario_type": "Conflict and Negative",
+      "primary_target": "Clean status update without fabricated findings",
+      "prompt_version": "fewshot-v0.5",
+      "status": "success",
+      "structural_score": 100.0,
+      "passed_checks": 9,
+      "total_checks": 9,
+      "category_results": {
+        "issues": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "risks": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "dependencies": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "requirement_changes": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "schedule_impacts": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "actions": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        },
+        "uncertainties": {
+          "expected_count": 0,
+          "actual_count": 0,
+          "count_match": true
+        }
+      },
+      "assertions": [],
+      "evidence_traceability": {
+        "total": 0,
+        "traceable": 0,
+        "rate": 1.0,
+        "failures": []
+      },
+      "latency_seconds": 18.906,
+      "input_tokens": 1183,
+      "output_tokens": 107,
+      "total_tokens": 1290,
+      "manual_review": [
+        "This is a clean status-update negative case.",
+        "No scope change, blocker, risk, or action exists.",
+        "Do not create findings or uncertainties."
+      ],
+      "structural_checks": [
+        {
+          "name": "top_level_keys",
+          "category": "schema",
+          "passed": true,
+          "expected": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ],
+          "actual": [
+            "actions",
+            "dependencies",
+            "issues",
+            "requirement_changes",
+            "risks",
+            "schedule_impacts",
+            "summary",
+            "uncertainties"
+          ]
+        },
+        {
+          "name": "summary_present",
+          "category": "schema",
+          "passed": true,
+          "expected": "non-empty string",
+          "actual": "고객이 현재 범위에 추가 변경이 없음을 확인하였으며, 개발팀은 기존 계획대로 작업을 진행 중입니다. 현재 보고된 장애 요인(Blocker), 신규 리스크, 추가 액션 아이템은 없습니다."
+        },
+        {
+          "name": "issues_count",
+          "category": "issues",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "risks_count",
+          "category": "risks",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "dependencies_count",
+          "category": "dependencies",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "requirement_changes_count",
+          "category": "requirement_changes",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "schedule_impacts_count",
+          "category": "schedule_impacts",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "actions_count",
+          "category": "actions",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "uncertainties_count",
+          "category": "uncertainties",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        }
+      ]
+    }
+  ]
+}

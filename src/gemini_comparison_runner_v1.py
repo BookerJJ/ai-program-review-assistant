@@ -998,3 +998,710 @@ def build_summary(
                 language_success,
 
             "failed":
+                language_failed,
+
+            "pending":
+                (
+                    len(expected_ids)
+                    - len(language_results)
+                ),
+        }
+
+    scenario_types = sorted(
+        {
+            case[
+                "scenario_type"
+            ]
+            for case in HOLDOUT_CASES
+        }
+    )
+
+    by_scenario_type = {}
+
+    for scenario_type in scenario_types:
+
+        expected_ids = {
+            case["id"]
+            for case in HOLDOUT_CASES
+            if case[
+                "scenario_type"
+            ]
+            == scenario_type
+        }
+
+        scenario_results = [
+            result
+            for result in all_results
+            if result.get(
+                "test_case"
+            )
+            in expected_ids
+        ]
+
+        scenario_success = sum(
+            1
+            for result in scenario_results
+            if result.get("status")
+            == "success"
+        )
+
+        scenario_failed = sum(
+            1
+            for result in scenario_results
+            if result.get("status")
+            != "success"
+        )
+
+        by_scenario_type[
+            scenario_type
+        ] = {
+            "total":
+                len(expected_ids),
+
+            "artifacts_present":
+                len(scenario_results),
+
+            "success":
+                scenario_success,
+
+            "failed":
+                scenario_failed,
+
+            "pending":
+                (
+                    len(expected_ids)
+                    - len(scenario_results)
+                ),
+        }
+
+    return {
+        "comparison_version":
+            COMPARISON_VERSION,
+
+        "evaluation_role":
+            "frozen_cross_model_comparison",
+
+        "holdout_version":
+            HOLDOUT_VERSION,
+
+        "prompt_version":
+            PROMPT_VERSION,
+
+        "provider":
+            PROVIDER,
+
+        "model":
+            MODEL,
+
+        "thinking_level":
+            THINKING_LEVEL,
+
+        "temperature":
+            TEMPERATURE,
+
+        "comparison_started_at":
+            comparison_started_at,
+
+        "comparison_completed_at":
+            timestamp(),
+
+        "total_cases":
+            len(HOLDOUT_CASES),
+
+        "artifacts_present":
+            len(all_results),
+
+        "pending_cases":
+            len(pending_case_ids),
+
+        "pending_case_ids":
+            pending_case_ids,
+
+        "successful_cases":
+            len(successful),
+
+        "failed_cases":
+            len(failed),
+
+        "failed_case_ids": [
+            result[
+                "test_case"
+            ]
+            for result in failed
+        ],
+
+        "average_latency_seconds":
+            (
+                round(
+                    sum(latencies)
+                    / len(latencies),
+                    3,
+                )
+                if latencies
+                else None
+            ),
+
+        "token_usage": {
+            "input_tokens":
+                total_input_tokens,
+
+            "output_tokens":
+                total_output_tokens,
+
+            "thinking_tokens":
+                total_thinking_tokens,
+
+            "total_tokens":
+                total_tokens,
+        },
+
+        "rate_limit_handling": {
+            "request_interval_seconds":
+                REQUEST_INTERVAL_SECONDS,
+
+            "max_attempts_per_case":
+                MAX_ATTEMPTS_PER_CASE,
+
+            "retryable_error_types":
+                sorted(
+                    RETRYABLE_ERROR_TYPES
+                ),
+
+            "same_run_retries":
+                same_run_retry_counts,
+
+            "archived_error_artifacts_by_case":
+                archived_error_artifact_counts(),
+
+            "observed_free_tier_rpd_limit":
+                OBSERVED_FREE_TIER_RPD_LIMIT,
+        },
+
+        "by_language":
+            by_language,
+
+        "by_scenario_type":
+            by_scenario_type,
+
+        "methodology": {
+            "same_holdout_inputs":
+                True,
+
+            "same_golden_expectations":
+                True,
+
+            "same_prompt_semantics":
+                True,
+
+            "same_output_schema":
+                True,
+
+            "gemini_specific_prompt_tuning":
+                False,
+
+            "local_baseline_modified":
+                False,
+
+            "synthetic_data_only":
+                True,
+
+            "successful_outputs_regenerated":
+                False,
+
+            "transient_rate_limits_retryable":
+                True,
+
+            "daily_quota_exhaustion_retried_in_process":
+                False,
+        },
+    }
+
+
+# ============================================================
+# Console output
+# ============================================================
+
+def print_result_summary(
+    output: dict,
+) -> None:
+
+    test_id = (
+        output[
+            "test_case"
+        ]
+    )
+
+    status = (
+        output.get(
+            "status"
+        )
+    )
+
+    if status == "success":
+
+        metadata = (
+            output.get(
+                "metadata",
+                {},
+            )
+        )
+
+        print(
+            f"\n{test_id}: SUCCESS"
+        )
+
+        print(
+            "  API attempt: "
+            f"{output.get('api_attempt', 1)}"
+        )
+
+        print(
+            "  latency: "
+            f"{metadata.get('latency_seconds')} sec"
+        )
+
+        print(
+            "  input tokens: "
+            f"{metadata.get('input_tokens')}"
+        )
+
+        print(
+            "  output tokens: "
+            f"{metadata.get('output_tokens')}"
+        )
+
+        print(
+            "  thinking tokens: "
+            f"{metadata.get('thinking_tokens')}"
+        )
+
+        print(
+            "  total tokens: "
+            f"{metadata.get('total_tokens')}"
+        )
+
+    else:
+
+        print(
+            f"\n{test_id}: ERROR"
+        )
+
+        print(
+            "  "
+            f"{output.get('error_type')}: "
+            f"{output.get('error_message')}"
+        )
+
+
+# ============================================================
+# Main
+# ============================================================
+
+def main() -> None:
+
+    print(
+        "\nGemini Cross-Model Comparison"
+    )
+
+    print("=" * 70)
+
+    print(
+        f"Model:        {MODEL}"
+    )
+
+    print(
+        f"Prompt:       {PROMPT_VERSION}"
+    )
+
+    print(
+        f"Holdout:      {HOLDOUT_VERSION}"
+    )
+
+    print(
+        f"Thinking:     {THINKING_LEVEL}"
+    )
+
+    print(
+        f"Temperature:  {TEMPERATURE}"
+    )
+
+    print(
+        "Synthetic:    yes"
+    )
+
+    print(
+        "Request gap:  "
+        f"{REQUEST_INTERVAL_SECONDS} sec"
+    )
+
+    print("=" * 70)
+
+    # --------------------------------------------------------
+    # Validate frozen evaluation assets BEFORE inference.
+    # --------------------------------------------------------
+
+    validate_holdout_distribution()
+
+    validate_golden_expectations()
+
+    print(
+        "Holdout distribution OK"
+    )
+
+    print(
+        "Holdout golden expectations OK"
+    )
+
+    RESULTS_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    ATTEMPTS_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    comparison_started_at = (
+        timestamp()
+    )
+
+    client = (
+        create_client()
+    )
+
+    all_results = []
+
+    stop_due_daily_quota = False
+
+    total_cases = len(
+        HOLDOUT_CASES
+    )
+
+    for (
+        case_number,
+        test_case,
+    ) in enumerate(
+        HOLDOUT_CASES,
+        start=1,
+    ):
+
+        test_id = (
+            test_case["id"]
+        )
+
+        output_path = (
+            result_path_for(
+                test_id
+            )
+        )
+
+        # ----------------------------------------------------
+        # Existing canonical result handling
+        # ----------------------------------------------------
+
+        if (
+            SKIP_EXISTING
+            and output_path.exists()
+        ):
+
+            existing = (
+                load_existing_result(
+                    output_path
+                )
+            )
+
+            # ------------------------------------------------
+            # Successful model result:
+            # freeze and skip permanently.
+            # ------------------------------------------------
+
+            if (
+                existing.get(
+                    "status"
+                )
+                == "success"
+            ):
+
+                print(
+                    "\n"
+                    f"[{case_number}/{total_cases}] "
+                    f"{test_id} "
+                    "already succeeded — SKIPPED"
+                )
+
+                all_results.append(
+                    existing
+                )
+
+                continue
+
+            existing_error_type = (
+                existing.get(
+                    "error_type"
+                )
+            )
+
+            if (
+                existing_error_type
+                in RETRYABLE_ERROR_TYPES
+                and is_daily_quota_exhausted(
+                    existing.get(
+                        "error_message"
+                    )
+                )
+                and occurred_on_current_pacific_day(
+                    existing.get(
+                        "completed_at"
+                    )
+                )
+            ):
+                print(
+                    "\n"
+                    f"[{case_number}/{total_cases}] "
+                    f"{test_id} has a daily quota "
+                    "failure from the current Pacific "
+                    "day — stopping without another "
+                    "API request."
+                )
+
+                all_results.append(
+                    existing
+                )
+
+                stop_due_daily_quota = True
+                break
+
+            # ------------------------------------------------
+            # Existing RateLimitError:
+            # archive it, then retry the case.
+            # ------------------------------------------------
+
+            if (
+                existing_error_type
+                in RETRYABLE_ERROR_TYPES
+            ):
+
+                archive_path = (
+                    archive_existing_retryable_result(
+                        output_path,
+                        existing,
+                    )
+                )
+
+                print(
+                    "\n"
+                    f"[{case_number}/{total_cases}] "
+                    f"{test_id} "
+                    "has previous retryable "
+                    "infrastructure error"
+                )
+
+                print(
+                    f"Archived: "
+                    f"{archive_path}"
+                )
+
+            else:
+
+                # --------------------------------------------
+                # Unknown/non-retryable error:
+                # preserve it and do not guess.
+                # --------------------------------------------
+
+                print(
+                    "\n"
+                    f"[{case_number}/{total_cases}] "
+                    f"{test_id} "
+                    "has non-retryable saved error "
+                    "— SKIPPED"
+                )
+
+                print(
+                    "Error type: "
+                    f"{existing_error_type}"
+                )
+
+                all_results.append(
+                    existing
+                )
+
+                continue
+
+        # ----------------------------------------------------
+        # Generate first successful Gemini answer.
+        # Only RateLimitError may be retried.
+        # ----------------------------------------------------
+
+        output = (
+            run_case_with_retry(
+                client=client,
+                test_case=test_case,
+                case_number=case_number,
+                total_cases=total_cases,
+            )
+        )
+
+        # ----------------------------------------------------
+        # Save canonical result.
+        #
+        # Success = official model answer.
+        # Non-retryable/exhausted error = preserved failure.
+        # ----------------------------------------------------
+
+        saved_path = (
+            save_result(
+                output
+            )
+        )
+
+        all_results.append(
+            output
+        )
+
+        print_result_summary(
+            output
+        )
+
+        print(
+            f"Saved: {saved_path}"
+        )
+
+        if (
+            output.get("quota_scope")
+            == "daily_rpd"
+        ):
+            stop_due_daily_quota = True
+
+            print(
+                "\nStopping comparison run because "
+                "the observed daily Free Tier quota "
+                "is exhausted."
+            )
+
+            break
+
+    # Refresh aggregate state from canonical files on disk.
+    # This includes results created by previous process runs.
+    all_results = (
+        collect_canonical_results()
+    )
+
+    # ========================================================
+    # Build/update aggregate summary
+    # ========================================================
+
+    summary = (
+        build_summary(
+            all_results,
+            comparison_started_at,
+        )
+    )
+
+    summary_path = (
+        RESULTS_DIR
+        / "summary.json"
+    )
+
+    summary_path.write_text(
+        json.dumps(
+            summary,
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    print(
+        "\n"
+        + "=" * 70
+    )
+
+    print(
+        "Gemini comparison run complete"
+    )
+
+    print("=" * 70)
+
+    print(
+        "Total cases:     "
+        f"{summary['total_cases']}"
+    )
+
+    print(
+        "Successful:      "
+        f"{summary['successful_cases']}"
+    )
+
+    print(
+        "Failed:          "
+        f"{summary['failed_cases']}"
+    )
+
+    print(
+        "Pending:         "
+        f"{summary['pending_cases']}"
+    )
+
+    print(
+        "Average latency: "
+        f"{summary['average_latency_seconds']} sec"
+    )
+
+    print(
+        "Input tokens:    "
+        f"{summary['token_usage']['input_tokens']}"
+    )
+
+    print(
+        "Output tokens:   "
+        f"{summary['token_usage']['output_tokens']}"
+    )
+
+    print(
+        "Thinking tokens: "
+        f"{summary['token_usage']['thinking_tokens']}"
+    )
+
+    print(
+        "Total tokens:    "
+        f"{summary['token_usage']['total_tokens']}"
+    )
+
+    retried_cases = (
+        summary[
+            "rate_limit_handling"
+        ][
+            "same_run_retries"
+        ]
+    )
+
+    print(
+        "Cases retried this run: "
+        f"{len(retried_cases)}"
+    )
+
+    if retried_cases:
+
+        for (
+            case_id,
+            retry_count,
+        ) in retried_cases.items():
+
+            print(
+                f"  {case_id}: "
+                f"{retry_count} retry"
+                f"{'ies' if retry_count != 1 else ''}"
+            )
+
+    print(
+        "\nSummary:"
+    )
+
+    print(
+        summary_path
+    )
+
+
+if __name__ == "__main__":
+    main()

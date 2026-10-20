@@ -71,3 +71,9 @@ Each decision is framed as **Decision → Rationale → Trade-off → Result**.
 **Trade-off:** Human review remains in the workflow.
 
 **Result:** The system is positioned as TPM decision support rather than an autonomous decision maker.
+
+## Decision boundaries in practice
+
+An **Issue** is an already-occurring project problem; a **Risk** is a plausible future adverse condition grounded in source facts; a **Dependency** identifies a prerequisite between work items; an **Action** is a commitment or next step, not a speculative recommendation. Proposed requirement changes remain distinct from confirmed approvals. Missing ownership or dates remain unknown rather than being guessed.
+
+These category boundaries are reinforced by the frozen [schema](../src/schemas.py) and [prompt examples](../src/prompts.py). Classification is still imperfect; the final holdout showed misses on inferred risks and some action/dependency categorization. The decision-support design therefore requires a TPM to review the findings before taking consequential actions.

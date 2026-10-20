@@ -43,3 +43,9 @@ The remaining Gemini weakness was primarily classification, especially inferred-
 ## Operational learning
 
 The hosted comparison encountered Free Tier quota limits. Infrastructure failures were separated from model-quality evaluation, canonical successful outputs were preserved, and historical quota-error attempts are intentionally omitted from the public package.
+
+## Notes on score provenance
+
+The Structural and Strict Evidence numbers above are recomputable from saved outputs using the offline evaluators. The Semantic numbers come from completed case-level rubric CSVs rather than automated structural scoring. In particular, the Gemini 94.0 rating was prepared by an AI assistant applying the five-dimension rubric and has **not been independently validated by a second human reviewer**. Interpret it as a provisional task-specific rating.
+
+For methods, formulas, and artifact pointers, see [Evaluation Methodology](evaluation-methodology.md) and [Reproducing Results](reproducing-results.md).

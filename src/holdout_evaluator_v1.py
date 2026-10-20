@@ -998,3 +998,194 @@ def save_category_csv(
             file,
             fieldnames=fields,
         )
+
+        writer.writeheader()
+
+        for category, values in (
+            report[
+                "by_category"
+            ].items()
+        ):
+
+            writer.writerow(
+                {
+                    "category":
+                        category,
+
+                    "count_accuracy":
+                        values[
+                            "count_accuracy"
+                        ],
+
+                    "assertion_accuracy":
+                        values[
+                            "assertion_accuracy"
+                        ],
+
+                    "assertion_count":
+                        values[
+                            "assertion_count"
+                        ],
+                }
+            )
+
+
+def main() -> None:
+
+    validate_holdout_distribution()
+    validate_golden_expectations()
+
+    OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    evaluations = []
+
+    for case in HOLDOUT_CASES:
+
+        output = load_result(
+            case["id"]
+        )
+
+        if (
+            output.get("status")
+            != "success"
+        ):
+            raise RuntimeError(
+                f"{case['id']} "
+                "did not complete successfully."
+            )
+
+        evaluations.append(
+            evaluate_case(
+                output,
+                case,
+            )
+        )
+
+    report = build_report(
+        evaluations
+    )
+
+    REPORT_PATH.write_text(
+        json.dumps(
+            report,
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    save_case_csv(
+        evaluations
+    )
+
+    save_category_csv(
+        report
+    )
+
+    overall = report[
+        "overall"
+    ]
+
+    print(
+        "\nFinal Holdout "
+        "Objective Evaluation"
+    )
+
+    print("=" * 70)
+
+    print(
+        "Structural Score:       "
+        f"{overall['average_structural_score']}"
+    )
+
+    print(
+        "Evidence Traceability:  "
+        f"{overall['average_evidence_traceability']}"
+    )
+
+    print(
+        "Average Latency:        "
+        f"{overall['average_latency_seconds']} sec"
+    )
+
+    print(
+        "Total Tokens:           "
+        f"{overall['total_tokens']}"
+    )
+
+    print(
+        "\nBy Language"
+    )
+
+    for language, values in (
+        report[
+            "by_language"
+        ].items()
+    ):
+
+        print(
+            f"{language:<10} "
+            f"Structural="
+            f"{values['average_structural_score']}, "
+            f"Evidence="
+            f"{values['average_evidence_traceability']}"
+        )
+
+    print(
+        "\nBy Scenario Type"
+    )
+
+    for scenario_type, values in (
+        report[
+            "by_scenario_type"
+        ].items()
+    ):
+
+        print(
+            f"{scenario_type:<26} "
+            f"Structural="
+            f"{values['average_structural_score']}, "
+            f"Evidence="
+            f"{values['average_evidence_traceability']}"
+        )
+
+    print(
+        "\nBy Category"
+    )
+
+    for category, values in (
+        report[
+            "by_category"
+        ].items()
+    ):
+
+        print(
+            f"{category:<22} "
+            f"count="
+            f"{values['count_accuracy']}, "
+            f"assertion="
+            f"{values['assertion_accuracy']}"
+        )
+
+    print(
+        "\nFiles created:"
+    )
+
+    print(
+        REPORT_PATH
+    )
+
+    print(
+        CASE_CSV_PATH
+    )
+
+    print(
+        CATEGORY_CSV_PATH
+    )
+
+
+if __name__ == "__main__":
+    main()

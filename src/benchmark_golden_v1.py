@@ -998,3 +998,83 @@ GOLDEN_EXPECTATIONS = {
             requirement_changes=1,
             actions=1,
             uncertainties=1,
+        ),
+        "assertions": [
+            {
+                "path": "requirement_changes.0.previous_state",
+                "op": "contains",
+                "value": "Disabled",
+            },
+            {
+                "path": "requirement_changes.0.new_state",
+                "op": "contains",
+                "value": "Enabled",
+            },
+            {
+                "path": "requirement_changes.0.change_status",
+                "op": "equals",
+                "value": "proposed",
+            },
+            {
+                "path": "actions.0.owner",
+                "op": "contains",
+                "value": "Product Team",
+            },
+            {
+                "path": "actions.0.due_date",
+                "op": "contains",
+                "value": "화요일",
+            },
+        ],
+        "manual_review": [
+            "Enabled is technically possible but not approved.",
+            "The current Production state remains Disabled.",
+            "Final decision is expected through the Product Team review.",
+        ],
+    },
+}
+
+
+def validate_golden_expectations() -> None:
+    benchmark_ids = {
+        case["id"]
+        for case in BENCHMARK_CASES
+    }
+
+    golden_ids = set(
+        GOLDEN_EXPECTATIONS.keys()
+    )
+
+    assert benchmark_ids == golden_ids, (
+        "Benchmark cases and golden expectations "
+        "do not contain the same case IDs."
+    )
+
+    for test_id, expectation in (
+        GOLDEN_EXPECTATIONS.items()
+    ):
+        expected_counts = expectation[
+            "expected_counts"
+        ]
+
+        assert set(expected_counts.keys()) == set(
+            CATEGORIES
+        ), (
+            f"{test_id}: invalid category set"
+        )
+
+        for category, value in (
+            expected_counts.items()
+        ):
+            assert isinstance(value, int)
+            assert value >= 0
+
+        assert "assertions" in expectation
+        assert "manual_review" in expectation
+
+    assert len(GOLDEN_EXPECTATIONS) == 30
+
+
+if __name__ == "__main__":
+    validate_golden_expectations()
+    print("Golden expectations OK")

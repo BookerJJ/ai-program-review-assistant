@@ -997,3 +997,7 @@ def main() -> None:
     print(report_path)
     print(case_csv)
     print(category_csv)
+
+
+if __name__ == "__main__":
+    main()

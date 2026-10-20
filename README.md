@@ -1,154 +1,109 @@
 # AI Program Review Assistant
 
-A bilingual LLM application that converts Korean or English project updates into structured TPM findings while keeping evidence, uncertainty, and evaluation explicit.
+A bilingual LLM application that turns Korean and English project updates into **structured, evidence-linked TPM findings**. The project examines how well a model can extract issues, risks, dependencies, requirement changes, schedule impacts, actions, and uncertainties without inventing missing project facts.
 
-The project was intentionally designed as a **small, controlled LLM system** before adding RAG or agents. Its goal is to make model behavior measurable: prompting, structured output, grounding, classification, evidence traceability, failure analysis, and model-choice trade-offs.
+The implementation deliberately uses **directly supplied context** rather than RAG or agents. Its focus is a controlled, measurable sequence: **prompting → structured output → grounding → evidence → evaluation → failure analysis**.
 
-## What it produces
+## At a glance
 
-The output schema separates:
+- **Input:** synthetic Korean or English technical-program updates.
+- **Output:** a strict Pydantic `ProgramReview` object with `summary`, `issues`, `risks`, `dependencies`, `requirement_changes`, `schedule_impacts`, `actions`, and `uncertainties`. Material findings include supporting source evidence.
+- **Models:** Ollama `qwen3:8b` for local prompt development; hosted `gemini-3.8-flash` for a comparison after the task and local holdout were frozen.
+- **Evaluation:** execution success, deterministic Structural score, lexical Strict Evidence Traceability, and separately scored semantic review. **No combined accuracy score.**
+- **Scope:** no document retrieval, external tools, agentic actions, fine-tuning, or automatic program decisions.
 
-- summary
-- issues
-- risks
-- dependencies
-- requirement changes
-- schedule impacts
-- actions
-- uncertainties
-- source evidence for supported findings
+## Evaluation results
 
-The application uses Pydantic-backed structured output instead of free-form prose so outputs can be validated and compared programmatically.
+Both models were evaluated on the same frozen **20-case bilingual holdout** (10 English and 10 Korean cases), with the same task definitions, golden expectations, output schema, and semantic-review rubric. Gemini did not receive task-specific prompt tuning.
 
-## Architecture
-
-```text
-Project Update (KO/EN)
-        |
-        v
-Versioned System Prompt
-        |
-        v
-LLM
-  | local: Ollama + qwen3:8b
-  | hosted comparison: Gemini 3.8 Flash
-        |
-        v
-Pydantic Structured Output
-        |
-        +--> Objective Structural Evaluation
-        +--> Strict Evidence Traceability
-        +--> Human Semantic Review
-```
-
-This implementation deliberately excludes RAG, vector databases, autonomous agents, and fine-tuning so the core generation behavior can be evaluated in isolation. Retrieval and cross-document grounding are natural future extensions rather than part of the current scope.
-
-## Final frozen comparison
-
-Both models were evaluated on the same frozen 20-case bilingual holdout with the same prompt semantics, Golden Expectations, output schema, and semantic-review rubric. No Gemini-specific prompt tuning was applied before the comparison.
-
-| Metric | qwen3:8b | Gemini 3.8 Flash |
+| Metric | qwen3:8b (local) | Gemini 3.8 Flash (hosted) |
 |---|---:|---:|
-| Execution reliability | 20 / 20 | 20 / 20 |
+| Successful structured executions | 20/20 | 20/20 |
 | Objective Structural | 86.0 | 93.6 |
 | Strict Evidence Traceability | 97.5% | 100.0% |
-| Human Semantic | 85.0 | 94.0 |
-| English Semantic | 84.0 | 96.0 |
-| Korean Semantic | 86.0 | 92.0 |
-| Average latency | 16.861 s | 19.257 s |
-| Total tokens | 26,958 | 29,999 |
+| Human Semantic (rubric-based)* | 85.0 | 94.0 |
+| English semantic | 84.0 | 96.0 |
+| Korean semantic | 86.0 | 92.0 |
+| Average observed latency | 16.861 s | 19.257 s |
+| Total reported tokens | 26,958 | 29,999 |
 
-These results are **task-specific**. They are not intended as a universal model ranking. In this task Gemini produced stronger quality across the three evaluation dimensions, while qwen3:8b retained advantages in local execution, lower average latency, privacy, and independence from hosted API quotas.
+**Interpretation:** These are results for **this frozen TPM extraction task**, not a general model ranking. Gemini scored higher on the three assessed quality dimensions. qwen supports local execution and avoids hosted quota dependence; observed latency was lower on this specific setup. Latency and token totals are descriptive, **not controlled hardware- or tokenizer-equivalent benchmarks**.
 
-Latency and token counts are descriptive rather than directly comparable benchmarks: qwen ran locally through Ollama, Gemini ran through a hosted API, and providers use different tokenization/accounting.
+\* **Review provenance:** “Human Semantic” is the historical metric name. Case-level rubric scores are saved as CSV. The Gemini scores were prepared through a manual rubric review conducted by an AI assistant and **have not been independently validated by a separate human rater**. Treat the 94.0 value as a provisional, rubric-based assessment—not a blinded or independently adjudicated human benchmark. Reviewer independence for the older qwen scores cannot be established from the archived CSV alone. See [evaluation methodology](docs/evaluation-methodology.md).
 
-## Why the evaluation is split into three metrics
+### What the metrics do—and do not—measure
 
-**Structural** checks deterministic behavior such as expected category counts and selected field assertions.
+- **Execution:** a completed call that returned JSON accepted by the strict output schema; not evidence of semantic accuracy.
+- **Structural:** expected category counts and selected field assertions; **excludes** evidence checks.
+- **Strict Evidence:** normalized exact/substring match between quoted evidence and the input. It checks **textual traceability, not semantic entailment**.
+- **Semantic review:** five 0–2 rubric dimensions—factual correctness, completeness, unsupported-claim control, classification, and meaning preservation.
 
-**Strict Evidence Traceability** checks whether cited evidence appears directly in the supplied input using normalized exact/substring matching. It does not claim that lexical overlap alone proves semantic correctness.
+These dimensions are **not merged into a single accuracy number**.
 
-**Human Semantic** uses a five-dimension 0–2 rubric: factual correctness, completeness, unsupported-claim control, classification accuracy, and meaning preservation.
-
-These metrics are intentionally **not merged into one score**.
-
-## Prompt evolution
-
-The project used failure-driven prompt iteration rather than continuously adding rules.
-
-- baseline: minimal structured extraction
-- grounded prompts: stronger evidence and unsupported-information rules
-- targeted rules: refined known failure patterns
-- `fewshot-v0.5`: targeted semantic examples; selected final prompt
-- `fewshot-boundary-v0.6`: improved some classifications but missed the predeclared semantic adoption gate and was rejected
-
-The corrected 30-case development benchmark produced:
-
-| Version | Structural | Strict Evidence | Human Semantic |
-|---|---:|---:|---:|
-| fewshot-v0.5 | 82.2 | 88.6% | 77.3 |
-| fewshot-boundary-v0.6 | 85.2 | 96.7% | 79.7 |
-
-v0.6 was not adopted because its human semantic score missed the predefined 80.0 gate and completeness regressed.
-
-## Key design decisions
-
-1. **No RAG in the initial scope** — isolate generation behavior before adding retrieval complexity.
-2. **Structured output** — make findings machine-readable, testable, and reusable.
-3. **One controlled local baseline first** — stabilize prompt/schema/evaluation before comparing providers.
-4. **Low-randomness settings** — the task is structured analysis, not creative generation.
-5. **Few-shot only after measured failures** — semantic boundary examples were more useful than adding more rules.
-6. **Evidence-first schema** — require traceable support for material findings and avoid unsupported confidence/severity scoring.
-7. **Human-in-the-loop** — the model supports TPM decisions; it does not make final risk, schedule, priority, or client-commitment decisions.
-
-See [`docs/design-decisions.md`](docs/design-decisions.md) for the rationale and trade-offs.
-
-## Repository structure
+## Design and architecture
 
 ```text
-.
-├── src/                         # application, prompts, datasets, runners, evaluators
-├── results/
-│   ├── smoke_v02..v05/         # early prompt experiments
-│   ├── benchmark_v1/           # 30-case development benchmark
-│   ├── holdout_v1/             # frozen qwen3:8b final holdout
-│   └── model_comparison_v1/    # frozen Gemini comparison, including 20 raw outputs
-├── docs/
-│   ├── architecture.md
-│   ├── design-decisions.md
-│   ├── evaluation-methodology.md
-│   └── experiment-history.md
-├── .env.example
-├── .gitignore
-├── requirements.txt
-└── pyproject.toml
+Korean / English project update
+            |
+            v
+   Versioned system prompt
+            |
+            v
+       LLM adapter
+      /           \
+ Ollama/qwen3:8b   Gemini hosted comparison
+      \           /
+            v
+  Pydantic ProgramReview
+            |
+            v
+    Saved JSON outputs
+       |       |       |
+       v       v       v
+  Structural  Evidence  Rubric-scored
+  evaluation traceability semantic review
 ```
 
-Historical Gemini quota-error artifacts are intentionally excluded from the repository; the canonical final 20 successful outputs are retained.
+The LLM's role is **decision support**. It may identify and explain findings, evidence, and uncertainty; it does **not** autonomously accept risks, commit dates, change priorities, or approve customer-facing plans.
 
-## Setup
+Prompt iterations moved from baseline extraction to stronger grounding rules and, after observed classification failures, targeted few-shot examples. The frozen prompt is `fewshot-v0.5`. The later v0.6 improved objective measures but was not adopted because its development semantic score (**79.7**) missed the predeclared **80.0** adoption threshold and completeness regressed.
 
-Tested during development with Python 3.12.
+| Development prompt | Structural | Strict Evidence | Human Semantic* |
+|---|---:|---:|---:|
+| `fewshot-v0.5` | 82.2 | 88.6% | 77.3 |
+| `fewshot-boundary-v0.6` | 85.2 | 96.7% | 79.7 |
+
+The 30-case benchmark is a **development set**, not a final unseen test. The frozen 20-case holdout was used for final evaluation; it was subsequently reused for the provider comparison. Scores should not be interpreted as estimates of general production reliability.
+
+## Explore the repository
+
+| Where | What to look for |
+|---|---|
+| [`src/schemas.py`](src/schemas.py) | Pydantic output contract and evidence requirements |
+| [`src/prompts.py`](src/prompts.py) | Prompt evolution and frozen v0.5 instructions |
+| [`src/analyzer.py`](src/analyzer.py), [`src/gemini_client.py`](src/gemini_client.py) | Local and hosted model adapters |
+| [`src/benchmark_*`](src) | Development cases, expectations, runners, and evaluators |
+| [`src/holdout_*`](src) | Frozen holdout data and evaluation logic |
+| [`src/model_comparison_*`](src) | Cross-model objective evaluation and semantic review preparation |
+| [`results/`](results/README.md) | Frozen model outputs, scored CSVs, objective reports |
+| [`docs/architecture.md`](docs/architecture.md) | Architecture and module responsibilities |
+| [`docs/design-decisions.md`](docs/design-decisions.md) | Design rationale and trade-offs |
+| [`docs/evaluation-methodology.md`](docs/evaluation-methodology.md) | Metrics, review provenance, threats to validity |
+| [`docs/experiment-history.md`](docs/experiment-history.md) | Prompt iterations, failure patterns, measured results |
+| [`docs/reproducing-results.md`](docs/reproducing-results.md) | Exact offline commands and limitations |
+
+## Quick start
+
+Run commands from the **repository root** with Python 3.12.
 
 ```bash
-python -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
 ```
 
-For the local model, install Ollama and make `qwen3:8b` available locally.
-
-For Gemini comparison runs:
-
-```bash
-export GEMINI_API_KEY="your_key"
-```
-
-Never commit a real API key.
-
-## Reproduce evaluations from saved outputs
-
-These commands do **not** call an LLM API and can recompute the objective metrics from saved outputs:
+The tests inspect **saved synthetic artifacts** and do not invoke an LLM. To regenerate the reported objective metrics from the same saved outputs:
 
 ```bash
 python -m src.evaluate_smoke
@@ -158,31 +113,28 @@ python -m src.holdout_evaluator_v1
 python -m src.model_comparison_evaluator_v1
 ```
 
-To run new inference, the corresponding local model or API access is required:
+Those scripts recompute **Structural / Strict Evidence**, not manual semantic-review scores; the latter are stored in completed CSVs. The scripts write derived evaluation reports. See [reproduction guide](docs/reproducing-results.md).
+
+### Live inference (optional)
+
+For the local baseline, install [Ollama](https://ollama.com/) and run `ollama pull qwen3:8b`. Then:
 
 ```bash
-python -m src.holdout_runner_v1
-python -m src.gemini_comparison_runner_v1
+python -m src.run_baseline
 ```
 
-## Operational lessons
+For Gemini comparison experiments, set `GEMINI_API_KEY` in your environment; do not commit it. **Do not rerun the frozen holdout/comparison runners in the published result directory.** Those scripts are historical experiment entry points with saved canonical outputs and may be quota-limited. Use a separate copy and an independently defined new experiment if further inference is needed.
 
-The hosted comparison also surfaced production concerns beyond model quality. During the experiment, active Free Tier limits were observed around 5 RPM / 250K TPM / 20 RPD, so the 20-case comparison required multiple quota windows. Infrastructure rate-limit failures were kept separate from model-quality evaluation, and successful outputs were not regenerated for quality reasons.
+## Limitations and safety
 
-## Data and privacy
+- **Synthetic data only.** Do not submit actual employer/client/NDA, personal, or sensitive project details to a hosted free-tier service.
+- No RAG, cross-document search, autonomous actions, production authorization logic, or deployment UI.
+- Strict evidence matching cannot verify whether a cited passage logically supports the conclusion.
+- Inferred-risk classification and some cross-category reasoning remain failure modes.
+- The two providers have different execution environments, inference settings, token accounting, and quotas.
+- The semantic review is rubric-based and not independent expert evaluation; see the reviewer-provenance caveat above.
+- Frozen v0.5/v0.6 prompt examples include some snippets without `evidence` fields even though the actual Pydantic output requires evidence. The frozen prompt was **not retroactively modified**, preserving evaluation comparability.
 
-All benchmark and holdout scenarios are synthetic. No employer, client, NDA, personal, or production data is required by this repository.
+A possible extension would add bilingual retrieval and multi-document grounding, with retrieval failures evaluated separately from extraction failures.
 
-## Current limitations
-
-- no retrieval or cross-document grounding
-- no autonomous action execution
-- strict evidence is lexical traceability, not semantic entailment
-- some inferred-risk classification errors remain
-- hosted-model execution depends on provider quotas and API availability
-- semantic review is manual and rubric-based, not an independent human-subject study
-- some frozen v0.5/v0.6 few-shot example snippets omit evidence fields even though the Pydantic schema requires evidence; they were not retroactively edited because that would invalidate the frozen benchmark/comparison history
-
-## Possible extension
-
-A natural next step is to extend the same evaluation discipline into a bilingual RAG-based Technical Program Copilot, where retrieval quality, multi-document conflicts, and answer grounding become first-class evaluation targets.
+[한국어 요약 / Korean summary](README_KO.md)

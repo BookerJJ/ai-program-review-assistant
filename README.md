@@ -1,4 +1,4 @@
-# AI Program Review Assistant
+# AI Project/Program Review Assistant
 
 A bilingual LLM application that turns Korean and English project updates into **structured, evidence-linked TPM findings**. The project examines how well a model can extract issues, risks, dependencies, requirement changes, schedule impacts, actions, and uncertainties without inventing missing project facts.
 
